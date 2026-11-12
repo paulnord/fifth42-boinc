@@ -1,0 +1,10 @@
+Independent final read-only review:
+PASS canonical result IDs 4,5,6,12,11 and one canonical per logical workunit.
+PASS zero-exit corrupt uploads 8,9,10 rejected, no canonical result.
+PASS recovery preserves exactly original two receipts then one new-attempt receipt.
+PASS separate retry begins at zero after first attempt really committed one packet.
+PASS all 12 downloaded A2/B file hashes match actual staged application releases.
+PASS report separates direct tests, actual BOINC results, unavailable GPU and untested scenarios.
+No blocking overclaim found.
+Production-hardening requirement identified and documented: transient validator
+infrastructure failures must not be classified as permanent scientific rejection.

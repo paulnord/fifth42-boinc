@@ -1,0 +1,103 @@
+{
+  "evidence_scope": "DIRECT_NATIVE_NOT_BOINC",
+  "TEST_ONLY": true,
+  "new_scientific_coverage": false,
+  "controls": [
+    {
+      "name": "control-cap100-r12",
+      "packet_sha256": "8bcb6ebfc7a9ea0c1b63049233953e96329271c24e51c6a3dd54ea4cefa013a8",
+      "cap": 100,
+      "response": {
+        "backend": "emulated",
+        "box_complete": true,
+        "counts": [
+          {
+            "expected": 3,
+            "id": 0,
+            "visited": 3
+          }
+        ],
+        "engine_seconds": 0.000222023,
+        "hits": [
+          {
+            "a": 13,
+            "b": 16,
+            "c": 17,
+            "linear": 2,
+            "task": 0
+          }
+        ],
+        "kernel_seconds": 0,
+        "points_visited": 3,
+        "request_id": 1
+      },
+      "signed_residuals": [
+        12
+      ]
+    },
+    {
+      "name": "control-cap42-r12",
+      "packet_sha256": "db7d5c97827dcbb3cedc485862d37c480962f4165717f55a4ec33c03b667839b",
+      "cap": 42,
+      "response": {
+        "backend": "emulated",
+        "box_complete": true,
+        "counts": [
+          {
+            "expected": 3,
+            "id": 0,
+            "visited": 3
+          }
+        ],
+        "engine_seconds": 9.2719e-05,
+        "hits": [
+          {
+            "a": 13,
+            "b": 16,
+            "c": 17,
+            "linear": 2,
+            "task": 0
+          }
+        ],
+        "kernel_seconds": 0,
+        "points_visited": 3,
+        "request_id": 2
+      },
+      "signed_residuals": [
+        12
+      ]
+    },
+    {
+      "name": "control-cap2951-r-2002",
+      "packet_sha256": "58feb906e6d562fdc3c6efa0b950354f1bdca11eeb56ec29caea8102bdb53e0c",
+      "cap": 2951,
+      "response": {
+        "backend": "emulated",
+        "box_complete": true,
+        "counts": [
+          {
+            "expected": 3,
+            "id": 0,
+            "visited": 3
+          }
+        ],
+        "engine_seconds": 0.000111077,
+        "hits": [
+          {
+            "a": 9,
+            "b": 10,
+            "c": 11,
+            "linear": 2,
+            "task": 0
+          }
+        ],
+        "kernel_seconds": 0,
+        "points_visited": 3,
+        "request_id": 3
+      },
+      "signed_residuals": [
+        -2002
+      ]
+    }
+  ]
+}

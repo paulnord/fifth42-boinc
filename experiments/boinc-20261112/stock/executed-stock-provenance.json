@@ -1,0 +1,34 @@
+{
+  "server_source_commit": "351ad42a102c2bbe70e33f7aa44c23ac6ac3db9c",
+  "server_release_tag": "server_release/1.6/1.6.3",
+  "server_configure_package_version": "8.3.0",
+  "wrapper_startup_version": "8.3.26019",
+  "client_version": "8.0.4",
+  "apache_version": "2.4.68",
+  "mariadb_version": "11.8.6",
+  "php_version": "8.4.24",
+  "platform": "Linux x86_64 Debian13",
+  "files": {
+    "source/sched/cgi": "77997575dfceeeb1241adc7cabb1963c94263c9eb3ab288163d315e616abf4f2",
+    "source/sched/feeder": "8d1a94b6bbcf59a796bb69dcf20221c6e7b202ffa9efab4f52f2c03123731079",
+    "source/sched/transitioner": "39731b1b0c71689101bca6c6861e819cc2ada6e00d71dbb39e78a946dceb0623",
+    "source/sched/script_validator": "2792547235cf8f703ed69520912c1612a80d1908e130e737cc666c769f942fcd",
+    "source/tools/create_work": "4b65d0b6f0f8b430675cfe0e6210c906ff38934b97156f41f060e488df57b8c6",
+    "source/samples/wrapper/wrapper__x86_64-pc-linux-gnu": "b3961040efe0c7203359a41a074a19419de0064e74c2d3848b999d7d9a328182",
+    "root/usr/bin/boinc": "3acddfe472b93630fc78b0c5939eb726afb4c95db6c8ed790c1cd1d0759183fb",
+    "root/usr/bin/boinccmd": "0e42c0cc770e896733605cab2181101504e6c486ca3b1239c1d92667795c8af9"
+  },
+  "stock_source_changes": "",
+  "real_boinc_controls": {
+    "workunit_id": 2,
+    "workunit_name": "controlA2",
+    "canonical_result_id": 4,
+    "app_version_id": 1,
+    "validate_state": 1,
+    "outcome": 1,
+    "scientific_packets": 3,
+    "scientific_positions": 9,
+    "scientific_validation_utc": "2026-11-12T21:59:28Z",
+    "scientific_coverage": 0
+  }
+}

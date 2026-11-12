@@ -1,0 +1,14 @@
+{
+  "TEST_ONLY": true,
+  "new_scientific_coverage": false,
+  "evidence_scope": "DIRECT_NATIVE_NOT_BOINC",
+  "source_commit": "4668a27951f2b9d7d533896d1aa32684808341d4",
+  "python": "3.12.14",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "files": {
+    "bin/scaling_cpu": "445a9d257e254b4ffc344b930068b3e9cc242b95f07df7cec9f1be12aa20d602",
+    "bin/gmp_reference": "e954ea7f3d8ad7e902d9b80381fe0c2d97eab7b9d23041e0add5609d53ef0b40",
+    "data/packets.jsonl": "3916c409f159cace521d9fdc24534dfadb61b514a33ada1eaf5f42e1b3203a92"
+  }
+}

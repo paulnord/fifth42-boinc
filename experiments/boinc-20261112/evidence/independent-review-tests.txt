@@ -1,0 +1,18 @@
+test_actual_process_interruption (__main__.IndependentReview.test_actual_process_interruption) ... ok
+test_additional_malformed_outputs (__main__.IndependentReview.test_additional_malformed_outputs) ... ok
+test_checkpoint_corrupt_receipt_rejected (__main__.IndependentReview.test_checkpoint_corrupt_receipt_rejected) ... ok
+test_checkpoint_overshoots_durable_receipts (__main__.IndependentReview.test_checkpoint_overshoots_durable_receipts) ... ok
+test_checkpoint_wrong_identity_rejected (__main__.IndependentReview.test_checkpoint_wrong_identity_rejected) ... ok
+test_controls_and_corruptions (__main__.IndependentReview.test_controls_and_corruptions) ... ok
+test_receipt_without_checkpoint_recomputes (__main__.IndependentReview.test_receipt_without_checkpoint_recomputes) ... ok
+test_uncommitted_receipt_suffix_recomputed (__main__.IndependentReview.test_uncommitted_receipt_suffix_recomputed) ... ok
+test_actual_process_interruption (test_science.Science.test_actual_process_interruption) ... ok
+test_checkpoint_corrupt_receipt_rejected (test_science.Science.test_checkpoint_corrupt_receipt_rejected) ... ok
+test_checkpoint_wrong_identity_rejected (test_science.Science.test_checkpoint_wrong_identity_rejected) ... ok
+test_controls_and_corruptions (test_science.Science.test_controls_and_corruptions) ... ok
+test_uncommitted_receipt_suffix_recomputed (test_science.Science.test_uncommitted_receipt_suffix_recomputed) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 2.360s
+
+OK

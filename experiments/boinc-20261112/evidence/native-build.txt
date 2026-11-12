@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "commands": [
+    [
+      "/usr/bin/g++",
+      "-std=c++17",
+      "-O3",
+      "${WORKSPACE}/fifth42-boinc-runtime/native/src/scaling_cpu.cpp",
+      "-pthread",
+      "-o",
+      "${WORKSPACE}/fifth42-boinc-runtime/bin/scaling_cpu"
+    ],
+    [
+      "/usr/bin/g++",
+      "-std=c++17",
+      "-O3",
+      "${WORKSPACE}/fifth42-boinc-runtime/native/independent/gmp_reference.cpp",
+      "-lgmpxx",
+      "-lgmp",
+      "-o",
+      "${WORKSPACE}/fifth42-boinc-runtime/bin/gmp_reference"
+    ]
+  ],
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "binaries": {
+    "scaling_cpu": "445a9d257e254b4ffc344b930068b3e9cc242b95f07df7cec9f1be12aa20d602",
+    "gmp_reference": "e954ea7f3d8ad7e902d9b80381fe0c2d97eab7b9d23041e0add5609d53ef0b40"
+  }
+}

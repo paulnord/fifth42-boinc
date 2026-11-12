@@ -1,0 +1,3 @@
+{"event": "start", "attempt": "4627c7f1-de8c-4d9d-b7ce-dcaea91a4d13", "resumed_prefix": 0, "build": "A"}
+{"event": "committed", "attempt": "4627c7f1-de8c-4d9d-b7ce-dcaea91a4d13", "prefix": 1}
+{"event": "committed", "attempt": "4627c7f1-de8c-4d9d-b7ce-dcaea91a4d13", "prefix": 2}

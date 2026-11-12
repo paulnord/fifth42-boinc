@@ -1,0 +1,22 @@
+{
+  "scope": "TEST_ONLY; zero new scientific coverage",
+  "production_changed": false,
+  "direct_native_cpu_gmp_42_packets": "passed",
+  "direct_application_and_mapping_tests": "13 distinct methods passed on both tested Python versions; earlier logs contain inherited repeats",
+  "python_versions_tested": [
+    "3.12",
+    "3.13.5"
+  ],
+  "stock_server_build": "passed: server_release/1/1.6, commit 351ad42a102c2bbe70e33f7aa44c23ac6ac3db9c",
+  "stock_client_executable": "verified version 8.0.4",
+  "official_make_project": "created isolated project and database",
+  "real_boinc_control_execution": "passed: WU2 canonical4",
+  "real_boinc_recovery": "passed: WU3 canonical5; resumed prefix2",
+  "real_boinc_retry": "passed: WU5 aborted7, canonical12; restart from0",
+  "real_boinc_version_upgrade": "passed: app101 A while app102 B staged/downloaded; canonicals5/6",
+  "gpu": "blocked: no CUDA toolchain or NVIDIA device in this isolated workspace; no production host commandeered",
+  "migration": "not authorized; proposal only",
+  "real_boinc_corrupt_outputs": "passed: results8/9/10 exit0 rejected; no canonical",
+  "real_boinc_representative": "passed: WU9 canonical11;49491764 positions",
+  "cleanup": "original client and stack stopped; local DB/evidence retained"
+}

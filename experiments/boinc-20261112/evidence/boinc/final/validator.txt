@@ -1,0 +1,53 @@
+2026-11-12 21:58:58.5871 UTC  max_granted_credit: 73000000.000000
+2026-11-12 21:58:58.5871 UTC  Starting validator, debug level 3
+2026-11-12 21:59:28.6208 UTC  [WU#2 controlA2] handle_wu(): No canonical result yet
+WARNING: option --ssl-verify-server-cert is disabled, because of an insecure passwordless login.
+{"TEST_ONLY": true, "boinc_app_version_id": 1, "boinc_result_id": 4, "boinc_workunit": "controlA2", "build": "A", "manifest_sha256": "831030289dc0eec09db2ee8bd685d72907c32a267077a4ab3a157070647c0cb0", "new_scientific_coverage": false, "packets": 3, "positions": 9, "scientifically_accepted": true, "uploaded_output": "${WORKSPACE}/boinc-stock/project/upload/13/controlA2_2_r2027155324_0"}
+2026-11-12 21:59:28.7073 UTC [warning] [RESULT#4] result has 1e9 flops_estimate
+2026-11-12 21:59:28.7097 UTC  [RESULT#4 controlA2_2] Valid; granted 0.020120 credit [HOST#1]
+2026-11-12 21:59:28.7097 UTC  [HOST#1 AV#1] [outlier=1] Updating HAV in DB.  pfc.n=0.000000->0.000000
+2026-11-12 22:03:13.8834 UTC  [WU#3 recoveryA] handle_wu(): No canonical result yet
+WARNING: option --ssl-verify-server-cert is disabled, because of an insecure passwordless login.
+{"TEST_ONLY": true, "boinc_app_version_id": 2, "boinc_result_id": 5, "boinc_workunit": "recoveryA", "build": "A", "manifest_sha256": "831030289dc0eec09db2ee8bd685d72907c32a267077a4ab3a157070647c0cb0", "new_scientific_coverage": false, "packets": 3, "positions": 9, "scientifically_accepted": true, "uploaded_output": "${WORKSPACE}/boinc-stock/project/upload/165/recoveryA_0_r859043860_0"}
+2026-11-12 22:03:13.9690 UTC [warning] [RESULT#5] result has 1e9 flops_estimate
+2026-11-12 22:03:13.9724 UTC  [RESULT#5 recoveryA_0] Valid; granted 0.079974 credit [HOST#1]
+2026-11-12 22:03:13.9724 UTC  [HOST#1 AV#2] [outlier=1] Updating HAV in DB.  pfc.n=0.000000->0.000000
+2026-11-12 22:03:28.9988 UTC  [WU#4 upgradeB] handle_wu(): No canonical result yet
+WARNING: option --ssl-verify-server-cert is disabled, because of an insecure passwordless login.
+{"TEST_ONLY": true, "boinc_app_version_id": 3, "boinc_result_id": 6, "boinc_workunit": "upgradeB", "build": "B", "manifest_sha256": "831030289dc0eec09db2ee8bd685d72907c32a267077a4ab3a157070647c0cb0", "new_scientific_coverage": false, "packets": 3, "positions": 9, "scientifically_accepted": true, "uploaded_output": "${WORKSPACE}/boinc-stock/project/upload/3e3/upgradeB_0_r165938005_0"}
+2026-11-12 22:03:29.0824 UTC [warning] [RESULT#6] result has 1e9 flops_estimate
+2026-11-12 22:03:29.0851 UTC  [RESULT#6 upgradeB_0] Valid; granted 0.020324 credit [HOST#1]
+2026-11-12 22:03:29.0851 UTC  [HOST#1 AV#3] [outlier=1] Updating HAV in DB.  pfc.n=0.000000->0.000000
+2026-11-12 22:04:34.1677 UTC  [WU#6 negative_identity] handle_wu(): No canonical result yet
+WARNING: option --ssl-verify-server-cert is disabled, because of an insecure passwordless login.
+Scientific validation rejected: ValueError: Result provenance
+2026-11-12 22:04:34.2350 UTC  init script ../bin/fifth42_validate 8 ${WORKSPACE}/boinc-stock/project/upload/22/negative_identity_0_r878799253_0 returned: 1
+2026-11-12 22:04:34.2351 UTC [CRITICAL] check_set: init_result([RESULT#8 negative_identity_0]) failed: Error -1
+2026-11-12 22:04:34.2370 UTC  [RESULT#8 negative_identity_0] Invalid [HOST#1]
+2026-11-12 22:04:34.2370 UTC  [HOST#1 AV#3] [outlier=0] Updating HAV in DB.  pfc.n=0.000000->0.000000
+2026-11-12 22:04:34.2398 UTC  [WU#7 negative_count] handle_wu(): No canonical result yet
+WARNING: option --ssl-verify-server-cert is disabled, because of an insecure passwordless login.
+Scientific validation rejected: ValueError: Incomplete total count
+2026-11-12 22:04:34.3935 UTC  init script ../bin/fifth42_validate 9 ${WORKSPACE}/boinc-stock/project/upload/27b/negative_count_0_r1378102779_0 returned: 1
+2026-11-12 22:04:34.3937 UTC [CRITICAL] check_set: init_result([RESULT#9 negative_count_0]) failed: Error -1
+2026-11-12 22:04:34.3955 UTC  [RESULT#9 negative_count_0] Invalid [HOST#1]
+2026-11-12 22:04:34.3955 UTC  [HOST#1 AV#3] [outlier=0] Updating HAV in DB.  pfc.n=0.000000->0.000000
+2026-11-12 22:04:34.3990 UTC  [WU#8 negative_truncated] handle_wu(): No canonical result yet
+WARNING: option --ssl-verify-server-cert is disabled, because of an insecure passwordless login.
+Scientific validation rejected: ValueError: Incomplete result
+2026-11-12 22:04:34.4614 UTC  init script ../bin/fifth42_validate 10 ${WORKSPACE}/boinc-stock/project/upload/ba/negative_truncated_0_r1204784338_0 returned: 1
+2026-11-12 22:04:34.4614 UTC [CRITICAL] check_set: init_result([RESULT#10 negative_truncated_0]) failed: Error -1
+2026-11-12 22:04:34.4616 UTC  [RESULT#10 negative_truncated_0] Invalid [HOST#1]
+2026-11-12 22:04:34.4616 UTC  [HOST#1 AV#3] [outlier=0] Updating HAV in DB.  pfc.n=0.000000->0.000000
+2026-11-12 22:04:34.4631 UTC  [WU#9 representativeB] handle_wu(): No canonical result yet
+WARNING: option --ssl-verify-server-cert is disabled, because of an insecure passwordless login.
+{"TEST_ONLY": true, "boinc_app_version_id": 3, "boinc_result_id": 11, "boinc_workunit": "representativeB", "build": "B", "manifest_sha256": "ae372cf18a22ac3d11e39cb7c6219f6fc42148914bfb6e59d5115621564cc035", "new_scientific_coverage": false, "packets": 1, "positions": 49491764, "scientifically_accepted": true, "uploaded_output": "${WORKSPACE}/boinc-stock/project/upload/c9/representativeB_0_r1777461634_0"}
+2026-11-12 22:04:35.8324 UTC [warning] [RESULT#11] result has 1e9 flops_estimate
+2026-11-12 22:04:35.8338 UTC  [RESULT#11 representativeB_0] Valid; granted 0.020116 credit [HOST#1]
+2026-11-12 22:04:35.8338 UTC  [HOST#1 AV#3] [outlier=1] Updating HAV in DB.  pfc.n=0.000000->0.000000
+2026-11-12 22:05:35.8877 UTC  [WU#5 retryB] handle_wu(): No canonical result yet
+WARNING: option --ssl-verify-server-cert is disabled, because of an insecure passwordless login.
+{"TEST_ONLY": true, "boinc_app_version_id": 3, "boinc_result_id": 12, "boinc_workunit": "retryB", "build": "B", "manifest_sha256": "831030289dc0eec09db2ee8bd685d72907c32a267077a4ab3a157070647c0cb0", "new_scientific_coverage": false, "packets": 3, "positions": 9, "scientifically_accepted": true, "uploaded_output": "${WORKSPACE}/boinc-stock/project/upload/74/retryB_1_r571608995_0"}
+2026-11-12 22:05:35.9786 UTC [warning] [RESULT#12] result has 1e9 flops_estimate
+2026-11-12 22:05:35.9799 UTC  [RESULT#12 retryB_1] Valid; granted 0.319417 credit [HOST#1]
+2026-11-12 22:05:35.9799 UTC  [HOST#1 AV#3] [outlier=1] Updating HAV in DB.  pfc.n=0.000000->0.000000

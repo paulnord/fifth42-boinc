@@ -1,0 +1,175 @@
+{
+  "status": "passed",
+  "TEST_ONLY": true,
+  "new_scientific_coverage": false,
+  "backend": "cpu",
+  "hardware": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "logical_cpus": 9,
+    "available_cpu_affinity": 9,
+    "system_ram_gib": 9.733650207519531,
+    "gpu": "unavailable",
+    "nvcc": "unavailable"
+  },
+  "packet_export_sha256": "3916c409f159cace521d9fdc24534dfadb61b514a33ada1eaf5f42e1b3203a92",
+  "trials": [
+    {
+      "repeat": 0,
+      "group": "realistic",
+      "variant": "separate",
+      "total_replay_seconds": 5.350414432999969,
+      "rpc_seconds": 5.338396209990606,
+      "kernel_seconds": 0.0,
+      "engine_seconds": 5.3243524,
+      "requests": 23,
+      "verified_points": 775687194
+    },
+    {
+      "repeat": 0,
+      "group": "tiny",
+      "variant": "combined",
+      "total_replay_seconds": 0.0954701539958478,
+      "rpc_seconds": 0.09517957700154511,
+      "kernel_seconds": 0.0,
+      "engine_seconds": 0.0949932,
+      "requests": 1,
+      "verified_points": 13748364
+    },
+    {
+      "repeat": 0,
+      "group": "tiny",
+      "variant": "separate",
+      "total_replay_seconds": 0.0955030449986225,
+      "rpc_seconds": 0.09491756300121779,
+      "kernel_seconds": 0.0,
+      "engine_seconds": 0.09410858,
+      "requests": 16,
+      "verified_points": 13748364
+    }
+  ],
+  "compute_units_per_hour_observed_by_user": null,
+  "sizes": {
+    "realistic": {
+      "original_packets": 23,
+      "combined_requests": 23,
+      "requests_byte_identical": true,
+      "points": 775687194,
+      "packet_points": [
+        49491764,
+        49258164,
+        10262910,
+        49234620,
+        49649300,
+        10301476,
+        49599707,
+        49473480,
+        11369369,
+        49404220,
+        49655446,
+        10171542,
+        49200246,
+        49621699,
+        17455885,
+        49698899,
+        5579345,
+        49952133,
+        5839795,
+        49793901,
+        5646741,
+        49866958,
+        5159594
+      ],
+      "task_counts": [
+        58,
+        58,
+        12,
+        58,
+        58,
+        12,
+        57,
+        58,
+        13,
+        58,
+        58,
+        12,
+        54,
+        55,
+        19,
+        115,
+        13,
+        115,
+        13,
+        115,
+        13,
+        116,
+        12
+      ]
+    },
+    "tiny": {
+      "original_packets": 16,
+      "combined_requests": 1,
+      "requests_byte_identical": false,
+      "points": 13748364,
+      "packet_points": [
+        888615,
+        884247,
+        843661,
+        851295,
+        836325,
+        842639,
+        870975,
+        850563,
+        856375,
+        861869,
+        822463,
+        848331,
+        841491,
+        922625,
+        859947,
+        866943
+      ],
+      "task_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  "limitations": "Prepared packet replay only. CPU planning, network transfer, durable cloud checkpoints and production journal costs are not included. No new search coverage.",
+  "engine_startup_seconds": 0.0018874730012612417,
+  "all_original_packet_counts_and_hits_equal_gmp": true,
+  "fresh_local_gmp_all_packets": true,
+  "incomplete_response_rejected": true,
+  "summary": {
+    "realistic": {
+      "medians": {
+        "separate": 5.350414432999969
+      },
+      "separate_over_combined": null,
+      "conclusion": "Request streams are byte-identical; no distinct coalescing performance claim."
+    },
+    "tiny": {
+      "medians": {
+        "separate": 0.0955030449986225,
+        "combined": 0.0954701539958478
+      },
+      "separate_over_combined": 1.0003445160754232,
+      "conclusion": "Distinct request streams; engine-only replay comparison."
+    }
+  },
+  "elapsed_seconds": 31.837039768004615
+}

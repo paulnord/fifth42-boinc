@@ -1,0 +1,87 @@
+
+======== Tasks ========
+1) -----------
+   name: representativeB_0
+   WU name: representativeB
+   project URL: http://127.0.0.1:8765/fifth42/
+   received: Thu Nov 12 17:04:10 2026
+   report deadline: Thu Nov 12 17:14:09 2026
+   ready to report: yes
+   state: uploaded
+   scheduler state: uninitialized
+   active_task_state: UNINITIALIZED
+   app version num: 102
+   resources: 1 CPU
+   final CPU time: 0.000000
+   final elapsed time: 2.020960
+   exit_status: 0
+   signal: 0
+2) -----------
+   name: negative_count_0
+   WU name: negative_count
+   project URL: http://127.0.0.1:8765/fifth42/
+   received: Thu Nov 12 17:04:10 2026
+   report deadline: Thu Nov 12 17:14:09 2026
+   ready to report: yes
+   state: uploaded
+   scheduler state: uninitialized
+   active_task_state: UNINITIALIZED
+   app version num: 102
+   resources: 1 CPU
+   final CPU time: 0.000000
+   final elapsed time: 2.012172
+   exit_status: 0
+   signal: 0
+3) -----------
+   name: negative_truncated_0
+   WU name: negative_truncated
+   project URL: http://127.0.0.1:8765/fifth42/
+   received: Thu Nov 12 17:04:10 2026
+   report deadline: Thu Nov 12 17:14:09 2026
+   ready to report: no
+   state: uploading
+   scheduler state: uninitialized
+   active_task_state: UNINITIALIZED
+   app version num: 102
+   resources: 1 CPU
+   final CPU time: 0.000000
+   final elapsed time: 2.016330
+   exit_status: 0
+   signal: 0
+4) -----------
+   name: negative_identity_0
+   WU name: negative_identity
+   project URL: http://127.0.0.1:8765/fifth42/
+   received: Thu Nov 12 17:04:10 2026
+   report deadline: Thu Nov 12 17:14:09 2026
+   ready to report: no
+   state: uploading
+   scheduler state: uninitialized
+   active_task_state: UNINITIALIZED
+   app version num: 102
+   resources: 1 CPU
+   final CPU time: 0.000000
+   final elapsed time: 2.013137
+   exit_status: 0
+   signal: 0
+5) -----------
+   name: retryB_0
+   WU name: retryB
+   project URL: http://127.0.0.1:8765/fifth42/
+   received: Thu Nov 12 17:04:10 2026
+   report deadline: Thu Nov 12 17:14:09 2026
+   ready to report: no
+   state: downloaded
+   scheduler state: scheduled
+   active_task_state: EXECUTING
+   app version num: 102
+   resources: 1 CPU
+   estimated CPU time remaining: 1.000000
+   elapsed task time: 0.000000
+   slot: 0
+   PID: 1328
+   CPU time at last checkpoint: 0.000000
+   current CPU time: 0.000000
+   fraction done: 0.000000
+   swap size: 0 MB
+   working set size: 0 MB

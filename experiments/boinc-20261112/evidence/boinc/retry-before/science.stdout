@@ -1,0 +1,2 @@
+{"event": "start", "attempt": "3fa0524a-0f2d-4848-a687-7d39534736fe", "resumed_prefix": 0, "build": "B"}
+{"event": "committed", "attempt": "3fa0524a-0f2d-4848-a687-7d39534736fe", "prefix": 1}

@@ -1,0 +1,6 @@
+id	name	server_state	outcome	validate_state	app_version_id	hostid
+1	recipe_control_0	5	1	1	1	1
+id	name	canonical_resultid	need_validate	error_mask
+1	recipe_control	1	0	0
+
+======== Tasks ========

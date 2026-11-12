@@ -1,0 +1,20 @@
+{
+  "TEST_ONLY": true,
+  "boinc_app_version_id": 1,
+  "boinc_result_id": 2,
+  "boinc_workunit": "recipe_args",
+  "build": "A",
+  "manifest_sha256": "831030289dc0eec09db2ee8bd685d72907c32a267077a4ab3a157070647c0cb0",
+  "new_scientific_coverage": false,
+  "packets": 3,
+  "positions": 9,
+  "scientifically_accepted": true,
+  "canonical_result_id": 2,
+  "validation_utc": "2026-11-12T22:14:19Z",
+  "submitted_science_command_line": "--pause-after 1 --pause-seconds 1",
+  "helper_added_wrapper_option": "--passthrough_child",
+  "helper": "submit.py",
+  "services_stopped": true,
+  "final_status_check_and_shutdown_exit_code": 0,
+  "observation": "Initial evidence SELECT referenced nonexistent workunit.command_line and exited 1 after canonical acceptance. Corrected read-only status query on restart confirmed canonical result 2, then clean shutdown exited 0. No workunit resubmitted."
+}

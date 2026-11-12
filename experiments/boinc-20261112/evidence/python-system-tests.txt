@@ -1,0 +1,18 @@
+test_injection_rejected (test_boinc_mapping.Mapping.test_injection_rejected) ... ok
+test_mapping_uses_server_not_upload (test_boinc_mapping.Mapping.test_mapping_uses_server_not_upload) ... ok
+test_unknown_workunit_rejected (test_boinc_mapping.Mapping.test_unknown_workunit_rejected) ... ok
+test_wrong_version_rejected (test_boinc_mapping.Mapping.test_wrong_version_rejected) ... ok
+test_additional_malformed_outputs (test_review.IndependentReview.test_additional_malformed_outputs) ... ok
+test_checkpoint_overshoots_durable_receipts (test_review.IndependentReview.test_checkpoint_overshoots_durable_receipts) ... ok
+test_receipt_without_checkpoint_recomputes (test_review.IndependentReview.test_receipt_without_checkpoint_recomputes) ... ok
+test_actual_process_interruption (test_science.Science.test_actual_process_interruption) ... ok
+test_checkpoint_corrupt_receipt_rejected (test_science.Science.test_checkpoint_corrupt_receipt_rejected) ... ok
+test_checkpoint_wrong_identity_rejected (test_science.Science.test_checkpoint_wrong_identity_rejected) ... ok
+test_controls_and_corruptions (test_science.Science.test_controls_and_corruptions) ... ok
+test_uncommitted_receipt_suffix_recomputed (test_science.Science.test_uncommitted_receipt_suffix_recomputed) ... ok
+test_zero_exit_corruption_controls (test_science.Science.test_zero_exit_corruption_controls) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 1.670s
+
+OK

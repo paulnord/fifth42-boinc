@@ -1,0 +1,316 @@
+12-Nov-2026 16:57:36 [---] Starting BOINC client version 8.0.4 for x86_64-pc-linux-gnu
+12-Nov-2026 16:57:36 [---] log flags: file_xfer, sched_ops, task
+12-Nov-2026 16:57:37 [---] Libraries: libcurl/8.14.1 OpenSSL/3.5.7 zlib/1.3.1 brotli/1.1.0 zstd/1.5.7 libidn2/2.3.8 libpsl/0.21.2 libssh2/1.11.1 nghttp2/1.64.0 nghttp3/1.8.0 librtmp/2.3 OpenLDAP/2.6.10
+12-Nov-2026 16:57:37 [---] Data directory: ${WORKSPACE}/boinc-stock/client
+12-Nov-2026 16:57:37 [---] No usable GPUs found
+12-Nov-2026 16:57:37 [---] libc:  version 2.41
+12-Nov-2026 16:57:37 [---] Computer name: f1805857454b
+12-Nov-2026 16:57:37 [---] Processor: 1 AuthenticAMD AMD EPYC 9V74 80-Core Processor [Family 25 Model 17 Stepping 1]
+12-Nov-2026 16:57:37 [---] Processor features: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext cpuid_fault vmmcall fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves avx512_bf16 clzero xsaveerptr arat npt nrip_save tsc_scale vmcb_clean flushbyasid pausefilter pfthreshold v_vmsave_vmload avx512vbmi umip avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid fsrm arch_capabilities
+12-Nov-2026 16:57:37 [---] OS: Linux Debian GNU/Linux: Debian GNU/Linux 13 (trixie) [6.18.57|libc 2.41]
+12-Nov-2026 16:57:37 [---] Memory: 9.73 GB physical, 0 bytes virtual
+12-Nov-2026 16:57:37 [---] Disk: 62.94 GB total, 53.22 GB free
+12-Nov-2026 16:57:37 [---] Local time is UTC -5 hours
+12-Nov-2026 16:57:37 [---] Config: allow multiple clients
+12-Nov-2026 16:57:37 [---] Config: simulate 1 CPUs
+12-Nov-2026 16:57:37 [---] Config: don't use coprocessors
+12-Nov-2026 16:57:37 [---] Config: don't fetch project list or client version info
+12-Nov-2026 16:57:37 [---] No general preferences found - using defaults
+12-Nov-2026 16:57:37 [---] Reading preferences override file
+12-Nov-2026 16:57:37 [---] Computing preferences:
+12-Nov-2026 16:57:37 [---] -  When computer is in use
+12-Nov-2026 16:57:37 [---] -     'In use' means mouse/keyboard input in last 3.00 minutes
+12-Nov-2026 16:57:37 [---] -     don't use GPU
+12-Nov-2026 16:57:37 [---] -     max CPUs used: 1
+12-Nov-2026 16:57:37 [---] -     Use at most 100% of the CPU time
+12-Nov-2026 16:57:37 [---] -     suspend if non-BOINC CPU load exceeds 25%
+12-Nov-2026 16:57:37 [---] -     max memory usage: 4.87 GB
+12-Nov-2026 16:57:37 [---] -  When computer is not in use
+12-Nov-2026 16:57:37 [---] -     max CPUs used: 1
+12-Nov-2026 16:57:37 [---] -     Use at most 100% of the CPU time
+12-Nov-2026 16:57:37 [---] -     suspend if non-BOINC CPU load exceeds 25%
+12-Nov-2026 16:57:37 [---] -     max memory usage: 8.76 GB
+12-Nov-2026 16:57:37 [---] -  Store at least 0.00 days of work
+12-Nov-2026 16:57:37 [---] -  Store up to an additional 0.00 days of work
+12-Nov-2026 16:57:37 [---] -  max disk usage: 53.13 GB
+12-Nov-2026 16:57:37 [---] -  (to change preferences, visit a project web site or select 'Options / Computing preferences...' in the Manager)
+12-Nov-2026 16:57:37 [---] Setting up project and slot directories
+dir_open: Could not open directory 'slots' from '${WORKSPACE}/boinc-stock/client'.
+12-Nov-2026 16:57:37 [---] Checking active tasks
+12-Nov-2026 16:57:37 [Fifth42 TEST ONLY] URL http://127.0.0.1:8765/fifth42/; Computer ID 1; resource share 100
+12-Nov-2026 16:57:37 [---] Setting up GUI RPC socket
+12-Nov-2026 16:57:37 [---] Checking presence of 6 project files
+12-Nov-2026 16:57:37 Initialization completed
+12-Nov-2026 16:57:37 [Fifth42 TEST ONLY] Sending scheduler request: To fetch work.
+12-Nov-2026 16:57:37 [Fifth42 TEST ONLY] Requesting new tasks for CPU
+12-Nov-2026 16:57:39 [Fifth42 TEST ONLY] Scheduler request completed: got 1 new tasks
+12-Nov-2026 16:57:39 [Fifth42 TEST ONLY] Project requested delay of 7 seconds
+12-Nov-2026 16:57:39 [Fifth42 TEST ONLY] update requested by user
+12-Nov-2026 16:57:41 [Fifth42 TEST ONLY] Started download of controlA.json
+12-Nov-2026 16:57:43 [Fifth42 TEST ONLY] Finished download of controlA.json (2464 bytes)
+12-Nov-2026 16:57:43 [Fifth42 TEST ONLY] Starting task controlA2_0
+12-Nov-2026 16:57:44 [Fifth42 TEST ONLY] Sending scheduler request: Requested by user.
+12-Nov-2026 16:57:44 [Fifth42 TEST ONLY] Requesting new tasks for CPU
+12-Nov-2026 16:57:46 [Fifth42 TEST ONLY] Computation for task controlA2_0 finished
+12-Nov-2026 16:57:46 [Fifth42 TEST ONLY] Scheduler request completed: got 0 new tasks
+12-Nov-2026 16:57:46 [Fifth42 TEST ONLY] Project has no tasks available
+12-Nov-2026 16:57:46 [Fifth42 TEST ONLY] Project requested delay of 7 seconds
+12-Nov-2026 16:57:48 [Fifth42 TEST ONLY] Started upload of controlA2_0_r1889208754_0
+12-Nov-2026 16:57:50 [Fifth42 TEST ONLY] Finished upload of controlA2_0_r1889208754_0 (1792 bytes)
+12-Nov-2026 16:57:56 [Fifth42 TEST ONLY] Sending scheduler request: To report completed tasks.
+12-Nov-2026 16:57:56 [Fifth42 TEST ONLY] Reporting 1 completed tasks
+12-Nov-2026 16:57:56 [Fifth42 TEST ONLY] Requesting new tasks for CPU
+12-Nov-2026 16:57:58 [Fifth42 TEST ONLY] Scheduler request completed: got 0 new tasks
+12-Nov-2026 16:57:58 [Fifth42 TEST ONLY] Project has no tasks available
+12-Nov-2026 16:57:58 [Fifth42 TEST ONLY] Project requested delay of 7 seconds
+12-Nov-2026 16:58:08 [Fifth42 TEST ONLY] Sending scheduler request: To fetch work.
+12-Nov-2026 16:58:08 [Fifth42 TEST ONLY] Requesting new tasks for CPU
+12-Nov-2026 16:58:09 [Fifth42 TEST ONLY] update requested by user
+12-Nov-2026 16:58:10 [Fifth42 TEST ONLY] Scheduler request completed: got 0 new tasks
+12-Nov-2026 16:58:10 [Fifth42 TEST ONLY] Project has no tasks available
+12-Nov-2026 16:58:10 [Fifth42 TEST ONLY] Project requested delay of 7 seconds
+12-Nov-2026 16:58:20 [Fifth42 TEST ONLY] Sending scheduler request: To fetch work.
+12-Nov-2026 16:58:20 [Fifth42 TEST ONLY] Requesting new tasks for CPU
+12-Nov-2026 16:58:22 [Fifth42 TEST ONLY] Scheduler request completed: got 1 new tasks
+12-Nov-2026 16:58:22 [Fifth42 TEST ONLY] Project requested delay of 7 seconds
+12-Nov-2026 16:58:24 [Fifth42 TEST ONLY] Started download of controlA.json
+12-Nov-2026 16:58:26 [Fifth42 TEST ONLY] Finished download of controlA.json (2464 bytes)
+12-Nov-2026 16:58:26 [Fifth42 TEST ONLY] Starting task controlA2_1
+12-Nov-2026 16:58:29 [Fifth42 TEST ONLY] Computation for task controlA2_1 finished
+12-Nov-2026 16:58:31 [Fifth42 TEST ONLY] Started upload of controlA2_1_r929239198_0
+12-Nov-2026 16:58:32 [Fifth42 TEST ONLY] Sending scheduler request: To fetch work.
+12-Nov-2026 16:58:32 [Fifth42 TEST ONLY] Requesting new tasks for CPU
+12-Nov-2026 16:58:33 [Fifth42 TEST ONLY] Finished upload of controlA2_1_r929239198_0 (1793 bytes)
+12-Nov-2026 16:58:33 [Fifth42 TEST ONLY] Scheduler request completed: got 0 new tasks
+12-Nov-2026 16:58:33 [Fifth42 TEST ONLY] Project has no tasks available
+12-Nov-2026 16:58:33 [Fifth42 TEST ONLY] Project requested delay of 7 seconds
+12-Nov-2026 16:58:43 [Fifth42 TEST ONLY] Sending scheduler request: To report completed tasks.
+12-Nov-2026 16:58:43 [Fifth42 TEST ONLY] Reporting 1 completed tasks
+12-Nov-2026 16:58:43 [Fifth42 TEST ONLY] Requesting new tasks for CPU
+12-Nov-2026 16:58:45 [Fifth42 TEST ONLY] Scheduler request completed: got 0 new tasks
+12-Nov-2026 16:58:45 [Fifth42 TEST ONLY] Project has no tasks available
+12-Nov-2026 16:58:45 [Fifth42 TEST ONLY] Project requested delay of 7 seconds
+12-Nov-2026 16:58:58 [Fifth42 TEST ONLY] update requested by user
+12-Nov-2026 16:59:00 [Fifth42 TEST ONLY] Sending scheduler request: Requested by user.
+12-Nov-2026 16:59:00 [Fifth42 TEST ONLY] Requesting new tasks for CPU
+12-Nov-2026 16:59:02 [Fifth42 TEST ONLY] Scheduler request completed: got 1 new tasks
+12-Nov-2026 16:59:02 [Fifth42 TEST ONLY] Project requested delay of 7 seconds
+12-Nov-2026 16:59:04 [Fifth42 TEST ONLY] Started download of controlA.json
+12-Nov-2026 16:59:06 [Fifth42 TEST ONLY] Finished download of controlA.json (2464 bytes)
+12-Nov-2026 16:59:06 [Fifth42 TEST ONLY] Starting task controlA2_2
+12-Nov-2026 16:59:09 [Fifth42 TEST ONLY] Computation for task controlA2_2 finished
+12-Nov-2026 16:59:11 [Fifth42 TEST ONLY] Started upload of controlA2_2_r2027155324_0
+12-Nov-2026 16:59:12 [Fifth42 TEST ONLY] Sending scheduler request: To fetch work.
+12-Nov-2026 16:59:12 [Fifth42 TEST ONLY] Requesting new tasks for CPU
+12-Nov-2026 16:59:13 [Fifth42 TEST ONLY] Finished upload of controlA2_2_r2027155324_0 (1794 bytes)
+12-Nov-2026 16:59:13 [Fifth42 TEST ONLY] Scheduler request completed: got 0 new tasks
+12-Nov-2026 16:59:13 [Fifth42 TEST ONLY] Project has no tasks available
+12-Nov-2026 16:59:13 [Fifth42 TEST ONLY] Project requested delay of 7 seconds
+12-Nov-2026 16:59:23 [Fifth42 TEST ONLY] Sending scheduler request: To report completed tasks.
+12-Nov-2026 16:59:23 [Fifth42 TEST ONLY] Reporting 1 completed tasks
+12-Nov-2026 16:59:23 [Fifth42 TEST ONLY] Requesting new tasks for CPU
+12-Nov-2026 16:59:25 [Fifth42 TEST ONLY] Scheduler request completed: got 0 new tasks
+12-Nov-2026 16:59:25 [Fifth42 TEST ONLY] Project has no tasks available
+12-Nov-2026 16:59:25 [Fifth42 TEST ONLY] Project requested delay of 7 seconds
+12-Nov-2026 16:59:31 [Fifth42 TEST ONLY] update requested by user
+12-Nov-2026 16:59:35 [Fifth42 TEST ONLY] Sending scheduler request: Requested by user.
+12-Nov-2026 16:59:35 [Fifth42 TEST ONLY] Requesting new tasks for CPU
+12-Nov-2026 16:59:37 [Fifth42 TEST ONLY] Scheduler request completed: got 0 new tasks
+12-Nov-2026 16:59:37 [Fifth42 TEST ONLY] Project has no tasks available
+12-Nov-2026 16:59:37 [Fifth42 TEST ONLY] Project requested delay of 7 seconds
+12-Nov-2026 16:59:47 [Fifth42 TEST ONLY] Sending scheduler request: To fetch work.
+12-Nov-2026 16:59:47 [Fifth42 TEST ONLY] Requesting new tasks for CPU
+12-Nov-2026 16:59:49 [Fifth42 TEST ONLY] Scheduler request completed: got 0 new tasks
+12-Nov-2026 16:59:49 [Fifth42 TEST ONLY] Project has no tasks available
+12-Nov-2026 16:59:49 [Fifth42 TEST ONLY] Project requested delay of 7 seconds
+12-Nov-2026 17:01:41 [---] Re-reading cc_config.xml
+12-Nov-2026 17:01:41 [---] Config: simulate 1 CPUs
+12-Nov-2026 17:01:41 [---] Config: don't use coprocessors
+12-Nov-2026 17:01:41 [---] log flags: file_xfer, sched_ops, task, checkpoint_debug
+12-Nov-2026 17:01:41 [Fifth42 TEST ONLY] update requested by user
+12-Nov-2026 17:01:41 [---] Can't create HTTP response output file notices/127.0.0.1_8765_fifth42_notices.php.xml
+12-Nov-2026 17:01:44 [Fifth42 TEST ONLY] Sending scheduler request: Requested by user.
+12-Nov-2026 17:01:44 [Fifth42 TEST ONLY] Requesting new tasks for CPU
+12-Nov-2026 17:01:46 [Fifth42 TEST ONLY] Scheduler request completed: got 1 new tasks
+12-Nov-2026 17:01:46 [Fifth42 TEST ONLY] Project requested delay of 7 seconds
+12-Nov-2026 17:01:48 [Fifth42 TEST ONLY] Started download of fifth42_A2_engine_session.py
+12-Nov-2026 17:01:48 [Fifth42 TEST ONLY] Started download of fifth42_A2_science_driver.py
+12-Nov-2026 17:01:50 [Fifth42 TEST ONLY] Finished download of fifth42_A2_engine_session.py (4233 bytes)
+12-Nov-2026 17:01:50 [Fifth42 TEST ONLY] Finished download of fifth42_A2_science_driver.py (6191 bytes)
+12-Nov-2026 17:01:50 [Fifth42 TEST ONLY] Started download of fifth42_A2_colab_bench.py
+12-Nov-2026 17:01:50 [Fifth42 TEST ONLY] Started download of fifth42_A2_scaling_cpu
+12-Nov-2026 17:01:52 [Fifth42 TEST ONLY] Finished download of fifth42_A2_colab_bench.py (11669 bytes)
+12-Nov-2026 17:01:52 [Fifth42 TEST ONLY] Finished download of fifth42_A2_scaling_cpu (57256 bytes)
+12-Nov-2026 17:01:52 [Fifth42 TEST ONLY] Started download of fifth42_A2_wrapper
+12-Nov-2026 17:01:52 [Fifth42 TEST ONLY] Started download of fifth42_A2_job.xml
+12-Nov-2026 17:01:54 [Fifth42 TEST ONLY] Finished download of fifth42_A2_wrapper (5312256 bytes)
+12-Nov-2026 17:01:54 [Fifth42 TEST ONLY] Finished download of fifth42_A2_job.xml (599 bytes)
+12-Nov-2026 17:01:54 [Fifth42 TEST ONLY] Started download of controlA.json
+12-Nov-2026 17:01:56 [Fifth42 TEST ONLY] Finished download of controlA.json (2464 bytes)
+12-Nov-2026 17:01:56 [Fifth42 TEST ONLY] Starting task recoveryA_0
+12-Nov-2026 17:01:56 [Fifth42 TEST ONLY] Sending scheduler request: To fetch work.
+12-Nov-2026 17:01:56 [Fifth42 TEST ONLY] Requesting new tasks for CPU
+12-Nov-2026 17:01:58 [Fifth42 TEST ONLY] Scheduler request completed: got 0 new tasks
+12-Nov-2026 17:01:58 [Fifth42 TEST ONLY] Project has no tasks available
+12-Nov-2026 17:01:58 [Fifth42 TEST ONLY] Project requested delay of 7 seconds
+12-Nov-2026 17:02:00 [Fifth42 TEST ONLY] [checkpoint] result recoveryA_0 checkpointed
+12-Nov-2026 17:02:44 [---] Exiting
+12-Nov-2026 17:02:58 [---] Starting BOINC client version 8.0.4 for x86_64-pc-linux-gnu
+12-Nov-2026 17:02:58 [---] log flags: file_xfer, sched_ops, task, checkpoint_debug
+12-Nov-2026 17:02:58 [---] Libraries: libcurl/8.14.1 OpenSSL/3.5.7 zlib/1.3.1 brotli/1.1.0 zstd/1.5.7 libidn2/2.3.8 libpsl/0.21.2 libssh2/1.11.1 nghttp2/1.64.0 nghttp3/1.8.0 librtmp/2.3 OpenLDAP/2.6.10
+12-Nov-2026 17:02:58 [---] Data directory: ${WORKSPACE}/boinc-stock/client
+12-Nov-2026 17:02:58 [---] No usable GPUs found
+12-Nov-2026 17:02:58 [---] libc:  version 2.41
+12-Nov-2026 17:02:58 [---] Computer name: f1805857454b
+12-Nov-2026 17:02:58 [---] Processor: 1 AuthenticAMD AMD EPYC 9V74 80-Core Processor [Family 25 Model 17 Stepping 1]
+12-Nov-2026 17:02:58 [---] Processor features: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext cpuid_fault vmmcall fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves avx512_bf16 clzero xsaveerptr arat npt nrip_save tsc_scale vmcb_clean flushbyasid pausefilter pfthreshold v_vmsave_vmload avx512vbmi umip avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid fsrm arch_capabilities
+12-Nov-2026 17:02:58 [---] OS: Linux Debian GNU/Linux: Debian GNU/Linux 13 (trixie) [6.18.57|libc 2.41]
+12-Nov-2026 17:02:58 [---] Memory: 9.73 GB physical, 0 bytes virtual
+12-Nov-2026 17:02:58 [---] Disk: 62.94 GB total, 53.20 GB free
+12-Nov-2026 17:02:58 [---] Local time is UTC -5 hours
+12-Nov-2026 17:02:58 [---] Config: allow multiple clients
+12-Nov-2026 17:02:58 [---] Config: simulate 1 CPUs
+12-Nov-2026 17:02:58 [---] Config: don't use coprocessors
+12-Nov-2026 17:02:58 [---] Config: don't fetch project list or client version info
+12-Nov-2026 17:02:58 [---] No general preferences found - using defaults
+12-Nov-2026 17:02:58 [---] Reading preferences override file
+12-Nov-2026 17:02:58 [---] Computing preferences:
+12-Nov-2026 17:02:58 [---] -  When computer is in use
+12-Nov-2026 17:02:58 [---] -     'In use' means mouse/keyboard input in last 3.00 minutes
+12-Nov-2026 17:02:58 [---] -     don't use GPU
+12-Nov-2026 17:02:58 [---] -     max CPUs used: 1
+12-Nov-2026 17:02:58 [---] -     Use at most 100% of the CPU time
+12-Nov-2026 17:02:58 [---] -     suspend if non-BOINC CPU load exceeds 25%
+12-Nov-2026 17:02:58 [---] -     max memory usage: 4.87 GB
+12-Nov-2026 17:02:58 [---] -  When computer is not in use
+12-Nov-2026 17:02:58 [---] -     max CPUs used: 1
+12-Nov-2026 17:02:58 [---] -     Use at most 100% of the CPU time
+12-Nov-2026 17:02:58 [---] -     suspend if non-BOINC CPU load exceeds 25%
+12-Nov-2026 17:02:58 [---] -     max memory usage: 8.76 GB
+12-Nov-2026 17:02:58 [---] -  Store at least 0.00 days of work
+12-Nov-2026 17:02:58 [---] -  Store up to an additional 0.00 days of work
+12-Nov-2026 17:02:58 [---] -  max disk usage: 53.11 GB
+12-Nov-2026 17:02:58 [---] -  (to change preferences, visit a project web site or select 'Options / Computing preferences...' in the Manager)
+12-Nov-2026 17:02:58 [---] Setting up project and slot directories
+12-Nov-2026 17:02:58 [---] Checking active tasks
+12-Nov-2026 17:02:58 [Fifth42 TEST ONLY] URL http://127.0.0.1:8765/fifth42/; Computer ID 1; resource share 100
+12-Nov-2026 17:02:58 [---] Setting up GUI RPC socket
+12-Nov-2026 17:02:58 [---] Checking presence of 8 project files
+12-Nov-2026 17:02:58 Initialization completed
+12-Nov-2026 17:02:58 [Fifth42 TEST ONLY] Sending scheduler request: To fetch work.
+12-Nov-2026 17:02:58 [Fifth42 TEST ONLY] Requesting new tasks for CPU
+12-Nov-2026 17:03:00 [Fifth42 TEST ONLY] [checkpoint] result recoveryA_0 checkpointed
+12-Nov-2026 17:03:00 [Fifth42 TEST ONLY] Scheduler request completed: got 1 new tasks
+12-Nov-2026 17:03:00 [Fifth42 TEST ONLY] Project requested delay of 7 seconds
+12-Nov-2026 17:03:01 [Fifth42 TEST ONLY] [checkpoint] result recoveryA_0 checkpointed
+12-Nov-2026 17:03:02 [Fifth42 TEST ONLY] Started download of fifth42_B_engine_session.py
+12-Nov-2026 17:03:02 [Fifth42 TEST ONLY] Started download of fifth42_B_science_driver.py
+12-Nov-2026 17:03:03 [Fifth42 TEST ONLY] Computation for task recoveryA_0 finished
+12-Nov-2026 17:03:04 [Fifth42 TEST ONLY] Finished download of fifth42_B_engine_session.py (4233 bytes)
+12-Nov-2026 17:03:04 [Fifth42 TEST ONLY] Finished download of fifth42_B_science_driver.py (6191 bytes)
+12-Nov-2026 17:03:04 [Fifth42 TEST ONLY] Started download of fifth42_B_colab_bench.py
+12-Nov-2026 17:03:04 [Fifth42 TEST ONLY] Started download of fifth42_B_scaling_cpu
+12-Nov-2026 17:03:05 [Fifth42 TEST ONLY] Started upload of recoveryA_0_r859043860_0
+12-Nov-2026 17:03:06 [Fifth42 TEST ONLY] Finished download of fifth42_B_colab_bench.py (11669 bytes)
+12-Nov-2026 17:03:06 [Fifth42 TEST ONLY] Finished download of fifth42_B_scaling_cpu (57256 bytes)
+12-Nov-2026 17:03:06 [Fifth42 TEST ONLY] Started download of fifth42_B_wrapper
+12-Nov-2026 17:03:06 [Fifth42 TEST ONLY] Started download of fifth42_B_job.xml
+12-Nov-2026 17:03:06 [Fifth42 TEST ONLY] Finished upload of recoveryA_0_r859043860_0 (1832 bytes)
+12-Nov-2026 17:03:08 [Fifth42 TEST ONLY] Finished download of fifth42_B_wrapper (5312256 bytes)
+12-Nov-2026 17:03:08 [Fifth42 TEST ONLY] Finished download of fifth42_B_job.xml (599 bytes)
+12-Nov-2026 17:03:08 [Fifth42 TEST ONLY] Starting task upgradeB_0
+12-Nov-2026 17:03:10 [Fifth42 TEST ONLY] Sending scheduler request: To report completed tasks.
+12-Nov-2026 17:03:10 [Fifth42 TEST ONLY] Reporting 1 completed tasks
+12-Nov-2026 17:03:10 [Fifth42 TEST ONLY] Requesting new tasks for CPU
+12-Nov-2026 17:03:11 [Fifth42 TEST ONLY] Computation for task upgradeB_0 finished
+12-Nov-2026 17:03:12 [Fifth42 TEST ONLY] Scheduler request completed: got 0 new tasks
+12-Nov-2026 17:03:12 [Fifth42 TEST ONLY] Project has no tasks available
+12-Nov-2026 17:03:12 [Fifth42 TEST ONLY] Project requested delay of 7 seconds
+12-Nov-2026 17:03:13 [Fifth42 TEST ONLY] Started upload of upgradeB_0_r165938005_0
+12-Nov-2026 17:03:15 [Fifth42 TEST ONLY] Finished upload of upgradeB_0_r165938005_0 (1794 bytes)
+12-Nov-2026 17:03:22 [Fifth42 TEST ONLY] Sending scheduler request: To report completed tasks.
+12-Nov-2026 17:03:22 [Fifth42 TEST ONLY] Reporting 1 completed tasks
+12-Nov-2026 17:03:22 [Fifth42 TEST ONLY] Requesting new tasks for CPU
+12-Nov-2026 17:03:24 [Fifth42 TEST ONLY] Scheduler request completed: got 0 new tasks
+12-Nov-2026 17:03:24 [Fifth42 TEST ONLY] Project has no tasks available
+12-Nov-2026 17:03:24 [Fifth42 TEST ONLY] Project requested delay of 7 seconds
+12-Nov-2026 17:03:34 [Fifth42 TEST ONLY] Sending scheduler request: To fetch work.
+12-Nov-2026 17:03:34 [Fifth42 TEST ONLY] Requesting new tasks for CPU
+12-Nov-2026 17:03:36 [Fifth42 TEST ONLY] Scheduler request completed: got 0 new tasks
+12-Nov-2026 17:03:36 [Fifth42 TEST ONLY] Project has no tasks available
+12-Nov-2026 17:03:36 [Fifth42 TEST ONLY] Project requested delay of 7 seconds
+12-Nov-2026 17:03:55 [Fifth42 TEST ONLY] update requested by user
+12-Nov-2026 17:03:56 [Fifth42 TEST ONLY] Sending scheduler request: Requested by user.
+12-Nov-2026 17:03:56 [Fifth42 TEST ONLY] Requesting new tasks for CPU
+12-Nov-2026 17:03:58 [Fifth42 TEST ONLY] Scheduler request completed: got 0 new tasks
+12-Nov-2026 17:03:58 [Fifth42 TEST ONLY] Project has no tasks available
+12-Nov-2026 17:03:58 [Fifth42 TEST ONLY] Project requested delay of 7 seconds
+12-Nov-2026 17:04:08 [Fifth42 TEST ONLY] Sending scheduler request: To fetch work.
+12-Nov-2026 17:04:08 [Fifth42 TEST ONLY] Requesting new tasks for CPU
+12-Nov-2026 17:04:10 [Fifth42 TEST ONLY] Scheduler request completed: got 5 new tasks
+12-Nov-2026 17:04:10 [Fifth42 TEST ONLY] Project requested delay of 7 seconds
+12-Nov-2026 17:04:12 [Fifth42 TEST ONLY] Started download of controlA.json
+12-Nov-2026 17:04:12 [Fifth42 TEST ONLY] Started download of representative.json
+12-Nov-2026 17:04:14 [Fifth42 TEST ONLY] Finished download of controlA.json (2464 bytes)
+12-Nov-2026 17:04:14 [Fifth42 TEST ONLY] Finished download of representative.json (556003 bytes)
+12-Nov-2026 17:04:14 [Fifth42 TEST ONLY] Starting task representativeB_0
+12-Nov-2026 17:04:17 [Fifth42 TEST ONLY] Computation for task representativeB_0 finished
+12-Nov-2026 17:04:17 [Fifth42 TEST ONLY] Starting task negative_count_0
+12-Nov-2026 17:04:19 [Fifth42 TEST ONLY] Started upload of representativeB_0_r1777461634_0
+12-Nov-2026 17:04:20 [Fifth42 TEST ONLY] Computation for task negative_count_0 finished
+12-Nov-2026 17:04:20 [Fifth42 TEST ONLY] Starting task negative_truncated_0
+12-Nov-2026 17:04:21 [Fifth42 TEST ONLY] Finished upload of representativeB_0_r1777461634_0 (3742 bytes)
+12-Nov-2026 17:04:22 [Fifth42 TEST ONLY] Started upload of negative_count_0_r1378102779_0
+12-Nov-2026 17:04:23 [Fifth42 TEST ONLY] Computation for task negative_truncated_0 finished
+12-Nov-2026 17:04:23 [Fifth42 TEST ONLY] Starting task negative_identity_0
+12-Nov-2026 17:04:24 [Fifth42 TEST ONLY] Finished upload of negative_count_0_r1378102779_0 (1795 bytes)
+12-Nov-2026 17:04:25 [Fifth42 TEST ONLY] Started upload of negative_truncated_0_r1204784338_0
+12-Nov-2026 17:04:26 [Fifth42 TEST ONLY] Computation for task negative_identity_0 finished
+12-Nov-2026 17:04:26 [Fifth42 TEST ONLY] Starting task retryB_0
+12-Nov-2026 17:04:27 [Fifth42 TEST ONLY] task retryB_0 aborted by user
+12-Nov-2026 17:04:27 [Fifth42 TEST ONLY] update requested by user
+12-Nov-2026 17:04:27 [Fifth42 TEST ONLY] Finished upload of negative_truncated_0_r1204784338_0 (1341 bytes)
+12-Nov-2026 17:04:28 [Fifth42 TEST ONLY] Started upload of negative_identity_0_r878799253_0
+mv: cannot stat 'slots/0/result.json': No such file or directory
+12-Nov-2026 17:04:29 [Fifth42 TEST ONLY] Computation for task retryB_0 finished
+12-Nov-2026 17:04:30 [Fifth42 TEST ONLY] Finished upload of negative_identity_0_r878799253_0 (1792 bytes)
+12-Nov-2026 17:04:30 [Fifth42 TEST ONLY] Sending scheduler request: Requested by user.
+12-Nov-2026 17:04:30 [Fifth42 TEST ONLY] Reporting 5 completed tasks
+12-Nov-2026 17:04:30 [Fifth42 TEST ONLY] Requesting new tasks for CPU
+12-Nov-2026 17:04:32 [Fifth42 TEST ONLY] Scheduler request completed: got 0 new tasks
+12-Nov-2026 17:04:32 [Fifth42 TEST ONLY] Project has no tasks available
+12-Nov-2026 17:04:32 [Fifth42 TEST ONLY] Project requested delay of 7 seconds
+12-Nov-2026 17:04:42 [Fifth42 TEST ONLY] Sending scheduler request: To fetch work.
+12-Nov-2026 17:04:42 [Fifth42 TEST ONLY] Requesting new tasks for CPU
+12-Nov-2026 17:04:44 [Fifth42 TEST ONLY] Scheduler request completed: got 1 new tasks
+12-Nov-2026 17:04:44 [Fifth42 TEST ONLY] Project requested delay of 7 seconds
+12-Nov-2026 17:04:46 [Fifth42 TEST ONLY] Started download of controlA.json
+12-Nov-2026 17:04:48 [Fifth42 TEST ONLY] Finished download of controlA.json (2464 bytes)
+12-Nov-2026 17:04:48 [Fifth42 TEST ONLY] Starting task retryB_1
+12-Nov-2026 17:04:53 [Fifth42 TEST ONLY] update requested by user
+12-Nov-2026 17:04:55 [Fifth42 TEST ONLY] Sending scheduler request: Requested by user.
+12-Nov-2026 17:04:55 [Fifth42 TEST ONLY] Requesting new tasks for CPU
+12-Nov-2026 17:04:57 [Fifth42 TEST ONLY] Scheduler request completed: got 0 new tasks
+12-Nov-2026 17:04:57 [Fifth42 TEST ONLY] Project has no tasks available
+12-Nov-2026 17:04:57 [Fifth42 TEST ONLY] Project requested delay of 7 seconds
+12-Nov-2026 17:05:07 [Fifth42 TEST ONLY] Sending scheduler request: To fetch work.
+12-Nov-2026 17:05:07 [Fifth42 TEST ONLY] Requesting new tasks for CPU
+12-Nov-2026 17:05:09 [Fifth42 TEST ONLY] Scheduler request completed: got 0 new tasks
+12-Nov-2026 17:05:09 [Fifth42 TEST ONLY] Project has no tasks available
+12-Nov-2026 17:05:09 [Fifth42 TEST ONLY] Project requested delay of 7 seconds
+12-Nov-2026 17:05:20 [Fifth42 TEST ONLY] [checkpoint] result retryB_1 checkpointed
+12-Nov-2026 17:05:22 [Fifth42 TEST ONLY] Computation for task retryB_1 finished
+12-Nov-2026 17:05:24 [Fifth42 TEST ONLY] Started upload of retryB_1_r571608995_0
+12-Nov-2026 17:05:26 [Fifth42 TEST ONLY] Finished upload of retryB_1_r571608995_0 (1793 bytes)
+12-Nov-2026 17:05:29 [Fifth42 TEST ONLY] Sending scheduler request: To report completed tasks.
+12-Nov-2026 17:05:29 [Fifth42 TEST ONLY] Reporting 1 completed tasks
+12-Nov-2026 17:05:29 [Fifth42 TEST ONLY] Requesting new tasks for CPU
+12-Nov-2026 17:05:31 [Fifth42 TEST ONLY] Scheduler request completed: got 0 new tasks
+12-Nov-2026 17:05:31 [Fifth42 TEST ONLY] Project has no tasks available
+12-Nov-2026 17:05:31 [Fifth42 TEST ONLY] Project requested delay of 7 seconds
+12-Nov-2026 17:05:41 [Fifth42 TEST ONLY] Sending scheduler request: To fetch work.
+12-Nov-2026 17:05:41 [Fifth42 TEST ONLY] Requesting new tasks for CPU
+12-Nov-2026 17:05:43 [Fifth42 TEST ONLY] Scheduler request completed: got 0 new tasks
+12-Nov-2026 17:05:43 [Fifth42 TEST ONLY] Project has no tasks available
+12-Nov-2026 17:05:43 [Fifth42 TEST ONLY] Project requested delay of 7 seconds
+12-Nov-2026 17:06:27 [Fifth42 TEST ONLY] work fetch suspended by user
