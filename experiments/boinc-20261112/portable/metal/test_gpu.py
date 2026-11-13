@@ -10,6 +10,7 @@ def run_tests(base,registry):
     result=subprocess.run([str(engine),'--arithmetic'],input='ARITH_V1 '+str(len(rows))+'\n'+''.join(f'{a} {b}\n' for a,b in rows),
         env=environment,capture_output=True,text=True,timeout=120)
     (base/'METAL_ARITHMETIC_STDERR.txt').write_text(result.stderr)
+    (base/'METAL_ARITHMETIC_RESULTS.json').write_text(result.stdout)
     if result.returncode:raise RuntimeError('Real Metal arithmetic failed: '+result.stderr)
     values=json.loads(result.stdout)['arithmetic'];assert len(values)==len(rows)
     for value,(a,b) in zip(values,rows):

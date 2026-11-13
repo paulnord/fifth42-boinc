@@ -36,6 +36,7 @@ jobs:
             metal-build/METAL_DEVICES.json
             metal-build/METAL_GPU_TESTS.json
             metal-build/METAL_ARITHMETIC_STDERR.txt
+            metal-build/METAL_ARITHMETIC_RESULTS.json
             metal-build/METAL_PARENT_TEST.log
             metal-build/metal-host-math/HOST_ARITHMETIC.json
             metal-build/metal-generated/SHADER_SOURCE.json

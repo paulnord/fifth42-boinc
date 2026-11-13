@@ -29,7 +29,9 @@ def generate(runtime,destination):
     common+='\nstatic_assert(sizeof(Task)==120,"task layout");\nstatic_assert(sizeof(Chunk)==24,"chunk layout");\nstatic_assert(sizeof(Candidate)==40,"candidate layout");\n'
     (destination/'metal_common.hpp').write_text(common)
     body=(Path(__file__).parent/'kernels.metal').read_text()
-    shader='#include <metal_stdlib>\nusing namespace metal;\n#define F42_THREAD thread\n'+common+'\n'+body
+    # Metal requires an explicit constant address space for program globals.
+    shader_common=re.sub(r'^constexpr ', 'constant ', common, flags=re.MULTILINE)
+    shader='#include <metal_stdlib>\nusing namespace metal;\n#define F42_THREAD thread\n'+shader_common+'\n'+body
     (destination/'fifth42.metal').write_text(shader)
     assert ')F42METAL"' not in shader
     (destination/'metal_shader.hpp').write_text('static const char* fifth42_shader=R"F42METAL('+shader+')F42METAL";\n')
