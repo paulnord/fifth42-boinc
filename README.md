@@ -11,6 +11,7 @@ through an unmodified stock BOINC server, client and wrapper.
 - [Cabbage private-container pilot and setup fixes](experiments/boinc-20261112/stock/CABBAGE_PILOT.md)
 - [CPU lifecycle and Boole native CPU/GPU results](experiments/boinc-20261112/stock/lifecycle/LIFECYCLE_REPORT.md)
 - [How to test the Boole client](experiments/boinc-20261112/stock/lifecycle/BOOLE_TESTING.md)
+- [Native Linux, Windows and macOS CPU application kits](experiments/boinc-20261112/portable/CLIENT_KITS.md)
 - [Acceptance review](experiments/boinc-20261112/docs/ACCEPTANCE_REVIEW.md)
 - [Migration recommendation](experiments/boinc-20261112/docs/MIGRATION_REVIEW.md)
 - [Raw test evidence](experiments/boinc-20261112/evidence/)
@@ -25,7 +26,10 @@ reproducible setup scripts. Test fixtures contribute **no new search coverage**.
 The later Cabbage lifecycle suite and Boole native Ubuntu CPU/GPU tests passed,
 including GPU checkpoint recovery and full 42-packet GPU/GMP equivalence. The
 private test used authenticated SSH Unix-socket forwarding without LAN exposure.
-Windows/macOS builds and multi-GPU hardware tests remain separate.
+Native Linux x86_64, Windows x86_64, macOS arm64 and macOS Intel CPU application
+kits build and pass direct correctness tests on their respective native CI
+runners. Real Windows/macOS BOINC attachment and multi-GPU hardware tests remain
+separate acceptance steps; these kits require host Python 3.13 or newer.
 
 This is **not a production deployment or public volunteer service**. Portable
 application packaging, production coverage migration and scalable

@@ -5,6 +5,7 @@ on:
     paths:
       - experiments/boinc-20261112/portable/**
       - experiments/boinc-20261112/app/**
+      - experiments/boinc-20261112/tests/**
       - .github/workflows/native-clients.yml
   workflow_dispatch:
 permissions:

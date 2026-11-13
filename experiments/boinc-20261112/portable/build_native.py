@@ -57,7 +57,7 @@ if os.name=='nt':
     # their .exe sibling. Both files contain the identical PE executable.
     for name in ('scaling_cpu','gmp_reference'):shutil.copy2(runtime/'bin'/(name+suffix),runtime/'bin'/name)
 env=dict(os.environ,FIFTH42_RUNTIME=str(runtime))
-for pattern in ('test_science.py','test_review.py','test_gpu_allocation.py'):
+for pattern in ('test_science.py','test_review.py','test_gpu_allocation.py','test_parent_lifetime.py'):
     run([sys.executable,'-m','unittest','discover','-s',HERE/'tests','-p',pattern,'-v'],env=env)
 run([sys.executable,runtime/'colab_bench.py','--backend','cpu','--repeats','1','--max-seconds','180','--verify-gmp'])
 (kit/'bin').mkdir(parents=True);(kit/'app').mkdir()
