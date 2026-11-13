@@ -8,6 +8,7 @@ through an unmodified stock BOINC server, client and wrapper.
 - [Prototype and science reproduction](experiments/boinc-20261112/README.md)
 - [Full results and limitations](experiments/boinc-20261112/REPORT.md)
 - [Stock BOINC setup and lifecycle commands](experiments/boinc-20261112/stock/README.md)
+- [Cabbage private-container pilot and setup fixes](experiments/boinc-20261112/stock/CABBAGE_PILOT.md)
 - [Acceptance review](experiments/boinc-20261112/docs/ACCEPTANCE_REVIEW.md)
 - [Migration recommendation](experiments/boinc-20261112/docs/MIGRATION_REVIEW.md)
 - [Raw test evidence](experiments/boinc-20261112/evidence/)
@@ -33,6 +34,9 @@ The prototype was exported without numerical changes from local source commit
 Science inputs and engine sources are downloaded from the explicitly pinned
 upstream revision in `scripts/prepare_science.sh`; they are not silently taken
 from the current production branch.
+
+`SOURCE_MANIFEST.json` preserves the original import's file hashes; subsequent
+setup fixes and the Cabbage recipe are recorded in this repository's Git history.
 
 The original directory layout is retained so the tested scripts and evidence
 remain unchanged. This repository does not alter the existing

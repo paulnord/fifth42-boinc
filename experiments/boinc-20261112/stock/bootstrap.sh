@@ -50,10 +50,12 @@ chmod +x mysql-config-local
 source ./env.sh
 cd source
 ./_autosetup > ../bootstrap.log 2>&1
-./configure --disable-client --disable-manager --disable-boinczip --enable-server --enable-apps --prefix="$DEST/install" MYSQL_CONFIG="$DEST/mysql-config-local" CC=/usr/bin/gcc CXX=/usr/bin/g++ CPPFLAGS="-I$DEST/root/usr/include" LDFLAGS="-L$DEST/root/usr/lib/x86_64-linux-gnu" > ../configure.log 2>&1
+./configure --disable-client --disable-manager --disable-boinczip --enable-server --enable-apps --prefix="$DEST/install" MYSQL_CONFIG="$DEST/mysql-config-local" CC=/usr/bin/gcc CXX=/usr/bin/g++ CPPFLAGS="-I$DEST/root/usr/include -I$DEST/root/usr/include/x86_64-linux-gnu" LDFLAGS="-L$DEST/root/usr/lib/x86_64-linux-gnu" > ../configure.log 2>&1
+# Subdirectory builds do not run the top-level BUILT_SOURCES target.
+make svn_version.h > ../make-version-header.log 2>&1
 # Python packaging via old distutils isn't needed: make_project uses source modules.
 for dir in api lib zip sched tools apps vda; do make -C "$dir" -j4 > "../make-$dir.log" 2>&1; done
-make -C samples/wrapper -j2 CXX=/usr/bin/g++ CPPFLAGS="-I$DEST/root/usr/include" LDFLAGS="-L$DEST/root/usr/lib/x86_64-linux-gnu" > ../make-wrapper.log 2>&1
+make -C samples/wrapper -j2 CXX=/usr/bin/g++ CPPFLAGS="-I$DEST/root/usr/include -I$DEST/root/usr/include/x86_64-linux-gnu" LDFLAGS="-L$DEST/root/usr/lib/x86_64-linux-gnu" > ../make-wrapper.log 2>&1
 cd ..
 mkdir localbin
 cat > localbin/php <<'PHP'

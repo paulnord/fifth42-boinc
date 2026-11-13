@@ -1,16 +1,13 @@
 #!/bin/bash
 # Runs the real stock services around a bounded command or interactive shell.
 set -euo pipefail
+STACK_SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
 STOCK=${1:?Usage: with_stack.sh STOCK_DIR COMMAND [ARGS...]};shift
 test "$#" -gt 0
 cd "$STOCK";source ./env.sh
 export USER=${USER:-agent} HOME="$BOINC_STOCK"
 export PYTHONPATH="$BOINC_STOCK/root/usr/lib/python3/dist-packages${PYTHONPATH:+:$PYTHONPATH}"
-/usr/bin/python3 - <<'PY'
-import socket
-for port in (3306,8765,31420):
- s=socket.socket();s.bind(('127.0.0.1',port));s.close()
-PY
+/usr/bin/python3 "$STACK_SCRIPT_DIR/check_ports.py" 3306 8765 31420
 # Refuse active services above, then discard only stale local PID tracking files.
 # Cleanup must never signal a stale PID inherited from an earlier invocation.
 rm -f client.pid validator.pid
