@@ -8,9 +8,22 @@ uses bounded 32-bit atomic counters (at most 50 million points per packet).
 The 64-bit high-product operation uses checked 32-bit partial products because
 Metal does not provide C++ `unsigned __int128`. Host arithmetic checks alone do
 not establish GPU correctness. There is no CPU fallback.
-Signed input magnitudes are formed with unsigned subtraction before limb
-multiplication; adversarial GPU checks retain negative inputs as well as the
-positive bases used by packet evaluation.
+
+## Current acceptance
+
+The arm64 macOS 15 CI run passed all 1,100 GPU arithmetic cases, all 42 packets
+against fresh GMP, allocation/capacity rejection, parent-death cleanup,
+checkpoint interruption/recovery and the packaged smoke test. Its device was
+named `Apple Paravirtual device`; physical M-series hardware remains a separate
+acceptance step. The accepted source is commit
+`06bc5bbf6916c731f703292f348e5aa8e1225986`.
+
+Intel macOS CPU kits passed, but its Metal runner failed exact negative-input
+arithmetic at `(0, -1)`. An unsigned-magnitude candidate did not fix it and was
+reverted. No accepted Intel GPU kit is published. The Metal PR remains draft;
+neither Intel GPU correctness nor Mac BOINC attachment is claimed.
+See the [evidence review](../../docs/METAL_GPU_REVIEW.md) and the
+[validated arm64 artifact](https://github.com/paulnord/fifth42-boinc/actions/runs/43495401468/artifacts/14072245829).
 
 ## Test a kit on an authorized idle Mac GPU
 
