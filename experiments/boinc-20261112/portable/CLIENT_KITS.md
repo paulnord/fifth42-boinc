@@ -25,6 +25,8 @@ at runtime; CI independently built and executed the GMP oracle before packaging.
 `BUILD.json` records platform, architecture, compiler, pinned numerical source,
 the process/I/O portability overlay and hashes. `NATIVE_TEST_EVIDENCE.json` records
 the full 42-packet comparison. Numerical/frame/range limits are unchanged.
+The full CI comparison has a 600-second overall bound to accommodate variable
+hosted-runner speed; individual request bounds and all comparisons remain active.
 
 ## Native build prerequisites
 
