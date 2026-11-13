@@ -19,6 +19,10 @@ portable=portable.replace(include,'#include "parent_guard.hpp"')
 header.write_text(portable,newline='\n');shutil.copy2(HERE/'portable/parent_guard.hpp',header.parent/'parent_guard.hpp')
 oracle_source=runtime/'native/independent/gmp_reference.cpp'
 original_oracle=oracle_source.read_bytes()
+benchmark=runtime/'colab_bench.py';original_benchmark=benchmark.read_bytes()
+text=original_benchmark.decode();start=text.index('def hardware():');end=text.index('\ndef main(',start)
+text=text[:start]+(HERE/'portable/hardware.py').read_text()+'\n'+text[end:]
+benchmark.write_text(text,newline='\n')
 if os.name=='nt':
     shutil.copy2(HERE/'portable/windows_engine_session.py',runtime/'engine_session.py')
     # Windows LLP64 makes C++ long 32-bit. Keep the independent oracle's exact
@@ -70,7 +74,9 @@ metadata=dict(TEST_ONLY=True,new_scientific_coverage=False,platform=platform.pla
     compiler=subprocess.check_output([a.compiler,'--version'],text=True),source_commit='4668a27951f2b9d7d533896d1aa32684808341d4',
     original_stream_io_sha256=hashlib.sha256(original_bytes).hexdigest(),adapted_stream_io_sha256=hashlib.sha256(header.read_bytes()).hexdigest(),files=files)
 metadata.update(original_oracle_sha256=hashlib.sha256(original_oracle).hexdigest(),adapted_oracle_sha256=hashlib.sha256(oracle_source.read_bytes()).hexdigest())
+metadata.update(original_benchmark_sha256=hashlib.sha256(original_benchmark).hexdigest(),adapted_benchmark_sha256=hashlib.sha256(benchmark.read_bytes()).hexdigest())
 (kit/'BUILD.json').write_text(json.dumps(metadata,indent=2)+'\n')
 run([sys.executable,kit/'test_client.py','--destination',base/'kit-smoke'])
-with tarfile.open(base/'client-kit.tar.gz','w:gz') as archive:archive.add(kit,arcname='client-kit')
+with tarfile.open(base/'client-kit.tar.gz','w:gz') as archive:
+    archive.add(kit,arcname='client-kit',filter=lambda item:None if '__pycache__' in Path(item.name).parts else item)
 print(json.dumps(dict(status='passed',kit=str(kit),platform=metadata['platform'])))
