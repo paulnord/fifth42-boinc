@@ -1,0 +1,12 @@
+1	2026-11-13 22:45:08	22	Apple M4	Darwin	25.6.0	1	80000000000	{\n    "client_version": "8.2.11",\n    "gpus": [\n        {\n            "type": "apple",\n            "model": "Apple M4",\n            "count": 1,\n            "ram_mb": 12124,\n            "driver_version": "4",\n            "opencl_version": "102"\n        }\n    ]\n}
+1	mac_m4_cpu_control_20261113_0	1	5	1	1	0	1
+2	mac_m4_metal_control_20261113_0	1	5	3	2	195	2
+3	mac_m4_metal_control_20261113_1	1	5	3	2	195	2
+4	mac_m4_metal_control_20261113_2	1	5	3	2	195	2
+5	mac_m4_metal_control_141_20261113_0	1	5	1	1	0	3
+1	mac_m4_cpu_control_20261113	1
+2	mac_m4_metal_control_20261113	0
+3	mac_m4_metal_control_141_20261113	5
+1	130	9	
+2	140	9	fifth42_apple_gpu_metal
+3	141	9	fifth42_apple_gpu_metal_m4

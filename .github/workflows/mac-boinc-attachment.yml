@@ -1,0 +1,71 @@
+name: Native Mac BOINC CPU and M4 Metal application packages
+on:
+  push:
+    branches: [main, feat/mac-cpu-attachment-20261113]
+    paths:
+      - experiments/boinc-20261112/stock/macos/**
+      - .github/workflows/mac-boinc-attachment.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  mac-cpu:
+    runs-on: macos-26
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.1.0
+        with:
+          python-version: '3.13'
+      - uses: actions/download-artifact@v8.0.2
+        with:
+          name: cpu-macos-15
+          run-id: 43491383680
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: inputs
+      - name: Package pinned wrapper, Python and exact CPU application
+        run: python experiments/boinc-20261112/stock/macos/package.py --kit-tar inputs/client-kit.tar.gz --destination mac-attachment
+      - name: Execute actual stock wrapper and bundled runtime
+        run: python experiments/boinc-20261112/stock/macos/smoke.py mac-attachment wrapper-slot
+      - name: Read pinned validated Metal artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api repos/paulnord/fifth42-boinc/actions/artifacts/14072245829/zip > inputs/metal-artifact.zip
+      - name: Build M4 GPU package with explicit BOINC metadata allocation
+        run: python experiments/boinc-20261112/stock/macos/package.py --kit-tar inputs/client-kit.tar.gz --destination mac-metal-attachment --backend gpu --metal-artifact inputs/metal-artifact.zip
+      - name: Test allocation and arithmetic rejection boundaries
+        run: python -m unittest discover -s experiments/boinc-20261112/stock/macos -p test_metal_launcher.py -v
+      - name: Actual wrapper refuses missing BOINC GPU allocation
+        run: python experiments/boinc-20261112/stock/macos/smoke_gpu_refusal.py mac-metal-attachment gpu-refusal-slot
+      - name: Preserve immutable application package and evidence
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: mac-arm64-boinc-cpu
+          path: |
+            mac-attachment/wrapper
+            mac-attachment/runtime.zip
+            mac-attachment/job.xml
+            mac-attachment/controls.json
+            mac-attachment/engine-identity
+            mac-attachment/BOINC_BUILD.json
+            mac-attachment/WRAPPER_SMOKE.json
+            wrapper-slot/*.stdout
+            wrapper-slot/*.stderr
+          if-no-files-found: error
+      - name: Preserve experimental M4 package and scoped negative evidence
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: mac-arm64-boinc-metal-m4
+          path: |
+            mac-metal-attachment/wrapper
+            mac-metal-attachment/runtime.zip
+            mac-metal-attachment/job.xml
+            mac-metal-attachment/controls.json
+            mac-metal-attachment/engine-identity
+            mac-metal-attachment/BOINC_BUILD.json
+            mac-metal-attachment/GPU_REFUSAL_SMOKE.json
+            gpu-refusal-slot/*.stderr
+          if-no-files-found: error

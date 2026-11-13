@@ -1,0 +1,13 @@
+<plan_classes>
+  <plan_class>
+    <name>fifth42_apple_gpu_metal_m4</name>
+    <!-- Canonical resource lookup avoids the pinned server's apple alias bug. -->
+    <gpu_type>apple_gpu</gpu_type>
+    <cpu_model_regex>^Apple M4( Pro| Max)?$</cpu_model_regex>
+    <min_core_client_version>80211</min_core_client_version>
+    <ngpus>1</ngpus>
+    <gpu_ram_used_mb>512</gpu_ram_used_mb>
+    <cpu_frac>0.1</cpu_frac>
+    <avg_ncpus>0.1</avg_ncpus>
+  </plan_class>
+</plan_classes>
