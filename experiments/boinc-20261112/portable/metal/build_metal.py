@@ -14,6 +14,8 @@ def run(command,**kwargs):return subprocess.run(list(map(str,command)),check=Tru
 run([sys.executable,HERE/'portable/build_native.py',base,'--compiler','clang++'])
 runtime=base/'runtime';generated=base/'metal-generated';shader=generate(runtime,generated)
 host_math=test(runtime,base/'metal-host-math','clang++')
+run(['xcrun','-sdk','macosx','metal','-std=macos-metal2.4','-c',generated/'fifth42.metal','-o',generated/'fifth42.air'])
+run(['xcrun','-sdk','macosx','metallib',generated/'fifth42.air','-o',generated/'fifth42.metallib'])
 source=Path(__file__).parent/'scaling_metal.mm';engine=runtime/'bin/scaling_gpu'
 run(['clang++','-std=c++17','-O3','-fobjc-arc','-pthread','-I',runtime/'native/src','-I',generated,source,
     '-framework','Foundation','-framework','Metal','-o',engine])
@@ -28,7 +30,7 @@ shutil.copy2(Path(__file__).parent/'METAL_TESTING.md',kit/'README.md')
 selected=a.device_registry_id
 if a.test_first_device and devices:selected=devices[0]['registry_id']
 report=dict(TEST_ONLY=True,new_scientific_coverage=False,host_compiled=True,
-    gpu_execution=False,devices=devices,host_arithmetic=host_math,shader=shader,
+    gpu_execution=False,shader_offline_compiled=True,devices=devices,host_arithmetic=host_math,shader=shader,
     prototype_commit=subprocess.check_output(['git','-C',HERE,'rev-parse','HEAD'],text=True).strip(),
     platform=platform.platform(),architecture=platform.machine())
 if selected:
