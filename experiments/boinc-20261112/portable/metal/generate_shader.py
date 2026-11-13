@@ -22,6 +22,9 @@ def generate(runtime,destination):
     common=common.replace(old,high)
     common=common.replace('using U64=unsigned long long;','using U64=ulong;')
     common=common.replace('std::uint64_t','ulong').replace('std::int64_t','long')
+    magnitude='const auto m=static_cast<ulong>(x<0?-x:x);'
+    assert common.count(magnitude)==2
+    common=common.replace(magnitude,'const auto raw=static_cast<ulong>(x); const auto m=x<0?ulong(0)-raw:raw;')
     common=common.replace('UINT64_C(1)','ulong(1)').replace('UINT64_MAX','0xffffffffffffffffUL')
     common=common.replace('HD ','').replace('const Task&','const F42_THREAD Task&').replace('Candidate&','F42_THREAD Candidate&')
     common=re.sub(r'(\d)ULL\b',r'\1UL',common)

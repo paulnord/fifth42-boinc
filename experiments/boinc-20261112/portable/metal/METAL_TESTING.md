@@ -8,6 +8,9 @@ uses bounded 32-bit atomic counters (at most 50 million points per packet).
 The 64-bit high-product operation uses checked 32-bit partial products because
 Metal does not provide C++ `unsigned __int128`. Host arithmetic checks alone do
 not establish GPU correctness. There is no CPU fallback.
+Signed input magnitudes are formed with unsigned subtraction before limb
+multiplication; adversarial GPU checks retain negative inputs as well as the
+positive bases used by packet evaluation.
 
 ## Test a kit on an authorized idle Mac GPU
 
