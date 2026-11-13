@@ -1,0 +1,8 @@
+{
+  "TEST_ONLY": true,
+  "command": "FIFTH42_RUNTIME=/mnt/localstorage/pnord-fifth42-boinc-lifecycle-20261113/work/science/runtime python3 -m unittest discover -s experiments/boinc-20261112/tests -v",
+  "source_commit": "290d327e9f803842a0cc3dcdaccf3abd4807e168",
+  "tests": 24,
+  "seconds": 2.478,
+  "result": "OK"
+}

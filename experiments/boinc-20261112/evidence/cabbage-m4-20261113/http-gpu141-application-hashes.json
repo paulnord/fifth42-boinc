@@ -1,0 +1,20 @@
+{
+  "wrapper": {
+    "http_status": 200,
+    "bytes": 1728968,
+    "sha256": "d2d08516ced84527e658a366585d76f1cae2017dd0c07a00a5dc9e883968ed59",
+    "path": "/fifth42/download/fifth42_MacMetal141_wrapper"
+  },
+  "runtime.zip": {
+    "http_status": 200,
+    "bytes": 41261989,
+    "sha256": "ac9dde8e5d3e0018cca5d7638dfc9468a52e837ec5d865efaad0523b0ed611d8",
+    "path": "/fifth42/download/fifth42_MacMetal141_runtime.zip"
+  },
+  "job.xml": {
+    "http_status": 200,
+    "bytes": 570,
+    "sha256": "95592f907d131882e681b8a49c3bd02735bad3d50ad0e71a1e9feb235099b1f0",
+    "path": "/fifth42/download/fifth42_MacMetal141_job.xml"
+  }
+}

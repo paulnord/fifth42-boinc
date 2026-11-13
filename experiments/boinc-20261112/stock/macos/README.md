@@ -3,8 +3,11 @@
 This session uses a new isolated database/project on Cabbage. It preserves all
 earlier projects and production state. The CPU application ran on the owner's
 physical M4/Tahoe system under BOINC 8.2.11: result 1 was accepted after fresh
-GMP validation, three packets/nine positions. GPU acceptance is recorded
-separately after the physical test; a queued GPU job is not a success claim.
+GMP validation, three packets/nine positions. Corrected GPU version 1.41 also
+ran on that physical M4, passed 1,100 GPU arithmetic cases, and returned the
+same control; result 5 became canonical after fresh GMP validation. Exact
+commands, retained failures and resource measurements are in
+[ATTACHMENT_REPORT.md](ATTACHMENT_REPORT.md).
 
 ## Connect the Mac
 
@@ -35,9 +38,11 @@ execution. Registry IDs are discovered and bound to that unique allocation;
 there is no default-device fallback or multi-GPU claim. A missing allocation
 or wrong device stops before science work. Intel GPU acceptance is not claimed.
 
-Select the project and click Update after work is queued. If necessary, use
-Activity / Use GPU always for the short GPU test and restore your preference
-afterward. Correctly assigned GPU work should display one Apple GPU. Ready-to-
+In the Mac's BOINC Manager, select View / Advanced View if needed. Select the
+project in the Projects tab and click Update after work is queued. Use the
+Mac menu bar's Activity / Use GPU always for the short GPU test and restore
+Activity / Use GPU based on preferences afterward. Correctly assigned GPU work
+should display one Apple GPU. Ready-to-
 report work can be flushed with Update. Server canonical acceptance and fresh
 GMP audit determine completion, not the GUI's completed-task display alone.
 
@@ -93,6 +98,26 @@ or any absent, inconsistent or ambiguous allocation. The stock server is not
 patched. This narrow profile is for the tested single-GPU M4 pilot, rather than
 a general hardware capability policy. The GPU arithmetic tests retain negative
 inputs, including the earlier Intel failure case.
+
+The first 1.41 policy also mistakenly used `os_regex=Darwin`. Stock BOINC
+applies this expression to `host.os_version`, which the Mac reported as
+`25.6.0`; scheduler diagnostics rejected it before assignment. The rule was
+removed before any 1.41 task was dispatched. The registered platform already
+restricts this application to arm64 macOS. No signed payload was changed.
+
+`scheduler_regression/` reproduces the old alias as a CPU assignment and the
+corrected profile as one `apple_gpu` with the actual stock scheduler in a fresh,
+separate DB/network/IPC namespace. It creates a disposable synthetic account
+and sends explicit synthetic M4 hardware requests. It executes no science and
+is distinct from the physical M4 acceptance above. The successful Cabbage run
+took 66.948 seconds, 2.764 CPU seconds, and peaked at 661.8 MiB; all its services
+stopped on return. The fixture includes a CPU version, the reported OpenCL
+memory metadata, and waits for feeder cache refresh before checking replies.
+The published starter refuses an existing regression work directory:
+
+```bash
+python3 scheduler_regression/start.py --lab LAB
+```
 
 ## Session ownership and evidence
 

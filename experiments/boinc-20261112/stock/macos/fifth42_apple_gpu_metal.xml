@@ -4,7 +4,6 @@
     <!-- Canonical resource lookup avoids the pinned server's apple alias bug. -->
     <gpu_type>apple_gpu</gpu_type>
     <cpu_model_regex>^Apple M4( Pro| Max)?$</cpu_model_regex>
-    <os_regex>Darwin</os_regex>
     <min_core_client_version>80211</min_core_client_version>
     <ngpus>1</ngpus>
     <gpu_ram_used_mb>512</gpu_ram_used_mb>
