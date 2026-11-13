@@ -57,7 +57,7 @@ if os.name=='nt':
     # their .exe sibling. Both files contain the identical PE executable.
     for name in ('scaling_cpu','gmp_reference'):shutil.copy2(runtime/'bin'/(name+suffix),runtime/'bin'/name)
 env=dict(os.environ,FIFTH42_RUNTIME=str(runtime))
-for pattern in ('test_science.py','test_review.py','test_gpu_allocation.py','test_parent_lifetime.py'):
+for pattern in ('test_science.py','test_review.py','test_gpu_allocation.py','test_metal_allocation.py','test_parent_lifetime.py'):
     run([sys.executable,'-m','unittest','discover','-s',HERE/'tests','-p',pattern,'-v'],env=env)
 # Hosted Intel Macs can exceed 180 seconds under contention. Keep the upstream
 # maximum overall bound; per-request limits and every correctness check remain.
@@ -78,7 +78,7 @@ metadata=dict(TEST_ONLY=True,new_scientific_coverage=False,platform=platform.pla
 metadata.update(original_oracle_sha256=hashlib.sha256(original_oracle).hexdigest(),adapted_oracle_sha256=hashlib.sha256(oracle_source.read_bytes()).hexdigest())
 metadata.update(original_benchmark_sha256=hashlib.sha256(original_benchmark).hexdigest(),adapted_benchmark_sha256=hashlib.sha256(benchmark.read_bytes()).hexdigest())
 metadata.update(prototype_commit=subprocess.check_output(['git','-C',HERE,'rev-parse','HEAD'],text=True).strip(),
-    direct_tests=12,full_packet_comparison=42,benchmark_deadline_seconds=600)
+    direct_tests=14,full_packet_comparison=42,benchmark_deadline_seconds=600)
 (kit/'BUILD.json').write_text(json.dumps(metadata,indent=2)+'\n')
 run([sys.executable,kit/'test_client.py','--destination',base/'kit-smoke'])
 with tarfile.open(base/'client-kit.tar.gz','w:gz') as archive:

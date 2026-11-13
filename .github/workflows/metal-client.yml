@@ -1,0 +1,44 @@
+name: Experimental native Metal GPU application
+on:
+  push:
+    branches: [main, feat/macos-metal-20261113]
+    paths:
+      - experiments/boinc-20261112/portable/metal/**
+      - experiments/boinc-20261112/app/science_driver.py
+      - .github/workflows/metal-client.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  metal:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [macos-15, macos-15-intel]
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.1.0
+        with:
+          python-version: '3.13'
+      - name: Independent GMP prerequisite
+        run: brew list --versions gmp || brew install gmp
+      - name: Compile, probe and test only an available GPU
+        run: python experiments/boinc-20261112/portable/metal/build_metal.py metal-build --test-first-device
+      - name: Preserve honest capability and test evidence
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: metal-${{ matrix.runner }}
+          path: |
+            metal-build/metal-kit.tar.gz
+            metal-build/METAL_DEVICES.json
+            metal-build/METAL_GPU_TESTS.json
+            metal-build/METAL_ARITHMETIC_STDERR.txt
+            metal-build/METAL_ARITHMETIC_RESULTS.json
+            metal-build/METAL_PARENT_TEST.log
+            metal-build/metal-host-math/HOST_ARITHMETIC.json
+            metal-build/metal-generated/SHADER_SOURCE.json
+            metal-build/metal-generated/fifth42.metal
+          if-no-files-found: error

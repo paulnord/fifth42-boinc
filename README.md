@@ -12,6 +12,7 @@ through an unmodified stock BOINC server, client and wrapper.
 - [CPU lifecycle and Boole native CPU/GPU results](experiments/boinc-20261112/stock/lifecycle/LIFECYCLE_REPORT.md)
 - [How to test the Boole client](experiments/boinc-20261112/stock/lifecycle/BOOLE_TESTING.md)
 - [Native Linux, Windows and macOS CPU application kits](experiments/boinc-20261112/portable/CLIENT_KITS.md)
+- [Experimental Mac Metal GPU results and testing](experiments/boinc-20261112/docs/METAL_GPU_REVIEW.md)
 - [Acceptance review](experiments/boinc-20261112/docs/ACCEPTANCE_REVIEW.md)
 - [Migration recommendation](experiments/boinc-20261112/docs/MIGRATION_REVIEW.md)
 - [Raw test evidence](experiments/boinc-20261112/evidence/)

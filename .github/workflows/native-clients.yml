@@ -1,9 +1,10 @@
 name: Native CPU application kits
 on:
   push:
-    branches: [main, build/native-client-kits-20261113]
+    branches: [main, build/native-client-kits-20261113, feat/macos-metal-20261113]
     paths:
       - experiments/boinc-20261112/portable/**
+      - '!experiments/boinc-20261112/portable/metal/**'
       - experiments/boinc-20261112/app/**
       - experiments/boinc-20261112/tests/**
       - .github/workflows/native-clients.yml
