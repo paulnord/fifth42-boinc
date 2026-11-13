@@ -1,5 +1,9 @@
 # Fifth42 BOINC prototype: executed results
 
+This report preserves the original 2026-11-12 evidence. Later Cabbage lifecycle,
+validator-outage fixes and Boole native CPU/GPU execution are recorded separately
+in [the 2026-11-13 report](stock/lifecycle/LIFECYCLE_REPORT.md).
+
 **Recommendation: accept the CPU proof of fit; adjust the packaging and validation
 cost model before considering a production cutover.** BOINC successfully supplied
 the queue, signed application releases, client execution, uploads, recovery and

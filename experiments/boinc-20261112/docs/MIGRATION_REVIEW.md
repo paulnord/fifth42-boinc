@@ -47,9 +47,11 @@ ServerIntro lists source builds, Debian/Ubuntu boinc-server-maker and marius311/
 
 ## Validator infrastructure outages
 
-The prototype hook currently maps all exceptions to permanent scientific
-rejection. Before any production activation, distinguish infrastructure failures
-(DB access, unavailable GMP executable, timeout, missing trusted configuration)
-from corrupt scientific output and use BOINC's transient-validation return code 3
-for the former. Add outage/recovery tests so results wait for a healthy validator
-instead of blaming clients or consuming their retry budgets.
+The 2026-11-13 hook distinguishes explicit invalid scientific output (status 1)
+from server configuration, storage, DB and oracle failures (transient status 3).
+Actual oracle/DB-hook fault probes preserved and later accepted original uploads;
+see [the lifecycle report](../stock/lifecycle/LIFECYCLE_REPORT.md). Stock BOINC may
+leave these inconclusive and create another attempt; the probe used no-more-work
+and an explicit upstream targeted recheck after recovery. Automatic retry timing,
+full DB/service outages and operational recovery policy still need validation
+before production. This does not establish production-scale resilience.

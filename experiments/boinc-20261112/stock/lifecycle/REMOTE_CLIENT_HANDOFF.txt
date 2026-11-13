@@ -1,0 +1,39 @@
+Fifth42 BOINC native CPU/GPU client handoff — Boole, 2026-11-13
+
+Status: native Ubuntu CPU and GPU applications PASSED on Boole through the
+private Cabbage server, including representative work and GPU checkpoint restart.
+All test services and the SSH tunnel are STOPPED; private state is retained.
+All fixtures are TEST_ONLY and earn zero new scientific coverage. Ada is excluded.
+
+The owner selected Boole and authorized its CPU/GPU tests. Do not stop another
+search, reuse production reservations/checkpoints, or assume another GPU is free.
+Before each test check active workloads and the intended GPU's ownership.
+
+Validated stack:
+  Boole Ubuntu 26.04.1 x86_64, official Ubuntu BOINC 8.2.9+dfsg-1build1.
+  One standard BOINC client with separate signed CPU and NVIDIA app versions.
+  CPU release 1.10, GPU release 1.20; actual server IDs are queried, not assumed.
+  RTX 3060 (SM86), driver 595.99.02, CUDA 13.3.73/GCC 15 GPU build.
+  Native Ubuntu libraries in a private namespace; no Debian client runtime needed.
+  Private client: /home/pnord/boinc-fifth42-client-test-20261113/work/client
+  Server lab: /mnt/localstorage/pnord-fifth42-boinc-lifecycle-20261113
+
+Transport: authenticated SSH Unix-socket forwarding between loopback relays.
+There is no public/LAN project URL. Database and GUI RPC are not forwarded.
+Use verified SSH host keys, mode-0600 Unix sockets, private directories and private
+account XML. Never put authenticators, SQL dumps or private signing keys in Git.
+
+See BOOLE_TESTING.md for exact build, namespace, distribution and acceptance
+steps. See LIFECYCLE_REPORT.md and the sanitized evidence for passed gates and
+limitations. The standard BOINC server distributes and signs the application;
+SSH in this lab supplies private transport and test administration.
+
+Passed: tiny signed controls, 49,491,764-position CPU and GPU workunits, matching
+actual downloaded application hashes, fresh server GMP validation, GPU durable
+prefix 1 stop/restart with exactly preserved receipts, clean shutdown/no GPU
+compute survivor. Full direct 42-packet CPU and GPU/GMP equivalence also passed.
+
+Not established: other GPU architectures, multi-GPU hardware selection,
+cross-host timeout reassignment/late-result return, Windows/macOS BOINC execution,
+full database crash/restore, production coverage migration or public enrollment.
+Those require their own native builds, resource checks and acceptance evidence.
