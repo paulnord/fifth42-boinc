@@ -1,6 +1,6 @@
 # Fifth42 BOINC prototype
 
-A reproducible, **TEST_ONLY CPU proof of concept** for running the Fifth42 search
+A reproducible, **TEST_ONLY CPU/CUDA prototype** for running the Fifth42 search
 through an unmodified stock BOINC server, client and wrapper.
 
 ## Start here
@@ -9,6 +9,8 @@ through an unmodified stock BOINC server, client and wrapper.
 - [Full results and limitations](experiments/boinc-20261112/REPORT.md)
 - [Stock BOINC setup and lifecycle commands](experiments/boinc-20261112/stock/README.md)
 - [Cabbage private-container pilot and setup fixes](experiments/boinc-20261112/stock/CABBAGE_PILOT.md)
+- [CPU lifecycle and Boole native CPU/GPU results](experiments/boinc-20261112/stock/lifecycle/LIFECYCLE_REPORT.md)
+- [How to test the Boole client](experiments/boinc-20261112/stock/lifecycle/BOOLE_TESTING.md)
 - [Acceptance review](experiments/boinc-20261112/docs/ACCEPTANCE_REVIEW.md)
 - [Migration recommendation](experiments/boinc-20261112/docs/MIGRATION_REVIEW.md)
 - [Raw test evidence](experiments/boinc-20261112/evidence/)
@@ -20,11 +22,17 @@ recovery, failed-attempt retry, A-to-B application upgrade and rejection of
 three corrupted uploads. It includes independent GMP correctness checks and
 reproducible setup scripts. Test fixtures contribute **no new search coverage**.
 
-This is **not a production deployment or public volunteer service**. GPU testing,
-portable application packaging, production coverage migration and scalable
+The later Cabbage lifecycle suite and Boole native Ubuntu CPU/GPU tests passed,
+including GPU checkpoint recovery and full 42-packet GPU/GMP equivalence. The
+private test used authenticated SSH Unix-socket forwarding without LAN exposure.
+Windows/macOS builds and multi-GPU hardware tests remain separate.
+
+This is **not a production deployment or public volunteer service**. Portable
+application packaging, production coverage migration and scalable
 validation remain work for a later stage. The prototype's full central GMP replay
-is a correctness gate, not an economical production validator. Transient validator
-infrastructure failures also need separate treatment before production.
+is a correctness gate, not an economical production validator. Validator
+infrastructure failures now defer via BOINC status 3; full service outages and
+automatic retry timing still need operational testing.
 
 ## Provenance and isolation
 

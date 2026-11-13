@@ -1,0 +1,65 @@
+{
+  "all_downloads_match": true,
+  "files": [
+    {
+      "file": "fifth42_BooleCPU_colab_bench.py",
+      "bytes": 11669,
+      "sha256": "9f6401e1d3533a9834bd2105186ad6e846375c6c7ff98cb6bbcd3b2f88ad6d3e"
+    },
+    {
+      "file": "fifth42_BooleGPU_wrapper",
+      "bytes": 5312208,
+      "sha256": "c08f7c02a339a2ca2b7d599425dff46711fdc4aec9b1e6ccb73354876f85a8d7"
+    },
+    {
+      "file": "fifth42_BooleCPU_science_driver.py",
+      "bytes": 7037,
+      "sha256": "1e7d06ad41f03815476322b14d96fb5fcd8110ebc90cfe776e063912d7d1aa5a"
+    },
+    {
+      "file": "fifth42_BooleGPU_engine_session.py",
+      "bytes": 4233,
+      "sha256": "dc15e640bdb0a2a7d61673484fc17a5ef1c74af62065d387127ec9973540ea05"
+    },
+    {
+      "file": "fifth42_BooleCPU_wrapper",
+      "bytes": 5312208,
+      "sha256": "c08f7c02a339a2ca2b7d599425dff46711fdc4aec9b1e6ccb73354876f85a8d7"
+    },
+    {
+      "file": "fifth42_BooleCPU_engine_session.py",
+      "bytes": 4233,
+      "sha256": "dc15e640bdb0a2a7d61673484fc17a5ef1c74af62065d387127ec9973540ea05"
+    },
+    {
+      "file": "fifth42_BooleGPU_job.xml",
+      "bytes": 642,
+      "sha256": "eeefa64c083a7b73152a2895031cb1dd8688909349f363d5ab3956efd092045b"
+    },
+    {
+      "file": "fifth42_BooleGPU_scaling_gpu",
+      "bytes": 1145824,
+      "sha256": "4cd44fb3ec9cc1e111a168e9db914e7fd7e065c67b8795b71979b388e55aef91"
+    },
+    {
+      "file": "fifth42_BooleGPU_science_driver.py",
+      "bytes": 7037,
+      "sha256": "1e7d06ad41f03815476322b14d96fb5fcd8110ebc90cfe776e063912d7d1aa5a"
+    },
+    {
+      "file": "fifth42_BooleGPU_colab_bench.py",
+      "bytes": 11669,
+      "sha256": "9f6401e1d3533a9834bd2105186ad6e846375c6c7ff98cb6bbcd3b2f88ad6d3e"
+    },
+    {
+      "file": "fifth42_BooleCPU_scaling_cpu",
+      "bytes": 57256,
+      "sha256": "445a9d257e254b4ffc344b930068b3e9cc242b95f07df7cec9f1be12aa20d602"
+    },
+    {
+      "file": "fifth42_BooleCPU_job.xml",
+      "bytes": 599,
+      "sha256": "1a02cd48aff6da3922c46daafb878b8a4b9404b8cb13069ef10f3bd911364478"
+    }
+  ]
+}
