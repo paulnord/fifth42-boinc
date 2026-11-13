@@ -1,0 +1,61 @@
+name: Native CPU application kits
+on:
+  push:
+    branches: [main, build/native-client-kits-20261113]
+    paths:
+      - experiments/boinc-20261112/portable/**
+      - experiments/boinc-20261112/app/**
+      - .github/workflows/native-clients.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [ubuntu-24.04, windows-latest, macos-15, macos-15-intel]
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Native Python
+        if: runner.os != 'Windows'
+        uses: actions/setup-python@v7.1.0
+        with:
+          python-version: '3.13'
+      - name: Linux dependencies
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y g++ libgmp-dev
+      - name: macOS dependencies
+        if: runner.os == 'macOS'
+        run: brew list --versions gmp || brew install gmp
+      - name: Windows UCRT64 toolchain
+        if: runner.os == 'Windows'
+        uses: msys2/setup-msys2@v2.33.0
+        with:
+          msystem: UCRT64
+          update: true
+          install: >-
+            git
+            mingw-w64-ucrt-x86_64-gcc
+            mingw-w64-ucrt-x86_64-gmp
+            mingw-w64-ucrt-x86_64-python
+      - name: Linux native build and exact tests
+        if: runner.os == 'Linux'
+        run: python experiments/boinc-20261112/portable/build_native.py native-build --compiler g++
+      - name: macOS native build and exact tests
+        if: runner.os == 'macOS'
+        run: python experiments/boinc-20261112/portable/build_native.py native-build --compiler clang++
+      - name: Windows native build and exact tests
+        if: runner.os == 'Windows'
+        shell: msys2 {0}
+        env:
+          PYTHONUTF8: '1'
+        run: python experiments/boinc-20261112/portable/build_native.py native-build --compiler g++
+      - name: Upload tested native application kit
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: cpu-${{ matrix.runner }}
+          path: native-build/client-kit.tar.gz
+          if-no-files-found: error

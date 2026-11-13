@@ -13,6 +13,14 @@ def atomic(path, data):
     path=Path(path); tmp=path.with_name(path.name+'.tmp')
     with tmp.open('w') as f:
         json.dump(data,f,sort_keys=True); f.write('\n'); f.flush(); os.fsync(f.fileno())
+    if os.name=='nt':
+        import ctypes
+        from ctypes import wintypes
+        move=ctypes.WinDLL('kernel32',use_last_error=True).MoveFileExW
+        move.argtypes=[wintypes.LPCWSTR,wintypes.LPCWSTR,wintypes.DWORD];move.restype=wintypes.BOOL
+        if not move(str(tmp.resolve()),str(path.resolve()),0x1|0x8):
+            raise ctypes.WinError(ctypes.get_last_error())
+        return
     os.replace(tmp,path)
     fd=os.open(path.parent,os.O_RDONLY)
     try: os.fsync(fd)
