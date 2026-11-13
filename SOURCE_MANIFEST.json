@@ -1,6 +1,6 @@
 {
   "source_commit": "1fe6516fda73c1f2148faaa36876a5e27af2c54d",
-  "scope": "Unmodified BOINC prototype subtree; root README added for this repository",
+  "scope": "Historical file hashes for the original unmodified prototype import at aad1bb3c87c26081f3243ad68a7ab1a42e23b9de; subsequent setup fixes are tracked in Git",
   "files": {
     "experiments/boinc-20261112/.gitignore": "c76aa74b042b3b677f93f54947bc7464bc855dd064ebac5f9786a8912fd3bef5",
     "experiments/boinc-20261112/README.md": "b54d12d23233043d7e0db0250377c8918dcd3e01a4510d5a1525041d5229a612",

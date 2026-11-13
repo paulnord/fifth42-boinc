@@ -9,10 +9,7 @@ export PYTHONPATH="$BOINC_STOCK/root/usr/lib/python3/dist-packages${PYTHONPATH:+
 test ! -e project
 test ! -e db
 umask 077
-/usr/bin/python3 - <<'PORTCHECK'
-import socket
-s=socket.socket();s.bind(('127.0.0.1',3306));s.close()
-PORTCHECK
+/usr/bin/python3 "$HERE/check_ports.py" 3306
 root/usr/bin/mariadb-install-db --no-defaults --basedir="$BOINC_STOCK/root/usr" --datadir="$BOINC_STOCK/db" --auth-root-authentication-method=normal > db-init.log 2>&1
 root/usr/sbin/mariadbd --no-defaults --basedir="$BOINC_STOCK/root/usr" --datadir="$BOINC_STOCK/db" --socket= --port=3306 --bind-address=127.0.0.1 --pid-file="$BOINC_STOCK/mysql.pid" --log-error="$BOINC_STOCK/mysql.log" &
 pid=$!; trap 'kill "$pid" 2>/dev/null || true; wait "$pid" || true' EXIT

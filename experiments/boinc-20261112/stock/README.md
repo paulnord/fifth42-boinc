@@ -35,9 +35,9 @@ create `RUNTIME` first. These scripts do **not** install system packages or alte
 GPU drivers. They extract official packages into a new private directory.
 
 ```bash
-HERE=/absolute/path/to/fifth42/experiments/boinc-20261112
-STOCK=/absolute/path/to/new-boinc-test
-RUNTIME=/absolute/path/to/fifth42-boinc-runtime
+export HERE=/absolute/path/to/fifth42/experiments/boinc-20261112
+export STOCK=/absolute/path/to/new-boinc-test
+export RUNTIME=/absolute/path/to/fifth42-boinc-runtime
 bash "$HERE/stock/bootstrap.sh" "$STOCK"
 bash "$HERE/stock/initialize.sh" "$STOCK"
 python3 "$HERE/stock/stage_application.py" --stock "$STOCK" --runtime "$RUNTIME" \
@@ -53,8 +53,16 @@ positions, independently accepted at 2026-11-12 22:08:32 UTC. See
 `fresh-recipe-smoke.json` and `fresh-recipe-status.txt`. Do not confuse this with a container-image reproducibility
 claim.
 
+The later Cabbage validation on 2026-11-13 ran the revised combined bootstrap
+successfully from a new empty directory in Debian 13, including its multiarch
+include paths and generated version-header step. The original corrected/resumed
+control run is recorded separately in [the Cabbage pilot notes](CABBAGE_PILOT.md).
+
 Upstream build details that mattered:
 
+* Extracted Debian headers include a multiarch subtree; pass both
+  `root/usr/include` and `root/usr/include/x86_64-linux-gnu` to the compiler.
+* Generate upstream `svn_version.h` before building individual subdirectories.
 * Rootless extracted Autoconf/Automake/Libtool need their data paths relocated.
   Only local bootstrap tool scripts are adjusted; BOINC remains unchanged.
 * Complete package extraction **before** configure/build. Concurrent extraction
@@ -126,6 +134,12 @@ TLS and normal service ownership/backups. Do not expose these prototype ports.
 The scripts refuse occupied ports before starting; they never reuse a running
 production database. Signing keys, database files, account authenticators and
 client XML remain outside Git.
+
+The port check uses `SO_REUSEADDR` so that a clean database shutdown during
+initialization does not produce a false occupied-port failure from TCP TIME_WAIT.
+Live listeners still cause setup to fail. `HERE`, `STOCK` and `RUNTIME` must be
+exported before entering the nested stack shell. See [the Cabbage pilot](CABBAGE_PILOT.md)
+for the Debian 13 rootless-container recipe and the separately recorded host test.
 
 The wrapper must resolve BOINC logical filenames. App modules are declared
 `copy_file` into the slot; packet input/output/engine use `boinc_resolve(...)`.
