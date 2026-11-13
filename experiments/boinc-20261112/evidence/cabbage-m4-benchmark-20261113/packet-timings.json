@@ -1,0 +1,2522 @@
+[
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "ada-upper-w0-b0",
+    "group": "realistic",
+    "positions": 49491764,
+    "native_rpc_seconds": 0.12276600021868944,
+    "engine_seconds": 0.122443,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "ada-upper-w0-b1",
+    "group": "realistic",
+    "positions": 49258164,
+    "native_rpc_seconds": 0.11049283295869827,
+    "engine_seconds": 0.110238,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "ada-upper-w0-b2",
+    "group": "realistic",
+    "positions": 10262910,
+    "native_rpc_seconds": 0.023550542071461678,
+    "engine_seconds": 0.0234471,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "ada-upper-w1-b0",
+    "group": "realistic",
+    "positions": 49234620,
+    "native_rpc_seconds": 0.11177129205316305,
+    "engine_seconds": 0.111556,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "ada-upper-w1-b1",
+    "group": "realistic",
+    "positions": 49649300,
+    "native_rpc_seconds": 0.11070137470960617,
+    "engine_seconds": 0.110512,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "ada-upper-w1-b2",
+    "group": "realistic",
+    "positions": 10301476,
+    "native_rpc_seconds": 0.0232309577986598,
+    "engine_seconds": 0.0231489,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "ada-upper-w2-b0",
+    "group": "realistic",
+    "positions": 49599707,
+    "native_rpc_seconds": 0.11376608395949006,
+    "engine_seconds": 0.113561,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "ada-upper-w2-b1",
+    "group": "realistic",
+    "positions": 49473480,
+    "native_rpc_seconds": 0.11160337505862117,
+    "engine_seconds": 0.111399,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "ada-upper-w2-b2",
+    "group": "realistic",
+    "positions": 11369369,
+    "native_rpc_seconds": 0.026009957771748304,
+    "engine_seconds": 0.0259072,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "ada-upper-w3-b0",
+    "group": "realistic",
+    "positions": 49404220,
+    "native_rpc_seconds": 0.11271474976092577,
+    "engine_seconds": 0.112501,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "ada-upper-w3-b1",
+    "group": "realistic",
+    "positions": 49655446,
+    "native_rpc_seconds": 0.11077945865690708,
+    "engine_seconds": 0.110565,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "ada-upper-w3-b2",
+    "group": "realistic",
+    "positions": 10171542,
+    "native_rpc_seconds": 0.022946333047002554,
+    "engine_seconds": 0.0228715,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "ada-crossing-window-w0-b0",
+    "group": "realistic",
+    "positions": 49200246,
+    "native_rpc_seconds": 0.11145283421501517,
+    "engine_seconds": 0.111259,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "ada-crossing-window-w0-b1",
+    "group": "realistic",
+    "positions": 49621699,
+    "native_rpc_seconds": 0.10991849983111024,
+    "engine_seconds": 0.109714,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "ada-crossing-window-w0-b2",
+    "group": "realistic",
+    "positions": 17455885,
+    "native_rpc_seconds": 0.03627766668796539,
+    "engine_seconds": 0.0361423,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "cabbage-region-cap42-w0-b0",
+    "group": "realistic",
+    "positions": 49698899,
+    "native_rpc_seconds": 0.11289887502789497,
+    "engine_seconds": 0.112536,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "cabbage-region-cap42-w0-b1",
+    "group": "realistic",
+    "positions": 5579345,
+    "native_rpc_seconds": 0.012676625046879053,
+    "engine_seconds": 0.0125968,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "cabbage-region-cap42-w1-b0",
+    "group": "realistic",
+    "positions": 49952133,
+    "native_rpc_seconds": 0.1136558330617845,
+    "engine_seconds": 0.113296,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "cabbage-region-cap42-w1-b1",
+    "group": "realistic",
+    "positions": 5839795,
+    "native_rpc_seconds": 0.013755958061665297,
+    "engine_seconds": 0.0135678,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "cabbage-region-cap42-w2-b0",
+    "group": "realistic",
+    "positions": 49793901,
+    "native_rpc_seconds": 0.11527308309450746,
+    "engine_seconds": 0.114932,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "cabbage-region-cap42-w2-b1",
+    "group": "realistic",
+    "positions": 5646741,
+    "native_rpc_seconds": 0.012303959112614393,
+    "engine_seconds": 0.0122343,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "cabbage-region-cap42-w3-b0",
+    "group": "realistic",
+    "positions": 49866958,
+    "native_rpc_seconds": 0.11319837532937527,
+    "engine_seconds": 0.112848,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "cabbage-region-cap42-w3-b1",
+    "group": "realistic",
+    "positions": 5159594,
+    "native_rpc_seconds": 0.011790208052843809,
+    "engine_seconds": 0.0117214,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "tiny-w0-b0",
+    "group": "tiny",
+    "positions": 888615,
+    "native_rpc_seconds": 0.00202083308249712,
+    "engine_seconds": 0.00199233,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "tiny-w1-b0",
+    "group": "tiny",
+    "positions": 884247,
+    "native_rpc_seconds": 0.001992375124245882,
+    "engine_seconds": 0.0019715,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "tiny-w2-b0",
+    "group": "tiny",
+    "positions": 843661,
+    "native_rpc_seconds": 0.0019698329269886017,
+    "engine_seconds": 0.00195,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "tiny-w3-b0",
+    "group": "tiny",
+    "positions": 851295,
+    "native_rpc_seconds": 0.0019883750937879086,
+    "engine_seconds": 0.00197083,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "tiny-w4-b0",
+    "group": "tiny",
+    "positions": 836325,
+    "native_rpc_seconds": 0.001956166699528694,
+    "engine_seconds": 0.0019205,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "tiny-w5-b0",
+    "group": "tiny",
+    "positions": 842639,
+    "native_rpc_seconds": 0.0019083339720964432,
+    "engine_seconds": 0.00188033,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "tiny-w6-b0",
+    "group": "tiny",
+    "positions": 870975,
+    "native_rpc_seconds": 0.001875957939773798,
+    "engine_seconds": 0.00185583,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "tiny-w7-b0",
+    "group": "tiny",
+    "positions": 850563,
+    "native_rpc_seconds": 0.0018105832859873772,
+    "engine_seconds": 0.00179271,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "tiny-w8-b0",
+    "group": "tiny",
+    "positions": 856375,
+    "native_rpc_seconds": 0.001828082837164402,
+    "engine_seconds": 0.00180437,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "tiny-w9-b0",
+    "group": "tiny",
+    "positions": 861869,
+    "native_rpc_seconds": 0.002001166809350252,
+    "engine_seconds": 0.00191588,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "tiny-w10-b0",
+    "group": "tiny",
+    "positions": 822463,
+    "native_rpc_seconds": 0.0018124156631529331,
+    "engine_seconds": 0.001784,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "tiny-w11-b0",
+    "group": "tiny",
+    "positions": 848331,
+    "native_rpc_seconds": 0.0018745828419923782,
+    "engine_seconds": 0.00185287,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "tiny-w12-b0",
+    "group": "tiny",
+    "positions": 841491,
+    "native_rpc_seconds": 0.001798790879547596,
+    "engine_seconds": 0.001777,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "tiny-w13-b0",
+    "group": "tiny",
+    "positions": 922625,
+    "native_rpc_seconds": 0.0019989577122032642,
+    "engine_seconds": 0.001977,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "tiny-w14-b0",
+    "group": "tiny",
+    "positions": 859947,
+    "native_rpc_seconds": 0.0018527498468756676,
+    "engine_seconds": 0.00183021,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "tiny-w15-b0",
+    "group": "tiny",
+    "positions": 866943,
+    "native_rpc_seconds": 0.001879124902188778,
+    "engine_seconds": 0.00185908,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "control-cap42-r12",
+    "group": "control",
+    "positions": 3,
+    "native_rpc_seconds": 3.6499928683042526e-05,
+    "engine_seconds": 1.8459e-05,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "control-cap100-r12",
+    "group": "control",
+    "positions": 3,
+    "native_rpc_seconds": 2.9833056032657623e-05,
+    "engine_seconds": 1.4959e-05,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 1,
+    "packet": "control-cap2951-r-2002",
+    "group": "control",
+    "positions": 3,
+    "native_rpc_seconds": 3.270898014307022e-05,
+    "engine_seconds": 1.7458e-05,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "ada-upper-w0-b0",
+    "group": "realistic",
+    "positions": 49491764,
+    "native_rpc_seconds": 0.05601112497970462,
+    "engine_seconds": 0.0557586,
+    "kernel_seconds": 0.0533255
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "ada-upper-w0-b1",
+    "group": "realistic",
+    "positions": 49258164,
+    "native_rpc_seconds": 0.04640212468802929,
+    "engine_seconds": 0.0461639,
+    "kernel_seconds": 0.0453664
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "ada-upper-w0-b2",
+    "group": "realistic",
+    "positions": 10262910,
+    "native_rpc_seconds": 0.01036258414387703,
+    "engine_seconds": 0.0102659,
+    "kernel_seconds": 0.00961554
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "ada-upper-w1-b0",
+    "group": "realistic",
+    "positions": 49234620,
+    "native_rpc_seconds": 0.04636775003746152,
+    "engine_seconds": 0.0460738,
+    "kernel_seconds": 0.0454697
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "ada-upper-w1-b1",
+    "group": "realistic",
+    "positions": 49649300,
+    "native_rpc_seconds": 0.05003400007262826,
+    "engine_seconds": 0.0496164,
+    "kernel_seconds": 0.0490615
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "ada-upper-w1-b2",
+    "group": "realistic",
+    "positions": 10301476,
+    "native_rpc_seconds": 0.02012966712936759,
+    "engine_seconds": 0.0199481,
+    "kernel_seconds": 0.00893608
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "ada-upper-w2-b0",
+    "group": "realistic",
+    "positions": 49599707,
+    "native_rpc_seconds": 0.04793841624632478,
+    "engine_seconds": 0.0475981,
+    "kernel_seconds": 0.0467061
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "ada-upper-w2-b1",
+    "group": "realistic",
+    "positions": 49473480,
+    "native_rpc_seconds": 0.043502415996044874,
+    "engine_seconds": 0.0433109,
+    "kernel_seconds": 0.042539
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "ada-upper-w2-b2",
+    "group": "realistic",
+    "positions": 11369369,
+    "native_rpc_seconds": 0.011355665978044271,
+    "engine_seconds": 0.01126,
+    "kernel_seconds": 0.0106118
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "ada-upper-w3-b0",
+    "group": "realistic",
+    "positions": 49404220,
+    "native_rpc_seconds": 0.04804154206067324,
+    "engine_seconds": 0.0478346,
+    "kernel_seconds": 0.0470844
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "ada-upper-w3-b1",
+    "group": "realistic",
+    "positions": 49655446,
+    "native_rpc_seconds": 0.043055249843746424,
+    "engine_seconds": 0.0428969,
+    "kernel_seconds": 0.0422326
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "ada-upper-w3-b2",
+    "group": "realistic",
+    "positions": 10171542,
+    "native_rpc_seconds": 0.011948083061724901,
+    "engine_seconds": 0.0118498,
+    "kernel_seconds": 0.011581
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "ada-crossing-window-w0-b0",
+    "group": "realistic",
+    "positions": 49200246,
+    "native_rpc_seconds": 0.04373179096728563,
+    "engine_seconds": 0.0435848,
+    "kernel_seconds": 0.0429494
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "ada-crossing-window-w0-b1",
+    "group": "realistic",
+    "positions": 49621699,
+    "native_rpc_seconds": 0.04465283267199993,
+    "engine_seconds": 0.0443715,
+    "kernel_seconds": 0.0434005
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "ada-crossing-window-w0-b2",
+    "group": "realistic",
+    "positions": 17455885,
+    "native_rpc_seconds": 0.01607866631820798,
+    "engine_seconds": 0.0159723,
+    "kernel_seconds": 0.0156238
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "cabbage-region-cap42-w0-b0",
+    "group": "realistic",
+    "positions": 49698899,
+    "native_rpc_seconds": 0.04236404225230217,
+    "engine_seconds": 0.042059,
+    "kernel_seconds": 0.0412336
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "cabbage-region-cap42-w0-b1",
+    "group": "realistic",
+    "positions": 5579345,
+    "native_rpc_seconds": 0.00588575005531311,
+    "engine_seconds": 0.00579837,
+    "kernel_seconds": 0.00510671
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "cabbage-region-cap42-w1-b0",
+    "group": "realistic",
+    "positions": 49952133,
+    "native_rpc_seconds": 0.04584425035864115,
+    "engine_seconds": 0.0455396,
+    "kernel_seconds": 0.044734
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "cabbage-region-cap42-w1-b1",
+    "group": "realistic",
+    "positions": 5839795,
+    "native_rpc_seconds": 0.006533708889037371,
+    "engine_seconds": 0.00644112,
+    "kernel_seconds": 0.00583575
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "cabbage-region-cap42-w2-b0",
+    "group": "realistic",
+    "positions": 49793901,
+    "native_rpc_seconds": 0.0423939167521894,
+    "engine_seconds": 0.0420512,
+    "kernel_seconds": 0.0412884
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "cabbage-region-cap42-w2-b1",
+    "group": "realistic",
+    "positions": 5646741,
+    "native_rpc_seconds": 0.005741667002439499,
+    "engine_seconds": 0.00563688,
+    "kernel_seconds": 0.00501479
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "cabbage-region-cap42-w3-b0",
+    "group": "realistic",
+    "positions": 49866958,
+    "native_rpc_seconds": 0.046513999812304974,
+    "engine_seconds": 0.0461081,
+    "kernel_seconds": 0.0453429
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "cabbage-region-cap42-w3-b1",
+    "group": "realistic",
+    "positions": 5159594,
+    "native_rpc_seconds": 0.007609207648783922,
+    "engine_seconds": 0.00749792,
+    "kernel_seconds": 0.0049095
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "tiny-w0-b0",
+    "group": "tiny",
+    "positions": 888615,
+    "native_rpc_seconds": 0.0020085410214960575,
+    "engine_seconds": 0.00192904,
+    "kernel_seconds": 0.00142117
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "tiny-w1-b0",
+    "group": "tiny",
+    "positions": 884247,
+    "native_rpc_seconds": 0.0019922498613595963,
+    "engine_seconds": 0.00194587,
+    "kernel_seconds": 0.00140929
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "tiny-w2-b0",
+    "group": "tiny",
+    "positions": 843661,
+    "native_rpc_seconds": 0.0020116246305406094,
+    "engine_seconds": 0.0019695,
+    "kernel_seconds": 0.00140687
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "tiny-w3-b0",
+    "group": "tiny",
+    "positions": 851295,
+    "native_rpc_seconds": 0.002170874737203121,
+    "engine_seconds": 0.00211383,
+    "kernel_seconds": 0.00150287
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "tiny-w4-b0",
+    "group": "tiny",
+    "positions": 836325,
+    "native_rpc_seconds": 0.002025542315095663,
+    "engine_seconds": 0.00195862,
+    "kernel_seconds": 0.00138175
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "tiny-w5-b0",
+    "group": "tiny",
+    "positions": 842639,
+    "native_rpc_seconds": 0.0020980420522391796,
+    "engine_seconds": 0.00202592,
+    "kernel_seconds": 0.00145537
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "tiny-w6-b0",
+    "group": "tiny",
+    "positions": 870975,
+    "native_rpc_seconds": 0.0019711661152541637,
+    "engine_seconds": 0.00192367,
+    "kernel_seconds": 0.00140083
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "tiny-w7-b0",
+    "group": "tiny",
+    "positions": 850563,
+    "native_rpc_seconds": 0.0018369159661233425,
+    "engine_seconds": 0.00173908,
+    "kernel_seconds": 0.00112679
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "tiny-w8-b0",
+    "group": "tiny",
+    "positions": 856375,
+    "native_rpc_seconds": 0.002556249964982271,
+    "engine_seconds": 0.00193563,
+    "kernel_seconds": 0.00123812
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "tiny-w9-b0",
+    "group": "tiny",
+    "positions": 861869,
+    "native_rpc_seconds": 0.004650375340133905,
+    "engine_seconds": 0.00447525,
+    "kernel_seconds": 0.00138496
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "tiny-w10-b0",
+    "group": "tiny",
+    "positions": 822463,
+    "native_rpc_seconds": 0.0020245001651346684,
+    "engine_seconds": 0.00183662,
+    "kernel_seconds": 0.00135521
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "tiny-w11-b0",
+    "group": "tiny",
+    "positions": 848331,
+    "native_rpc_seconds": 0.003128000069409609,
+    "engine_seconds": 0.00271463,
+    "kernel_seconds": 0.00153213
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "tiny-w12-b0",
+    "group": "tiny",
+    "positions": 841491,
+    "native_rpc_seconds": 0.0024415417574346066,
+    "engine_seconds": 0.00226538,
+    "kernel_seconds": 0.00134183
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "tiny-w13-b0",
+    "group": "tiny",
+    "positions": 922625,
+    "native_rpc_seconds": 0.002176417037844658,
+    "engine_seconds": 0.00207696,
+    "kernel_seconds": 0.00153696
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "tiny-w14-b0",
+    "group": "tiny",
+    "positions": 859947,
+    "native_rpc_seconds": 0.0020539998076856136,
+    "engine_seconds": 0.001952,
+    "kernel_seconds": 0.00139025
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "tiny-w15-b0",
+    "group": "tiny",
+    "positions": 866943,
+    "native_rpc_seconds": 0.0019427081570029259,
+    "engine_seconds": 0.00188304,
+    "kernel_seconds": 0.00135167
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "control-cap42-r12",
+    "group": "control",
+    "positions": 3,
+    "native_rpc_seconds": 0.0005057076923549175,
+    "engine_seconds": 0.000473541,
+    "kernel_seconds": 1.18753e-05
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "control-cap100-r12",
+    "group": "control",
+    "positions": 3,
+    "native_rpc_seconds": 0.0004679998382925987,
+    "engine_seconds": 0.000438292,
+    "kernel_seconds": 1.175e-05
+  },
+  {
+    "backend": "gpu",
+    "repeat": 1,
+    "packet": "control-cap2951-r-2002",
+    "group": "control",
+    "positions": 3,
+    "native_rpc_seconds": 0.0005507078021764755,
+    "engine_seconds": 0.000498541,
+    "kernel_seconds": 1.13337e-05
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "ada-upper-w0-b0",
+    "group": "realistic",
+    "positions": 49491764,
+    "native_rpc_seconds": 0.12774895783513784,
+    "engine_seconds": 0.127381,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "ada-upper-w0-b1",
+    "group": "realistic",
+    "positions": 49258164,
+    "native_rpc_seconds": 0.12059733271598816,
+    "engine_seconds": 0.120372,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "ada-upper-w0-b2",
+    "group": "realistic",
+    "positions": 10262910,
+    "native_rpc_seconds": 0.02351662516593933,
+    "engine_seconds": 0.0234149,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "ada-upper-w1-b0",
+    "group": "realistic",
+    "positions": 49234620,
+    "native_rpc_seconds": 0.11276595899835229,
+    "engine_seconds": 0.112541,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "ada-upper-w1-b1",
+    "group": "realistic",
+    "positions": 49649300,
+    "native_rpc_seconds": 0.11241158284246922,
+    "engine_seconds": 0.112191,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "ada-upper-w1-b2",
+    "group": "realistic",
+    "positions": 10301476,
+    "native_rpc_seconds": 0.02301512472331524,
+    "engine_seconds": 0.0229476,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "ada-upper-w2-b0",
+    "group": "realistic",
+    "positions": 49599707,
+    "native_rpc_seconds": 0.11255904193967581,
+    "engine_seconds": 0.112346,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "ada-upper-w2-b1",
+    "group": "realistic",
+    "positions": 49473480,
+    "native_rpc_seconds": 0.1124824583530426,
+    "engine_seconds": 0.11224,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "ada-upper-w2-b2",
+    "group": "realistic",
+    "positions": 11369369,
+    "native_rpc_seconds": 0.0261243749409914,
+    "engine_seconds": 0.0260279,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "ada-upper-w3-b0",
+    "group": "realistic",
+    "positions": 49404220,
+    "native_rpc_seconds": 0.11287237517535686,
+    "engine_seconds": 0.112662,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "ada-upper-w3-b1",
+    "group": "realistic",
+    "positions": 49655446,
+    "native_rpc_seconds": 0.11134549975395203,
+    "engine_seconds": 0.111132,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "ada-upper-w3-b2",
+    "group": "realistic",
+    "positions": 10171542,
+    "native_rpc_seconds": 0.023117125034332275,
+    "engine_seconds": 0.023049,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "ada-crossing-window-w0-b0",
+    "group": "realistic",
+    "positions": 49200246,
+    "native_rpc_seconds": 0.11158825038000941,
+    "engine_seconds": 0.111394,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "ada-crossing-window-w0-b1",
+    "group": "realistic",
+    "positions": 49621699,
+    "native_rpc_seconds": 0.10932979080826044,
+    "engine_seconds": 0.109143,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "ada-crossing-window-w0-b2",
+    "group": "realistic",
+    "positions": 17455885,
+    "native_rpc_seconds": 0.036283041816204786,
+    "engine_seconds": 0.0361705,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "cabbage-region-cap42-w0-b0",
+    "group": "realistic",
+    "positions": 49698899,
+    "native_rpc_seconds": 0.11277608294039965,
+    "engine_seconds": 0.112444,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "cabbage-region-cap42-w0-b1",
+    "group": "realistic",
+    "positions": 5579345,
+    "native_rpc_seconds": 0.012788000050932169,
+    "engine_seconds": 0.0127163,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "cabbage-region-cap42-w1-b0",
+    "group": "realistic",
+    "positions": 49952133,
+    "native_rpc_seconds": 0.11457195784896612,
+    "engine_seconds": 0.11425,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "cabbage-region-cap42-w1-b1",
+    "group": "realistic",
+    "positions": 5839795,
+    "native_rpc_seconds": 0.013431292027235031,
+    "engine_seconds": 0.0133732,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "cabbage-region-cap42-w2-b0",
+    "group": "realistic",
+    "positions": 49793901,
+    "native_rpc_seconds": 0.11480754101648927,
+    "engine_seconds": 0.114484,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "cabbage-region-cap42-w2-b1",
+    "group": "realistic",
+    "positions": 5646741,
+    "native_rpc_seconds": 0.012373833917081356,
+    "engine_seconds": 0.0123172,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "cabbage-region-cap42-w3-b0",
+    "group": "realistic",
+    "positions": 49866958,
+    "native_rpc_seconds": 0.11348320823162794,
+    "engine_seconds": 0.11312,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "cabbage-region-cap42-w3-b1",
+    "group": "realistic",
+    "positions": 5159594,
+    "native_rpc_seconds": 0.0117704588919878,
+    "engine_seconds": 0.0116841,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "tiny-w0-b0",
+    "group": "tiny",
+    "positions": 888615,
+    "native_rpc_seconds": 0.0019777920097112656,
+    "engine_seconds": 0.00194721,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "tiny-w1-b0",
+    "group": "tiny",
+    "positions": 884247,
+    "native_rpc_seconds": 0.0020058751106262207,
+    "engine_seconds": 0.00198533,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "tiny-w2-b0",
+    "group": "tiny",
+    "positions": 843661,
+    "native_rpc_seconds": 0.001981958746910095,
+    "engine_seconds": 0.00194704,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "tiny-w3-b0",
+    "group": "tiny",
+    "positions": 851295,
+    "native_rpc_seconds": 0.0020300420001149178,
+    "engine_seconds": 0.00198575,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "tiny-w4-b0",
+    "group": "tiny",
+    "positions": 836325,
+    "native_rpc_seconds": 0.00200895918533206,
+    "engine_seconds": 0.00198008,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "tiny-w5-b0",
+    "group": "tiny",
+    "positions": 842639,
+    "native_rpc_seconds": 0.0019389591179788113,
+    "engine_seconds": 0.00191325,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "tiny-w6-b0",
+    "group": "tiny",
+    "positions": 870975,
+    "native_rpc_seconds": 0.0018802080303430557,
+    "engine_seconds": 0.0018605,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "tiny-w7-b0",
+    "group": "tiny",
+    "positions": 850563,
+    "native_rpc_seconds": 0.0018452503718435764,
+    "engine_seconds": 0.00182517,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "tiny-w8-b0",
+    "group": "tiny",
+    "positions": 856375,
+    "native_rpc_seconds": 0.0018390831537544727,
+    "engine_seconds": 0.00182,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "tiny-w9-b0",
+    "group": "tiny",
+    "positions": 861869,
+    "native_rpc_seconds": 0.0018776669166982174,
+    "engine_seconds": 0.00185808,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "tiny-w10-b0",
+    "group": "tiny",
+    "positions": 822463,
+    "native_rpc_seconds": 0.0017823749221861362,
+    "engine_seconds": 0.00176092,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "tiny-w11-b0",
+    "group": "tiny",
+    "positions": 848331,
+    "native_rpc_seconds": 0.0019199158996343613,
+    "engine_seconds": 0.00186542,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "tiny-w12-b0",
+    "group": "tiny",
+    "positions": 841491,
+    "native_rpc_seconds": 0.001936499960720539,
+    "engine_seconds": 0.00187621,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "tiny-w13-b0",
+    "group": "tiny",
+    "positions": 922625,
+    "native_rpc_seconds": 0.00205137487500906,
+    "engine_seconds": 0.00202554,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "tiny-w14-b0",
+    "group": "tiny",
+    "positions": 859947,
+    "native_rpc_seconds": 0.0018790406174957752,
+    "engine_seconds": 0.00186146,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "tiny-w15-b0",
+    "group": "tiny",
+    "positions": 866943,
+    "native_rpc_seconds": 0.0018446668982505798,
+    "engine_seconds": 0.00182154,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "control-cap42-r12",
+    "group": "control",
+    "positions": 3,
+    "native_rpc_seconds": 3.4499913454055786e-05,
+    "engine_seconds": 1.6792e-05,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "control-cap100-r12",
+    "group": "control",
+    "positions": 3,
+    "native_rpc_seconds": 3.1833071261644363e-05,
+    "engine_seconds": 1.6458e-05,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 2,
+    "packet": "control-cap2951-r-2002",
+    "group": "control",
+    "positions": 3,
+    "native_rpc_seconds": 3.299955278635025e-05,
+    "engine_seconds": 1.5458e-05,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "ada-upper-w0-b0",
+    "group": "realistic",
+    "positions": 49491764,
+    "native_rpc_seconds": 0.07713291700929403,
+    "engine_seconds": 0.076827,
+    "kernel_seconds": 0.0740181
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "ada-upper-w0-b1",
+    "group": "realistic",
+    "positions": 49258164,
+    "native_rpc_seconds": 0.04291845904663205,
+    "engine_seconds": 0.04272,
+    "kernel_seconds": 0.042019
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "ada-upper-w0-b2",
+    "group": "realistic",
+    "positions": 10262910,
+    "native_rpc_seconds": 0.010109750088304281,
+    "engine_seconds": 0.0100166,
+    "kernel_seconds": 0.009428
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "ada-upper-w1-b0",
+    "group": "realistic",
+    "positions": 49234620,
+    "native_rpc_seconds": 0.044828083366155624,
+    "engine_seconds": 0.0446296,
+    "kernel_seconds": 0.0442219
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "ada-upper-w1-b1",
+    "group": "realistic",
+    "positions": 49649300,
+    "native_rpc_seconds": 0.04525795765221119,
+    "engine_seconds": 0.0450655,
+    "kernel_seconds": 0.0443133
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "ada-upper-w1-b2",
+    "group": "realistic",
+    "positions": 10301476,
+    "native_rpc_seconds": 0.010115915909409523,
+    "engine_seconds": 0.0100312,
+    "kernel_seconds": 0.00920967
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "ada-upper-w2-b0",
+    "group": "realistic",
+    "positions": 49599707,
+    "native_rpc_seconds": 0.04398562526330352,
+    "engine_seconds": 0.043804,
+    "kernel_seconds": 0.0431166
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "ada-upper-w2-b1",
+    "group": "realistic",
+    "positions": 49473480,
+    "native_rpc_seconds": 0.04564991593360901,
+    "engine_seconds": 0.0454518,
+    "kernel_seconds": 0.0448006
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "ada-upper-w2-b2",
+    "group": "realistic",
+    "positions": 11369369,
+    "native_rpc_seconds": 0.011557250283658504,
+    "engine_seconds": 0.01147,
+    "kernel_seconds": 0.0107661
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "ada-upper-w3-b0",
+    "group": "realistic",
+    "positions": 49404220,
+    "native_rpc_seconds": 0.04398324992507696,
+    "engine_seconds": 0.0438095,
+    "kernel_seconds": 0.0429977
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "ada-upper-w3-b1",
+    "group": "realistic",
+    "positions": 49655446,
+    "native_rpc_seconds": 0.04575637495145202,
+    "engine_seconds": 0.0455655,
+    "kernel_seconds": 0.044801
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "ada-upper-w3-b2",
+    "group": "realistic",
+    "positions": 10171542,
+    "native_rpc_seconds": 0.009833542164415121,
+    "engine_seconds": 0.00975454,
+    "kernel_seconds": 0.00910496
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "ada-crossing-window-w0-b0",
+    "group": "realistic",
+    "positions": 49200246,
+    "native_rpc_seconds": 0.04401695774868131,
+    "engine_seconds": 0.0438456,
+    "kernel_seconds": 0.043144
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "ada-crossing-window-w0-b1",
+    "group": "realistic",
+    "positions": 49621699,
+    "native_rpc_seconds": 0.04585637478157878,
+    "engine_seconds": 0.0456813,
+    "kernel_seconds": 0.0449174
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "ada-crossing-window-w0-b2",
+    "group": "realistic",
+    "positions": 17455885,
+    "native_rpc_seconds": 0.016356625128537416,
+    "engine_seconds": 0.0162552,
+    "kernel_seconds": 0.0155644
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "cabbage-region-cap42-w0-b0",
+    "group": "realistic",
+    "positions": 49698899,
+    "native_rpc_seconds": 0.04226287500932813,
+    "engine_seconds": 0.0419623,
+    "kernel_seconds": 0.0411004
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "cabbage-region-cap42-w0-b1",
+    "group": "realistic",
+    "positions": 5579345,
+    "native_rpc_seconds": 0.00588958291336894,
+    "engine_seconds": 0.005809,
+    "kernel_seconds": 0.00512758
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "cabbage-region-cap42-w1-b0",
+    "group": "realistic",
+    "positions": 49952133,
+    "native_rpc_seconds": 0.045129625126719475,
+    "engine_seconds": 0.0448508,
+    "kernel_seconds": 0.0441275
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "cabbage-region-cap42-w1-b1",
+    "group": "realistic",
+    "positions": 5839795,
+    "native_rpc_seconds": 0.006280667148530483,
+    "engine_seconds": 0.00619713,
+    "kernel_seconds": 0.00553083
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "cabbage-region-cap42-w2-b0",
+    "group": "realistic",
+    "positions": 49793901,
+    "native_rpc_seconds": 0.04956166725605726,
+    "engine_seconds": 0.0491522,
+    "kernel_seconds": 0.0483892
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "cabbage-region-cap42-w2-b1",
+    "group": "realistic",
+    "positions": 5646741,
+    "native_rpc_seconds": 0.005573666654527187,
+    "engine_seconds": 0.00550196,
+    "kernel_seconds": 0.00491396
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "cabbage-region-cap42-w3-b0",
+    "group": "realistic",
+    "positions": 49866958,
+    "native_rpc_seconds": 0.04225562512874603,
+    "engine_seconds": 0.0419223,
+    "kernel_seconds": 0.0411533
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "cabbage-region-cap42-w3-b1",
+    "group": "realistic",
+    "positions": 5159594,
+    "native_rpc_seconds": 0.0056782918982207775,
+    "engine_seconds": 0.00559979,
+    "kernel_seconds": 0.00499413
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "tiny-w0-b0",
+    "group": "tiny",
+    "positions": 888615,
+    "native_rpc_seconds": 0.001958292443305254,
+    "engine_seconds": 0.00192804,
+    "kernel_seconds": 0.0014165
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "tiny-w1-b0",
+    "group": "tiny",
+    "positions": 884247,
+    "native_rpc_seconds": 0.0019460422918200493,
+    "engine_seconds": 0.00189179,
+    "kernel_seconds": 0.00141058
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "tiny-w2-b0",
+    "group": "tiny",
+    "positions": 843661,
+    "native_rpc_seconds": 0.00200466625392437,
+    "engine_seconds": 0.00196229,
+    "kernel_seconds": 0.00139029
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "tiny-w3-b0",
+    "group": "tiny",
+    "positions": 851295,
+    "native_rpc_seconds": 0.0020288745872676373,
+    "engine_seconds": 0.00198413,
+    "kernel_seconds": 0.001503
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "tiny-w4-b0",
+    "group": "tiny",
+    "positions": 836325,
+    "native_rpc_seconds": 0.0019899997860193253,
+    "engine_seconds": 0.00193837,
+    "kernel_seconds": 0.00135104
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "tiny-w5-b0",
+    "group": "tiny",
+    "positions": 842639,
+    "native_rpc_seconds": 0.0018790410831570625,
+    "engine_seconds": 0.00185175,
+    "kernel_seconds": 0.00138562
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "tiny-w6-b0",
+    "group": "tiny",
+    "positions": 870975,
+    "native_rpc_seconds": 0.0021071666851639748,
+    "engine_seconds": 0.00205312,
+    "kernel_seconds": 0.00177087
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "tiny-w7-b0",
+    "group": "tiny",
+    "positions": 850563,
+    "native_rpc_seconds": 0.0015279999934136868,
+    "engine_seconds": 0.00147192,
+    "kernel_seconds": 0.00113971
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "tiny-w8-b0",
+    "group": "tiny",
+    "positions": 856375,
+    "native_rpc_seconds": 0.002117208205163479,
+    "engine_seconds": 0.00203629,
+    "kernel_seconds": 0.00124937
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "tiny-w9-b0",
+    "group": "tiny",
+    "positions": 861869,
+    "native_rpc_seconds": 0.0025369590148329735,
+    "engine_seconds": 0.00248642,
+    "kernel_seconds": 0.00157962
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "tiny-w10-b0",
+    "group": "tiny",
+    "positions": 822463,
+    "native_rpc_seconds": 0.0019960831850767136,
+    "engine_seconds": 0.00193287,
+    "kernel_seconds": 0.0014505
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "tiny-w11-b0",
+    "group": "tiny",
+    "positions": 848331,
+    "native_rpc_seconds": 0.0020684171468019485,
+    "engine_seconds": 0.0020355,
+    "kernel_seconds": 0.00153163
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "tiny-w12-b0",
+    "group": "tiny",
+    "positions": 841491,
+    "native_rpc_seconds": 0.002000917214900255,
+    "engine_seconds": 0.00194612,
+    "kernel_seconds": 0.00135004
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "tiny-w13-b0",
+    "group": "tiny",
+    "positions": 922625,
+    "native_rpc_seconds": 0.0020681247115135193,
+    "engine_seconds": 0.00204254,
+    "kernel_seconds": 0.00154212
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "tiny-w14-b0",
+    "group": "tiny",
+    "positions": 859947,
+    "native_rpc_seconds": 0.001953457947820425,
+    "engine_seconds": 0.00193213,
+    "kernel_seconds": 0.00139421
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "tiny-w15-b0",
+    "group": "tiny",
+    "positions": 866943,
+    "native_rpc_seconds": 0.0018814997747540474,
+    "engine_seconds": 0.00182704,
+    "kernel_seconds": 0.00136729
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "control-cap42-r12",
+    "group": "control",
+    "positions": 3,
+    "native_rpc_seconds": 0.0004582502879202366,
+    "engine_seconds": 0.000426625,
+    "kernel_seconds": 1.06664e-05
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "control-cap100-r12",
+    "group": "control",
+    "positions": 3,
+    "native_rpc_seconds": 0.0007436671294271946,
+    "engine_seconds": 0.000693083,
+    "kernel_seconds": 2.94582e-05
+  },
+  {
+    "backend": "gpu",
+    "repeat": 2,
+    "packet": "control-cap2951-r-2002",
+    "group": "control",
+    "positions": 3,
+    "native_rpc_seconds": 0.0005985000170767307,
+    "engine_seconds": 0.000573709,
+    "kernel_seconds": 1.28751e-05
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "ada-upper-w0-b0",
+    "group": "realistic",
+    "positions": 49491764,
+    "native_rpc_seconds": 0.11641683289781213,
+    "engine_seconds": 0.116182,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "ada-upper-w0-b1",
+    "group": "realistic",
+    "positions": 49258164,
+    "native_rpc_seconds": 0.11467183427885175,
+    "engine_seconds": 0.114454,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "ada-upper-w0-b2",
+    "group": "realistic",
+    "positions": 10262910,
+    "native_rpc_seconds": 0.023622749838978052,
+    "engine_seconds": 0.023501,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "ada-upper-w1-b0",
+    "group": "realistic",
+    "positions": 49234620,
+    "native_rpc_seconds": 0.11363783339038491,
+    "engine_seconds": 0.113436,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "ada-upper-w1-b1",
+    "group": "realistic",
+    "positions": 49649300,
+    "native_rpc_seconds": 0.1120114172808826,
+    "engine_seconds": 0.111797,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "ada-upper-w1-b2",
+    "group": "realistic",
+    "positions": 10301476,
+    "native_rpc_seconds": 0.023161500226706266,
+    "engine_seconds": 0.023083,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "ada-upper-w2-b0",
+    "group": "realistic",
+    "positions": 49599707,
+    "native_rpc_seconds": 0.11216487502679229,
+    "engine_seconds": 0.111735,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "ada-upper-w2-b1",
+    "group": "realistic",
+    "positions": 49473480,
+    "native_rpc_seconds": 0.11222187522798777,
+    "engine_seconds": 0.111979,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "ada-upper-w2-b2",
+    "group": "realistic",
+    "positions": 11369369,
+    "native_rpc_seconds": 0.025933667086064816,
+    "engine_seconds": 0.025871,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "ada-upper-w3-b0",
+    "group": "realistic",
+    "positions": 49404220,
+    "native_rpc_seconds": 0.11201720824465156,
+    "engine_seconds": 0.111802,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "ada-upper-w3-b1",
+    "group": "realistic",
+    "positions": 49655446,
+    "native_rpc_seconds": 0.1111954590305686,
+    "engine_seconds": 0.110977,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "ada-upper-w3-b2",
+    "group": "realistic",
+    "positions": 10171542,
+    "native_rpc_seconds": 0.02294737519696355,
+    "engine_seconds": 0.0228725,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "ada-crossing-window-w0-b0",
+    "group": "realistic",
+    "positions": 49200246,
+    "native_rpc_seconds": 0.11158016696572304,
+    "engine_seconds": 0.111387,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "ada-crossing-window-w0-b1",
+    "group": "realistic",
+    "positions": 49621699,
+    "native_rpc_seconds": 0.11006266670301557,
+    "engine_seconds": 0.109865,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "ada-crossing-window-w0-b2",
+    "group": "realistic",
+    "positions": 17455885,
+    "native_rpc_seconds": 0.03702637506648898,
+    "engine_seconds": 0.0368984,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "cabbage-region-cap42-w0-b0",
+    "group": "realistic",
+    "positions": 49698899,
+    "native_rpc_seconds": 0.11443279217928648,
+    "engine_seconds": 0.114004,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "cabbage-region-cap42-w0-b1",
+    "group": "realistic",
+    "positions": 5579345,
+    "native_rpc_seconds": 0.012883207760751247,
+    "engine_seconds": 0.0128065,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "cabbage-region-cap42-w1-b0",
+    "group": "realistic",
+    "positions": 49952133,
+    "native_rpc_seconds": 0.11553862504661083,
+    "engine_seconds": 0.115121,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "cabbage-region-cap42-w1-b1",
+    "group": "realistic",
+    "positions": 5839795,
+    "native_rpc_seconds": 0.013618375174701214,
+    "engine_seconds": 0.0135416,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "cabbage-region-cap42-w2-b0",
+    "group": "realistic",
+    "positions": 49793901,
+    "native_rpc_seconds": 0.11603291612118483,
+    "engine_seconds": 0.115695,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "cabbage-region-cap42-w2-b1",
+    "group": "realistic",
+    "positions": 5646741,
+    "native_rpc_seconds": 0.012445957865566015,
+    "engine_seconds": 0.0123748,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "cabbage-region-cap42-w3-b0",
+    "group": "realistic",
+    "positions": 49866958,
+    "native_rpc_seconds": 0.11394162522628903,
+    "engine_seconds": 0.113514,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "cabbage-region-cap42-w3-b1",
+    "group": "realistic",
+    "positions": 5159594,
+    "native_rpc_seconds": 0.011861416976898909,
+    "engine_seconds": 0.0117781,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "tiny-w0-b0",
+    "group": "tiny",
+    "positions": 888615,
+    "native_rpc_seconds": 0.0021382919512689114,
+    "engine_seconds": 0.00208879,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "tiny-w1-b0",
+    "group": "tiny",
+    "positions": 884247,
+    "native_rpc_seconds": 0.00206408416852355,
+    "engine_seconds": 0.0020255,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "tiny-w2-b0",
+    "group": "tiny",
+    "positions": 843661,
+    "native_rpc_seconds": 0.0020259576849639416,
+    "engine_seconds": 0.00199433,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "tiny-w3-b0",
+    "group": "tiny",
+    "positions": 851295,
+    "native_rpc_seconds": 0.0020832084119319916,
+    "engine_seconds": 0.00202454,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "tiny-w4-b0",
+    "group": "tiny",
+    "positions": 836325,
+    "native_rpc_seconds": 0.00201204139739275,
+    "engine_seconds": 0.00197992,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "tiny-w5-b0",
+    "group": "tiny",
+    "positions": 842639,
+    "native_rpc_seconds": 0.0019779587164521217,
+    "engine_seconds": 0.00195783,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "tiny-w6-b0",
+    "group": "tiny",
+    "positions": 870975,
+    "native_rpc_seconds": 0.001878583338111639,
+    "engine_seconds": 0.00185388,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "tiny-w7-b0",
+    "group": "tiny",
+    "positions": 850563,
+    "native_rpc_seconds": 0.0018024579621851444,
+    "engine_seconds": 0.00177908,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "tiny-w8-b0",
+    "group": "tiny",
+    "positions": 856375,
+    "native_rpc_seconds": 0.0018454999662935734,
+    "engine_seconds": 0.00182621,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "tiny-w9-b0",
+    "group": "tiny",
+    "positions": 861869,
+    "native_rpc_seconds": 0.0018780003301799297,
+    "engine_seconds": 0.00186054,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "tiny-w10-b0",
+    "group": "tiny",
+    "positions": 822463,
+    "native_rpc_seconds": 0.0017567090690135956,
+    "engine_seconds": 0.00173217,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "tiny-w11-b0",
+    "group": "tiny",
+    "positions": 848331,
+    "native_rpc_seconds": 0.001856500282883644,
+    "engine_seconds": 0.001838,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "tiny-w12-b0",
+    "group": "tiny",
+    "positions": 841491,
+    "native_rpc_seconds": 0.0018121246248483658,
+    "engine_seconds": 0.00178813,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "tiny-w13-b0",
+    "group": "tiny",
+    "positions": 922625,
+    "native_rpc_seconds": 0.0019684997387230396,
+    "engine_seconds": 0.00194292,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "tiny-w14-b0",
+    "group": "tiny",
+    "positions": 859947,
+    "native_rpc_seconds": 0.0018897498957812786,
+    "engine_seconds": 0.00186746,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "tiny-w15-b0",
+    "group": "tiny",
+    "positions": 866943,
+    "native_rpc_seconds": 0.0020318753086030483,
+    "engine_seconds": 0.00195292,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "control-cap42-r12",
+    "group": "control",
+    "positions": 3,
+    "native_rpc_seconds": 6.87912106513977e-05,
+    "engine_seconds": 3.0417e-05,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "control-cap100-r12",
+    "group": "control",
+    "positions": 3,
+    "native_rpc_seconds": 4.566693678498268e-05,
+    "engine_seconds": 2.2292e-05,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "cpu",
+    "repeat": 3,
+    "packet": "control-cap2951-r-2002",
+    "group": "control",
+    "positions": 3,
+    "native_rpc_seconds": 3.854185342788696e-05,
+    "engine_seconds": 1.9542e-05,
+    "kernel_seconds": 0
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "ada-upper-w0-b0",
+    "group": "realistic",
+    "positions": 49491764,
+    "native_rpc_seconds": 0.07256529154255986,
+    "engine_seconds": 0.0722445,
+    "kernel_seconds": 0.0699924
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "ada-upper-w0-b1",
+    "group": "realistic",
+    "positions": 49258164,
+    "native_rpc_seconds": 0.04955637501552701,
+    "engine_seconds": 0.0492766,
+    "kernel_seconds": 0.0479248
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "ada-upper-w0-b2",
+    "group": "realistic",
+    "positions": 10262910,
+    "native_rpc_seconds": 0.010496874805539846,
+    "engine_seconds": 0.0103785,
+    "kernel_seconds": 0.00999467
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "ada-upper-w1-b0",
+    "group": "realistic",
+    "positions": 49234620,
+    "native_rpc_seconds": 0.04626983404159546,
+    "engine_seconds": 0.0460338,
+    "kernel_seconds": 0.0454225
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "ada-upper-w1-b1",
+    "group": "realistic",
+    "positions": 49649300,
+    "native_rpc_seconds": 0.045649667270481586,
+    "engine_seconds": 0.045452,
+    "kernel_seconds": 0.044805
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "ada-upper-w1-b2",
+    "group": "realistic",
+    "positions": 10301476,
+    "native_rpc_seconds": 0.009980416856706142,
+    "engine_seconds": 0.00988154,
+    "kernel_seconds": 0.00931575
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "ada-upper-w2-b0",
+    "group": "realistic",
+    "positions": 49599707,
+    "native_rpc_seconds": 0.05358824972063303,
+    "engine_seconds": 0.0532531,
+    "kernel_seconds": 0.0528063
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "ada-upper-w2-b1",
+    "group": "realistic",
+    "positions": 49473480,
+    "native_rpc_seconds": 0.04999337485060096,
+    "engine_seconds": 0.0496998,
+    "kernel_seconds": 0.0492296
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "ada-upper-w2-b2",
+    "group": "realistic",
+    "positions": 11369369,
+    "native_rpc_seconds": 0.011471833102405071,
+    "engine_seconds": 0.0114029,
+    "kernel_seconds": 0.0108878
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "ada-upper-w3-b0",
+    "group": "realistic",
+    "positions": 49404220,
+    "native_rpc_seconds": 0.044401958119124174,
+    "engine_seconds": 0.0441203,
+    "kernel_seconds": 0.0428735
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "ada-upper-w3-b1",
+    "group": "realistic",
+    "positions": 49655446,
+    "native_rpc_seconds": 0.04693779209628701,
+    "engine_seconds": 0.0467417,
+    "kernel_seconds": 0.0463678
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "ada-upper-w3-b2",
+    "group": "realistic",
+    "positions": 10171542,
+    "native_rpc_seconds": 0.00969849992543459,
+    "engine_seconds": 0.00963275,
+    "kernel_seconds": 0.00915225
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "ada-crossing-window-w0-b0",
+    "group": "realistic",
+    "positions": 49200246,
+    "native_rpc_seconds": 0.04512395802885294,
+    "engine_seconds": 0.0448378,
+    "kernel_seconds": 0.0442171
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "ada-crossing-window-w0-b1",
+    "group": "realistic",
+    "positions": 49621699,
+    "native_rpc_seconds": 0.047489500138908625,
+    "engine_seconds": 0.0472946,
+    "kernel_seconds": 0.046686
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "ada-crossing-window-w0-b2",
+    "group": "realistic",
+    "positions": 17455885,
+    "native_rpc_seconds": 0.01649183314293623,
+    "engine_seconds": 0.0163657,
+    "kernel_seconds": 0.0158288
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "cabbage-region-cap42-w0-b0",
+    "group": "realistic",
+    "positions": 49698899,
+    "native_rpc_seconds": 0.05152624985203147,
+    "engine_seconds": 0.0511433,
+    "kernel_seconds": 0.0504967
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "cabbage-region-cap42-w0-b1",
+    "group": "realistic",
+    "positions": 5579345,
+    "native_rpc_seconds": 0.005530208814889193,
+    "engine_seconds": 0.00545979,
+    "kernel_seconds": 0.004897
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "cabbage-region-cap42-w1-b0",
+    "group": "realistic",
+    "positions": 49952133,
+    "native_rpc_seconds": 0.04438175028190017,
+    "engine_seconds": 0.0439394,
+    "kernel_seconds": 0.043078
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "cabbage-region-cap42-w1-b1",
+    "group": "realistic",
+    "positions": 5839795,
+    "native_rpc_seconds": 0.006083082873374224,
+    "engine_seconds": 0.00601042,
+    "kernel_seconds": 0.00553029
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "cabbage-region-cap42-w2-b0",
+    "group": "realistic",
+    "positions": 49793901,
+    "native_rpc_seconds": 0.046052500139921904,
+    "engine_seconds": 0.0457256,
+    "kernel_seconds": 0.0450396
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "cabbage-region-cap42-w2-b1",
+    "group": "realistic",
+    "positions": 5646741,
+    "native_rpc_seconds": 0.0058923750184476376,
+    "engine_seconds": 0.00581067,
+    "kernel_seconds": 0.00527279
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "cabbage-region-cap42-w3-b0",
+    "group": "realistic",
+    "positions": 49866958,
+    "native_rpc_seconds": 0.04758674977347255,
+    "engine_seconds": 0.0471605,
+    "kernel_seconds": 0.046687
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "cabbage-region-cap42-w3-b1",
+    "group": "realistic",
+    "positions": 5159594,
+    "native_rpc_seconds": 0.007784416899085045,
+    "engine_seconds": 0.007683,
+    "kernel_seconds": 0.00614863
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "tiny-w0-b0",
+    "group": "tiny",
+    "positions": 888615,
+    "native_rpc_seconds": 0.0018968749791383743,
+    "engine_seconds": 0.00183063,
+    "kernel_seconds": 0.0015125
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "tiny-w1-b0",
+    "group": "tiny",
+    "positions": 884247,
+    "native_rpc_seconds": 0.0018913750536739826,
+    "engine_seconds": 0.00185829,
+    "kernel_seconds": 0.001407
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "tiny-w2-b0",
+    "group": "tiny",
+    "positions": 843661,
+    "native_rpc_seconds": 0.0019332501105964184,
+    "engine_seconds": 0.00187996,
+    "kernel_seconds": 0.00137387
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "tiny-w3-b0",
+    "group": "tiny",
+    "positions": 851295,
+    "native_rpc_seconds": 0.0019560828804969788,
+    "engine_seconds": 0.00192629,
+    "kernel_seconds": 0.00149079
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "tiny-w4-b0",
+    "group": "tiny",
+    "positions": 836325,
+    "native_rpc_seconds": 0.0019472087733447552,
+    "engine_seconds": 0.00190537,
+    "kernel_seconds": 0.00138312
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "tiny-w5-b0",
+    "group": "tiny",
+    "positions": 842639,
+    "native_rpc_seconds": 0.0019656666554510593,
+    "engine_seconds": 0.00193462,
+    "kernel_seconds": 0.00142821
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "tiny-w6-b0",
+    "group": "tiny",
+    "positions": 870975,
+    "native_rpc_seconds": 0.0020104157738387585,
+    "engine_seconds": 0.00197713,
+    "kernel_seconds": 0.00143288
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "tiny-w7-b0",
+    "group": "tiny",
+    "positions": 850563,
+    "native_rpc_seconds": 0.0016055833548307419,
+    "engine_seconds": 0.00158108,
+    "kernel_seconds": 0.00114083
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "tiny-w8-b0",
+    "group": "tiny",
+    "positions": 856375,
+    "native_rpc_seconds": 0.001703666988760233,
+    "engine_seconds": 0.00167733,
+    "kernel_seconds": 0.00123563
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "tiny-w9-b0",
+    "group": "tiny",
+    "positions": 861869,
+    "native_rpc_seconds": 0.0018647080287337303,
+    "engine_seconds": 0.0018415,
+    "kernel_seconds": 0.00138012
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "tiny-w10-b0",
+    "group": "tiny",
+    "positions": 822463,
+    "native_rpc_seconds": 0.0018759588710963726,
+    "engine_seconds": 0.00183279,
+    "kernel_seconds": 0.001347
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "tiny-w11-b0",
+    "group": "tiny",
+    "positions": 848331,
+    "native_rpc_seconds": 0.002036541700363159,
+    "engine_seconds": 0.00199283,
+    "kernel_seconds": 0.00147825
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "tiny-w12-b0",
+    "group": "tiny",
+    "positions": 841491,
+    "native_rpc_seconds": 0.0019685840234160423,
+    "engine_seconds": 0.00193504,
+    "kernel_seconds": 0.00136612
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "tiny-w13-b0",
+    "group": "tiny",
+    "positions": 922625,
+    "native_rpc_seconds": 0.0018115411512553692,
+    "engine_seconds": 0.00177904,
+    "kernel_seconds": 0.00154833
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "tiny-w14-b0",
+    "group": "tiny",
+    "positions": 859947,
+    "native_rpc_seconds": 0.002080791164189577,
+    "engine_seconds": 0.00203592,
+    "kernel_seconds": 0.00175312
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "tiny-w15-b0",
+    "group": "tiny",
+    "positions": 866943,
+    "native_rpc_seconds": 0.0031127906404435635,
+    "engine_seconds": 0.00307029,
+    "kernel_seconds": 0.00144288
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "control-cap42-r12",
+    "group": "control",
+    "positions": 3,
+    "native_rpc_seconds": 0.0005493750795722008,
+    "engine_seconds": 0.000512708,
+    "kernel_seconds": 1.37915e-05
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "control-cap100-r12",
+    "group": "control",
+    "positions": 3,
+    "native_rpc_seconds": 0.000451916828751564,
+    "engine_seconds": 0.000430042,
+    "kernel_seconds": 1.12085e-05
+  },
+  {
+    "backend": "gpu",
+    "repeat": 3,
+    "packet": "control-cap2951-r-2002",
+    "group": "control",
+    "positions": 3,
+    "native_rpc_seconds": 0.00044958293437957764,
+    "engine_seconds": 0.000424958,
+    "kernel_seconds": 1.02501e-05
+  }
+]

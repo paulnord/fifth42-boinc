@@ -1,0 +1,14 @@
+{
+  "backup": "/pilot/mac-server/homepage-backups/20261113T231957Z",
+  "installed": [
+    "index.php",
+    "fifthpower-assets/benchmark.md",
+    "fifthpower-assets/frontier.svg",
+    "fifthpower-assets/home.css",
+    "fifthpower-assets/home.js",
+    "fifthpower-assets/pilot.json"
+  ],
+  "schedulers_sha256": "de1dfab1278a8b3187fa4254acc5f0784b92a1ac1eefbeb6c7464218c28d431c",
+  "TEST_ONLY": true,
+  "production_changes": false
+}

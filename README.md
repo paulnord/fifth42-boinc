@@ -1,6 +1,6 @@
 # Fifth42 BOINC prototype
 
-A reproducible, **TEST_ONLY CPU/CUDA prototype** for running the Fifth42 search
+A reproducible, **TEST_ONLY CPU/CUDA/Metal prototype** for running the Fifth42 search
 through an unmodified stock BOINC server, client and wrapper.
 
 ## Start here
@@ -12,6 +12,9 @@ through an unmodified stock BOINC server, client and wrapper.
 - [CPU lifecycle and Boole native CPU/GPU results](experiments/boinc-20261112/stock/lifecycle/LIFECYCLE_REPORT.md)
 - [How to test the Boole client](experiments/boinc-20261112/stock/lifecycle/BOOLE_TESTING.md)
 - [Native Linux, Windows and macOS CPU application kits](experiments/boinc-20261112/portable/CLIENT_KITS.md)
+- [Physical M4 BOINC CPU/Metal acceptance and private attachment](experiments/boinc-20261112/stock/macos/README.md)
+- [FifthPower@home private homepage preview](experiments/boinc-20261112/web/README.md)
+- [Physical M4 CPU/Metal speed comparison](experiments/boinc-20261112/docs/CABBAGE_M4_BENCHMARK_20261113.md)
 - [Acceptance review](experiments/boinc-20261112/docs/ACCEPTANCE_REVIEW.md)
 - [Migration recommendation](experiments/boinc-20261112/docs/MIGRATION_REVIEW.md)
 - [Raw test evidence](experiments/boinc-20261112/evidence/)
@@ -28,8 +31,11 @@ including GPU checkpoint recovery and full 42-packet GPU/GMP equivalence. The
 private test used authenticated SSH Unix-socket forwarding without LAN exposure.
 Native Linux x86_64, Windows x86_64, macOS arm64 and macOS Intel CPU application
 kits build and pass direct correctness tests on their respective native CI
-runners. Real Windows/macOS BOINC attachment and multi-GPU hardware tests remain
-separate acceptance steps; these kits require host Python 3.13 or newer.
+runners. The portable kits require host Python 3.13 or newer. The separate
+BOINC Mac arm64 packages bundle Python: a physical M4 ran both CPU 1.30 and
+Metal GPU 1.41 controls through BOINC, and fresh independent GMP validation
+accepted both. Windows/Intel Mac BOINC attachment and multi-GPU hardware tests
+remain separate acceptance steps; Intel Metal correctness remains unresolved.
 
 This is **not a production deployment or public volunteer service**. Portable
 application packaging, production coverage migration and scalable

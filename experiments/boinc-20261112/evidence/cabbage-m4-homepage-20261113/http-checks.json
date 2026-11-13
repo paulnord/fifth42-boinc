@@ -1,0 +1,56 @@
+{
+  "home_status": 200,
+  "scheduler_discovery_preserved": true,
+  "home_sha256": "4c00adccd496c72528ed22822995f2beb6bfc08c9047d02b129b465eecf1d7a6",
+  "local_links": [
+    {
+      "url": "http://127.0.0.1:8765/fifth42/",
+      "status": 200,
+      "bytes": 8082,
+      "sha256": "4c00adccd496c72528ed22822995f2beb6bfc08c9047d02b129b465eecf1d7a6",
+      "location": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/fifth42/fifthpower-assets/benchmark.md",
+      "status": 200,
+      "bytes": 7035,
+      "sha256": "c8d5b10165c25c7f8e47d460637aa2530b5abdbffb08a1a040008ddcf21f8f84",
+      "location": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/fifth42/fifthpower-assets/frontier.svg",
+      "status": 200,
+      "bytes": 35421,
+      "sha256": "bb1eb230ae03a0d3d0f2956c0a58bc07329e50a772fd7fa6ceaa0ceb566d6ba4",
+      "location": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/fifth42/fifthpower-assets/home.css",
+      "status": 200,
+      "bytes": 13667,
+      "sha256": "bcb02903cf834f1dc734735c7d2ecaaabf5e4b6a0c041fc9a98eb3fa374a83c4",
+      "location": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/fifth42/fifthpower-assets/home.js",
+      "status": 200,
+      "bytes": 629,
+      "sha256": "5c495080bc72c17711114a1f10f15cc33b3a6250be3860d5b261204d040a9a36",
+      "location": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/fifth42/home.php",
+      "status": 302,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "location": "http://127.0.0.1:8765/fifth42/login_form.php?next_url=home.php"
+    },
+    {
+      "url": "http://127.0.0.1:8765/fifth42/server_status.php",
+      "status": 200,
+      "bytes": 8396,
+      "sha256": "698e485f48b31395b7c362b09b1d142633d7d14bbefe384cddb71d6bcc9336a1",
+      "location": null
+    }
+  ]
+}
