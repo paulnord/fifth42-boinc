@@ -5,7 +5,7 @@ from pathlib import Path
 class ParentLifetime(unittest.TestCase):
     def test_engine_exits_when_parent_dies_even_with_open_input(self):
         root=Path(os.environ['FIFTH42_RUNTIME'])
-        engine=root/'bin'/('scaling_cpu.exe' if os.name=='nt' else 'scaling_cpu')
+        engine=Path(os.environ.get('FIFTH42_PARENT_TEST_ENGINE',root/'bin'/('scaling_cpu.exe' if os.name=='nt' else 'scaling_cpu')))
         program='''import json,subprocess,sys,time
 p=subprocess.Popen([sys.argv[1]],stdin=sys.stdin,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
 print(json.dumps(dict(engine_pid=p.pid)),flush=True)

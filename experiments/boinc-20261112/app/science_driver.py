@@ -40,9 +40,14 @@ def check_receipt(r,row,index,backend='emulated'):
 def main(a):
     if APPLICATION_BUILD != 'prototype-dev' and a.build != APPLICATION_BUILD: raise ValueError('Executable build identity mismatch')
     manifest,mhash=load_manifest(a.manifest); engine=Path(a.engine).resolve()
-    backend='gpu' if a.backend=='gpu' else 'emulated'
+    backend='gpu' if a.backend in ('gpu','metal') else 'emulated'
     engine_environment=None
-    if backend=='gpu':
+    metal_registry=getattr(a,'metal_device_registry_id',None)
+    if a.backend=='metal':
+        if metal_registry is None or not metal_registry.isascii() or not metal_registry.isdecimal() or not 0<int(metal_registry)<2**64:
+            raise ValueError('Metal execution requires an explicit device registry ID')
+        engine_environment=dict(os.environ,FIFTH42_METAL_REGISTRY_ID=metal_registry)
+    elif backend=='gpu':
         if a.gpu_device is None or not a.gpu_device.isascii() or not a.gpu_device.isdecimal():
             raise ValueError('GPU execution requires the BOINC allocated device number')
         # The unchanged native engine selects logical device zero. Restrict its
@@ -74,7 +79,7 @@ def main(a):
             if a.pause_after==len(prefix): time.sleep(a.pause_seconds)
             if a.fail_after==len(prefix): raise RuntimeError('TEST_ONLY deliberate failed attempt')
             if a.packet_delay: time.sleep(a.packet_delay)
-    atomic(a.output,dict(schema='fifth42-boinc-result-v1',TEST_ONLY=True,new_scientific_coverage=False,manifest_sha256=mhash,engine_sha256=ehash,build=a.build,backend=backend,gpu_device_num=a.gpu_device,attempts=history,receipts=prefix,completed_prefix=len(prefix),elapsed_seconds=time.monotonic()-began,resumed_prefix=resumed))
+    atomic(a.output,dict(schema='fifth42-boinc-result-v1',TEST_ONLY=True,new_scientific_coverage=False,manifest_sha256=mhash,engine_sha256=ehash,build=a.build,backend=backend,gpu_device_num=a.gpu_device,metal_device_registry_id=metal_registry,attempts=history,receipts=prefix,completed_prefix=len(prefix),elapsed_seconds=time.monotonic()-began,resumed_prefix=resumed))
     if a.corrupt_output:
         result=read(a.output)
         if a.corrupt_output=='identity': result['manifest_sha256']='0'*64
@@ -87,8 +92,9 @@ if __name__=='__main__':
     p=argparse.ArgumentParser(); p.add_argument('--manifest',default='manifest.json'); p.add_argument('--engine',default='scaling_cpu'); p.add_argument('--output',default='result.json'); p.add_argument('--checkpoint',default='checkpoint.json'); p.add_argument('--receipt',default='receipts.json'); p.add_argument('--build',required=True); p.add_argument('--max-seconds',type=int,default=600); p.add_argument('--pause-after',type=int,default=-1); p.add_argument('--pause-seconds',type=int,default=60); p.add_argument('--fail-after',type=int,default=-1)
     p.add_argument('--corrupt-output',choices=['identity','count','truncated'],help='TEST_ONLY server rejection fixture; exits zero')
     p.add_argument('--progress',default='fraction_done.txt');p.add_argument('--packet-delay',type=float,default=0,help='TEST_ONLY checkpoint observation delay')
-    p.add_argument('--backend',choices=['cpu','gpu'],default='cpu')
+    p.add_argument('--backend',choices=['cpu','gpu','metal'],default='cpu')
     p.add_argument('--gpu-device',help='BOINC wrapper GPU_DEVICE_NUM; required for GPU execution')
+    p.add_argument('--metal-device-registry-id',help='Explicit authorized Metal device registry ID; direct Metal pilot only')
     a=p.parse_args()
     if not 1<=a.max_seconds<=600 or not 0<=a.pause_seconds<=120 or not 0<=a.packet_delay<=5: p.error('Bounded runtime required')
     main(a)
