@@ -1,0 +1,26 @@
+{
+  "mac_m4_bench_cpu_01_20261113-result.json": {
+    "bytes": 148981,
+    "sha256": "392fbe4f7254339518411e4c33ed7ec03aec82de3a01d718072ba14e29ff71e9"
+  },
+  "mac_m4_bench_gpu_01_20261113-result.json": {
+    "bytes": 149326,
+    "sha256": "6affa24163ce7b35d92f2e359047f2a4764b450002187c60f2e20f762a966784"
+  },
+  "mac_m4_bench_cpu_02_20261113-result.json": {
+    "bytes": 148984,
+    "sha256": "bebc40fcce11e5abc67327cad4a5ad1da53b35803b339d49e5a8a4589ab49c7e"
+  },
+  "mac_m4_bench_gpu_02_20261113-result.json": {
+    "bytes": 149326,
+    "sha256": "b9d89d889a182d606afd5a3f6423213d9502b63eb2e1f4463fd5dc49213014ac"
+  },
+  "mac_m4_bench_cpu_03_20261113-result.json": {
+    "bytes": 148986,
+    "sha256": "40fb8df87dc74a5faa78516146281e1dedc1ff649d15f0ba5693e85c15cdd5b1"
+  },
+  "mac_m4_bench_gpu_03_20261113-result.json": {
+    "bytes": 149334,
+    "sha256": "e862012f1d22eddab55d9d9b7669e1c3ba033a0a3efa3740e851b1a99472ddd7"
+  }
+}

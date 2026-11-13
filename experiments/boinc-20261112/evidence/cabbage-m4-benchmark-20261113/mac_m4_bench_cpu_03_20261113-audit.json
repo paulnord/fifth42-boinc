@@ -1,0 +1,13 @@
+{
+  "TEST_ONLY": true,
+  "boinc_app_version_id": 1,
+  "boinc_result_id": 10,
+  "boinc_workunit": "mac_m4_bench_cpu_03_20261113",
+  "build": "A",
+  "manifest_sha256": "1dcb59d58bfe504ff3aab995745998cb934c6a18e1c81911b6f7e89578bf4910",
+  "new_scientific_coverage": false,
+  "packets": 42,
+  "positions": 789435567,
+  "scientifically_accepted": true,
+  "uploaded_output": "/pilot/mac-server/project/upload/237/mac_m4_bench_cpu_03_20261113_0_r1043277575_0"
+}

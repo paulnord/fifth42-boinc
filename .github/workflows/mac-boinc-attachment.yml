@@ -1,7 +1,11 @@
 name: Native Mac BOINC CPU and M4 Metal application packages
 on:
   push:
-    branches: [main, feat/mac-cpu-attachment-20261113]
+    branches: [main]
+    paths:
+      - experiments/boinc-20261112/stock/macos/**
+      - .github/workflows/mac-boinc-attachment.yml
+  pull_request:
     paths:
       - experiments/boinc-20261112/stock/macos/**
       - .github/workflows/mac-boinc-attachment.yml
@@ -36,6 +40,8 @@ jobs:
         run: python experiments/boinc-20261112/stock/macos/package.py --kit-tar inputs/client-kit.tar.gz --destination mac-metal-attachment --backend gpu --metal-artifact inputs/metal-artifact.zip
       - name: Test allocation and arithmetic rejection boundaries
         run: python -m unittest discover -s experiments/boinc-20261112/stock/macos -p test_metal_launcher.py -v
+      - name: Compile private benchmark helpers
+        run: python -m py_compile experiments/boinc-20261112/stock/macos/benchmark/*.py
       - name: Actual wrapper refuses missing BOINC GPU allocation
         run: python experiments/boinc-20261112/stock/macos/smoke_gpu_refusal.py mac-metal-attachment gpu-refusal-slot
       - name: Preserve immutable application package and evidence

@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-13",
+  "positions_per_trial": 789435567,
+  "trials": 6,
+  "CPU_seconds": 2.1041991668753326,
+  "GPU_seconds": 0.9454525839537382,
+  "application_speedup": 2.2255998900292737,
+  "BOINC_speedup": 1.2392835119272274,
+  "GMP_accepted": 6,
+  "TEST_ONLY": true,
+  "new_scientific_coverage": false
+}

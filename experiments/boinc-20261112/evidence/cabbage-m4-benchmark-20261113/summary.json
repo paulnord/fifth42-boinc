@@ -1,0 +1,145 @@
+{
+  "state": "complete",
+  "TEST_ONLY": true,
+  "new_scientific_coverage": false,
+  "manifest_sha256": "1dcb59d58bfe504ff3aab995745998cb934c6a18e1c81911b6f7e89578bf4910",
+  "positions_per_trial": 789435567,
+  "accepted_trials": 6,
+  "trials": [
+    {
+      "name": "mac_m4_bench_cpu_01_20261113",
+      "backend": "cpu",
+      "repeat": 1,
+      "result_id": 6,
+      "positions": 789435567,
+      "packets": 42,
+      "driver_seconds": 2.1221592500805855,
+      "native_rpc_seconds": 1.7942022471688688,
+      "engine_seconds": 1.789182616,
+      "kernel_seconds": 0,
+      "boinc_elapsed_seconds": 5.076425,
+      "boinc_cpu_seconds": 2.045453,
+      "independent_GMP_accepted": true
+    },
+    {
+      "name": "mac_m4_bench_gpu_01_20261113",
+      "backend": "gpu",
+      "repeat": 1,
+      "result_id": 7,
+      "positions": 789435567,
+      "packets": 42,
+      "driver_seconds": 1.0234271246008575,
+      "native_rpc_seconds": 0.7811116212978959,
+      "engine_seconds": 0.773793204,
+      "kernel_seconds": 0.730239999,
+      "boinc_elapsed_seconds": 4.047564,
+      "boinc_cpu_seconds": 0.36056,
+      "independent_GMP_accepted": true
+    },
+    {
+      "name": "mac_m4_bench_cpu_02_20261113",
+      "backend": "cpu",
+      "repeat": 2,
+      "result_id": 8,
+      "positions": 789435567,
+      "packets": 42,
+      "driver_seconds": 2.1010123332962394,
+      "native_rpc_seconds": 1.8126589157618582,
+      "engine_seconds": 1.807782908,
+      "kernel_seconds": 0,
+      "boinc_elapsed_seconds": 5.086493,
+      "boinc_cpu_seconds": 2.054247,
+      "independent_GMP_accepted": true
+    },
+    {
+      "name": "mac_m4_bench_gpu_02_20261113",
+      "backend": "gpu",
+      "repeat": 2,
+      "result_id": 9,
+      "positions": 789435567,
+      "packets": 42,
+      "driver_seconds": 0.8983750832267106,
+      "native_rpc_seconds": 0.7738561681471765,
+      "engine_seconds": 0.7689365570000001,
+      "kernel_seconds": 0.7406450197,
+      "boinc_elapsed_seconds": 4.096258,
+      "boinc_cpu_seconds": 0.316681,
+      "independent_GMP_accepted": true
+    },
+    {
+      "name": "mac_m4_bench_cpu_03_20261113",
+      "backend": "cpu",
+      "repeat": 3,
+      "result_id": 10,
+      "positions": 789435567,
+      "packets": 42,
+      "driver_seconds": 2.1041991668753326,
+      "native_rpc_seconds": 1.8006012956611812,
+      "engine_seconds": 1.795259371,
+      "kernel_seconds": 0,
+      "boinc_elapsed_seconds": 5.058334,
+      "boinc_cpu_seconds": 2.037868,
+      "independent_GMP_accepted": true
+    },
+    {
+      "name": "mac_m4_bench_gpu_03_20261113",
+      "backend": "gpu",
+      "repeat": 3,
+      "result_id": 11,
+      "positions": 789435567,
+      "packets": 42,
+      "driver_seconds": 0.9454525839537382,
+      "native_rpc_seconds": 0.8076647073030472,
+      "engine_seconds": 0.801974088,
+      "kernel_seconds": 0.7754101801,
+      "boinc_elapsed_seconds": 4.110069,
+      "boinc_cpu_seconds": 0.325001,
+      "independent_GMP_accepted": true
+    }
+  ],
+  "median_seconds": {
+    "cpu": {
+      "driver_seconds": 2.1041991668753326,
+      "native_rpc_seconds": 1.8006012956611812,
+      "engine_seconds": 1.795259371,
+      "boinc_elapsed_seconds": 5.076425
+    },
+    "gpu": {
+      "driver_seconds": 0.9454525839537382,
+      "native_rpc_seconds": 0.7811116212978959,
+      "engine_seconds": 0.773793204,
+      "boinc_elapsed_seconds": 4.096258
+    }
+  },
+  "cpu_over_gpu_time_ratio": {
+    "driver_seconds": 2.2255998900292737,
+    "native_rpc_seconds": 2.3051779624905593,
+    "engine_seconds": 2.320076425742297,
+    "boinc_elapsed_seconds": 1.2392835119272274
+  },
+  "controller_seconds": 737.2127745730104,
+  "total_replayed_positions": 4736613402,
+  "packet_groups": {
+    "realistic": 23,
+    "tiny": 16,
+    "control": 3
+  },
+  "group_engine_medians": {
+    "cpu": {
+      "realistic": 1.7646749,
+      "tiny": 0.0303335,
+      "control": 5.0876000000000006e-05
+    },
+    "gpu": {
+      "realistic": 0.73763779,
+      "tiny": 0.03132032,
+      "control": 0.001410374
+    }
+  },
+  "limitations": [
+    "One physical M4, one CPU engine thread versus one integrated GPU; not all-core CPU throughput.",
+    "Three short cached-payload task trials per backend; no thermal, power or sustained-throughput measurement.",
+    "Mac application/BOINC elapsed excludes network wait and server GMP validation.",
+    "TEST_ONLY fixture replay; zero new production coverage."
+  ]
+}
