@@ -29,6 +29,10 @@ PINS = {
     python_url='https://github.com/astral-sh/python-build-standalone/releases/download/20261110/cpython-3.13.18%2B20261110-aarch64-apple-darwin-install_only.tar.gz',
     python_sha256='1afd3983237c2a10277345f235be730e9cb49a123e0574ed252dbf3a841a24e4')}
 
+LINUX_ZIP = dict(
+    url='https://archive.ubuntu.com/ubuntu/pool/universe/libz/libzip/libzip4t64_1.7.3-1.1ubuntu2_amd64.deb',
+    sha256='d7484efd8d9968ecab9e488fde59980fc633e0eb2bbf7f1ea8e33bf71c9ff1fb')
+
 
 def fetch(url,digest,dest):
     data = urllib.request.urlopen(url,timeout=120).read()
@@ -57,16 +61,19 @@ def build(destination,compiler):
     upstream_flags = ['-Wno-misleading-indentation'] if native == 'macos-arm64' else []
     engine_source=ROOT/('packaging/macos_engine.cpp' if native=='macos-arm64' else 'upstream/src/search.cpp')
     subprocess.run(common+flags+upstream_flags+[str(engine_source),'-o',str(runtime/'bin/four133_engine')],check=True)
+    if native=='macos-arm64':
+        subprocess.run(common+upstream_flags+['-DFOUR133_MEMORY_SELFTEST',str(engine_source),'-o',str(dest/'memory_selftest')],check=True)
+        subprocess.run([str(dest/'memory_selftest')],check=True)
     gmp_flags=[]
     if native == 'macos-arm64':
         prefix=subprocess.check_output(['brew','--prefix','gmp'],text=True).strip()
         gmp_flags=['-isystem',prefix+'/include','-L'+prefix+'/lib']
     subprocess.run(common+flags+gmp_flags+[str(ROOT/'app/gmp_exact.cpp'),'-lgmpxx','-lgmp','-o',str(dest/'gmp_exact')],check=True)
-    metadata=dict(schema='four133-build-v1',application='four133',version='1.00',platform=pin['platform'],
+    metadata=dict(schema='four133-build-v1',application='four133',version='1.01',platform=pin['platform'],
         source_sha256=SOURCE_SHA,upstream=json.loads((ROOT/'UPSTREAM.json').read_text()),
         engine_sha256=sha((runtime/'bin/four133_engine').read_bytes()),
         platform_adapter_sha256=sha(engine_source.read_bytes()) if native=='macos-arm64' else None,
-        memory_guard='RLIMIT_DATA 1 GiB' if native=='macos-arm64' else 'RLIMIT_AS 1 GiB',
+        memory_guard='Live C++ allocation cap 1 GiB' if native=='macos-arm64' else 'RLIMIT_AS 1 GiB',
         cpu_budget=1,gpu=False,compiler=subprocess.check_output([compiler,'--version'],text=True).splitlines()[0],
         files={str(p.relative_to(runtime)):sha(p.read_bytes()) for p in sorted(runtime.rglob('*')) if p.is_file()})
     (runtime/'FOUR133_BUILD.json').write_text(json.dumps(metadata,indent=2)+'\n')
@@ -74,6 +81,13 @@ def build(destination,compiler):
     print('Native four133 and independent GMP checker built; fetching pinned runtime.',flush=True)
     fetch(pin['wrapper_url'],pin['wrapper_sha256'],dest/'wrapper')
     (dest/'wrapper').chmod(0o755)
+    client_files=['wrapper','runtime.zip','job.xml']
+    if native=='linux-x86_64':
+        fetch(LINUX_ZIP['url'],LINUX_ZIP['sha256'],dest/'libzip.deb')
+        subprocess.run(['dpkg-deb','-x',str(dest/'libzip.deb'),str(dest/'libzip-input')],check=True)
+        shutil.copyfile(dest/'libzip-input/usr/lib/x86_64-linux-gnu/libzip.so.4.0',dest/'libzip.so.4')
+        shutil.copyfile(dest/'libzip-input/usr/share/doc/libzip4t64/copyright',dest/'libzip-COPYRIGHT.txt')
+        client_files+=['libzip.so.4','libzip-COPYRIGHT.txt']
     archive=dest/'python.tar.gz'
     fetch(pin['python_url'],pin['python_sha256'],archive)
     with tarfile.open(archive,'r:gz') as t:
@@ -106,12 +120,13 @@ def build(destination,compiler):
 </job_desc>
 '''
     (dest/'job.xml').write_text(job)
-    package=dict(metadata,upstream_assets=pin,
+    package=dict(metadata,upstream_assets=pin,client_files=client_files,
+        wrapper_dependencies=LINUX_ZIP if native=='linux-x86_64' else {},
         runtime_unpacked_bytes=sum(i.file_size for i in zipfile.ZipFile(dest/'runtime.zip').infolist()),
-        files={name:sha((dest/name).read_bytes()) for name in ('wrapper','runtime.zip','job.xml','controls.json')})
+        files={name:sha((dest/name).read_bytes()) for name in client_files+['controls.json']})
     (dest/'BOINC_BUILD.json').write_text(json.dumps(package,indent=2)+'\n')
     with tarfile.open(dest/'four133-boinc.tar.gz','x:gz') as t:
-        for filename in ['wrapper','runtime.zip','job.xml','controls.json','BOINC_BUILD.json']:
+        for filename in client_files+['controls.json','BOINC_BUILD.json']:
             t.add(dest/filename,arcname='four133-boinc/'+filename)
     print(json.dumps(dict(platform=pin['platform'],engine_sha256=metadata['engine_sha256'],package=str(dest/'four133-boinc.tar.gz')),indent=2))
     return dest

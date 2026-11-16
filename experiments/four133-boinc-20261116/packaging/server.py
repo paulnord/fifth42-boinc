@@ -73,12 +73,16 @@ def stage(args):
         for key,value in [('name','four133_cpu_1'),('avg_ncpus','1'),('min_ncpus','1')]:
             ET.SubElement(plan,key).text=value
         plans.write(plan_path)
-    directory=project/'apps/four133/1.00'/(platform+'__four133_cpu_1')
+    release=build['version']
+    require(re.fullmatch(r'[1-9][0-9]*\.[0-9]{2}',release) is not None,'Invalid package version')
+    major,minor=map(int,release.split('.'));number=major*100+minor
+    directory=project/'apps/four133'/release/(platform+'__four133_cpu_1')
     version=ET.Element('version')
     ET.SubElement(version,'is_wrapper')
     ET.SubElement(version,'api_version').text='8.3.0'
-    for name in ('wrapper','runtime.zip','job.xml'):
-        physical='four133_100_'+platform+'_'+name
+    for name in build.get('client_files',['wrapper','runtime.zip','job.xml']):
+        require(re.fullmatch(r'[A-Za-z0-9_.-]+',name) is not None,'Unsafe client filename')
+        physical='four133_'+str(number)+'_'+platform+'_'+name
         immutable(directory/physical,(bundle/name).read_bytes())
         if name=='wrapper':
             (directory/physical).chmod(0o755)
@@ -90,10 +94,10 @@ def stage(args):
             ET.SubElement(f,'main_program')
     immutable(directory/'version.xml',ET.tostring(version))
     print(command(project,'php','bin/update_versions','--noconfirm','--verbose'))
-    rows=sql(config,"SELECT v.id FROM app_version v JOIN app a ON a.id=v.appid JOIN platform p ON p.id=v.platformid WHERE a.name='four133' AND v.version_num=100 AND v.plan_class='four133_cpu_1' AND p.name='"+platform+"';")
+    rows=sql(config,"SELECT v.id FROM app_version v JOIN app a ON a.id=v.appid JOIN platform p ON p.id=v.platformid WHERE a.name='four133' AND v.version_num="+str(number)+" AND v.plan_class='four133_cpu_1' AND p.name='"+platform+"';")
     require(len(rows)==1,'Registered version missing or ambiguous')
     version_id=int(rows[0])
-    config.setdefault('application_versions',{})[str(version_id)]=dict(engine_sha256=build['engine_sha256'],platform=platform)
+    config.setdefault('application_versions',{})[str(version_id)]=dict(engine_sha256=build['engine_sha256'],platform=platform,version_num=number)
     config.setdefault('workunits',{})
     Path(config['audit_directory']).mkdir(parents=True,exist_ok=True)
     atomic(config_path,config)
@@ -138,7 +142,7 @@ def submit(args):
     immutable(staged,path.read_bytes())
     print(command(project,'bin/stage_file_native','--copy',str(staged)))
     print(command(project,'bin/create_work','--appname','four133','--wu_name',name,
-        '--app_version_num','100','--target_host',str(args.host),
+        '--app_version_num',str(config['application_versions'][str(args.version)].get('version_num',100)),'--target_host',str(args.host),
         '--wu_template','templates/four133_in_v1','--result_template','templates/four133_out_v1',filename))
     print(json.dumps(dict(submitted=name,target_host=args.host,purpose='TEST_ONLY',new_scientific_coverage=False)))
 

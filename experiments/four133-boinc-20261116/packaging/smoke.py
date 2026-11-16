@@ -20,11 +20,14 @@ def smoke(bundle,slot):
     for name,digest in build['files'].items():
         if sha((bundle/name).read_bytes())!=digest:
             raise ValueError('Package bytes differ')
-    for name in ('wrapper','runtime.zip'):
+    for name in build.get('client_files',['wrapper','runtime.zip','job.xml']):
+        if name=='job.xml':continue
         shutil.copy2(bundle/name,slot/name)
     shutil.copy2(bundle/'controls.json',slot/'manifest.json')
     (slot/'job.xml').write_text((bundle/'job.xml').read_text().replace('</command_line>',' --standalone</command_line>'))
     env={k:v for k,v in os.environ.items() if not k.startswith(('PYTHON','DYLD_'))}
+    if sys.platform.startswith('linux'):
+        env['LD_LIBRARY_PATH']=str(slot)+':'+env.get('LD_LIBRARY_PATH','')
     with (slot/'wrapper.stdout').open('w') as out,(slot/'wrapper.stderr').open('w') as err:
         result=subprocess.run([str(slot/'wrapper')],cwd=slot,env=env,stdout=out,stderr=err,timeout=180)
     if result.returncode:
