@@ -27,6 +27,9 @@ Linux additionally ships the hash-pinned stock wrapper's `libzip.so.4` and its
 copyright notice, using BOINC's normal slot library search path. The Linux
 package targets current glibc systems (Ubuntu 24.04/Debian 13 class); it still
 uses the operating system's C, zlib, bzip2 and OpenSSL 3 libraries.
+Work templates reserve two GiB of disk for the runtime archive, unpacked files,
+checkpoints and output. The Linux standalone Python distribution unpacks to
+about 550 MiB; Mac is about 100 MiB. Actual byte counts are in build metadata.
 The CI workflow builds on native Linux and arm64 Mac runners. Wrapper smoke is
 explicitly a standalone wrapper test, separate from real BOINC client acceptance.
 
@@ -97,9 +100,7 @@ The source tree must remain available at its installed absolute path.
 python3 packaging/server.py --project PROJECT --config PRIVATE_CONFIG stage BUNDLE
 python3 packaging/server.py --project PROJECT --config PRIVATE_CONFIG \
   submit TEST_MANIFEST --host HOST_ID --version REGISTERED_APP_VERSION_ID
-cd PROJECT
-bin/script_validator --app four133 \
-  --init_script 'four133_validate result_id files' --no_credit --sleep_interval 2
+python3 packaging/server.py --project PROJECT --config PRIVATE_CONFIG validate
 ```
 
 Staging adds the CPU plan and enables stock host assignments, retaining the prior
@@ -109,6 +110,8 @@ and actual app version from the server database; worker declarations cannot
 choose either. Successful audits are saved by BOINC result ID. Scientific
 rejection returns 1; server/database/oracle failures return 3 for retry. Use an
 external process/resource supervisor for validators and pilot clients.
+The launcher uses a project log directory because stock `script_validator`
+resolves its hook as `../bin/four133_validate`.
 
 User CPU limits remain BOINC controls. The client explicitly requires an
 allocation of exactly one CPU and no GPU. No automatic tuning, GPU backend or

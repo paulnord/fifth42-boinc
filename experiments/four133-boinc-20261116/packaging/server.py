@@ -126,7 +126,7 @@ def submit(args):
     input_template='''<input_template><file_info><number>0</number></file_info><workunit>
 <file_ref><file_number>0</file_number><open_name>manifest.json</open_name><copy_file/></file_ref>
 <rsc_fpops_est>1000000000</rsc_fpops_est><rsc_fpops_bound>10000000000000</rsc_fpops_bound>
-<rsc_memory_bound>1073741824</rsc_memory_bound><rsc_disk_bound>536870912</rsc_disk_bound>
+<rsc_memory_bound>1073741824</rsc_memory_bound><rsc_disk_bound>2147483648</rsc_disk_bound>
 <delay_bound>1800</delay_bound><min_quorum>1</min_quorum><target_nresults>1</target_nresults>
 <max_error_results>3</max_error_results><max_total_results>5</max_total_results><max_success_results>3</max_success_results>
 </workunit></input_template>'''
@@ -134,8 +134,8 @@ def submit(args):
 <max_nbytes>67108864</max_nbytes><url><UPLOAD_URL/></url></file_info><result><file_ref>
 <file_name><OUTFILE_0/></file_name><open_name>result.json</open_name><copy_file/></file_ref></result></output_template>'''
     # The stock scheduler's result-template reader requires tags on separate lines.
-    immutable(project/'templates/four133_in_v1',input_template.replace('><','>\n<').encode())
-    immutable(project/'templates/four133_out_v1',output_template.replace('><','>\n<').encode())
+    immutable(project/'templates/four133_in_v2',input_template.replace('><','>\n<').encode())
+    immutable(project/'templates/four133_out_v2',output_template.replace('><','>\n<').encode())
     filename='four133_'+name+'.json'
     # The native tool computes BOINC's download hierarchy using the basename.
     staged=config_path.parent/'four133-input'/filename
@@ -143,8 +143,19 @@ def submit(args):
     print(command(project,'bin/stage_file_native','--copy',str(staged)))
     print(command(project,'bin/create_work','--appname','four133','--wu_name',name,
         '--app_version_num',str(config['application_versions'][str(args.version)].get('version_num',100)),'--target_host',str(args.host),
-        '--wu_template','templates/four133_in_v1','--result_template','templates/four133_out_v1',filename))
+        '--wu_template','templates/four133_in_v2','--result_template','templates/four133_out_v2',filename))
     print(json.dumps(dict(submitted=name,target_host=args.host,purpose='TEST_ONLY',new_scientific_coverage=False)))
+
+
+def validator(args):
+    project=Path(args.project).resolve()
+    # Stock script_validator resolves hooks as ../bin/SCRIPT. BOINC normally
+    # launches daemons from a project log directory, not the project root.
+    directory=project/'log_four133'
+    directory.mkdir(exist_ok=True)
+    os.chdir(directory)
+    os.execv(str(project/'bin/script_validator'),['script_validator','--app','four133',
+        '--init_script','four133_validate result_id files','--no_credit','--sleep_interval','2','-d','3'])
 
 
 if __name__=='__main__':
@@ -154,4 +165,5 @@ if __name__=='__main__':
     sub=parser.add_subparsers(dest='operation',required=True)
     s=sub.add_parser('stage');s.add_argument('bundle');s.set_defaults(run=stage)
     s=sub.add_parser('submit');s.add_argument('manifest');s.add_argument('--host',type=int,required=True);s.add_argument('--version',type=int,required=True);s.set_defaults(run=submit)
+    s=sub.add_parser('validate');s.set_defaults(run=validator)
     args=parser.parse_args();args.run(args)
