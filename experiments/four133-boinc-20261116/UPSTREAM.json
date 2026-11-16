@@ -1,0 +1,19 @@
+{
+  "repository": "https://github.com/paulnord/fifth42",
+  "commit": "853fd98fc91968987fcb3e9e4c43b4fe880c8246",
+  "path": "four133/ada-extension",
+  "equation": "a^133+b^133+c^133+d^133=42",
+  "files": {
+    "src/search.cpp": "46c7824e38320f6dbe2e844a80d1edcf7e489fe61b9124936563953e1f58bc32",
+    "math133.py": "5466da377bcf8082c24baad6fc16c910a891ef9f624bf17c7afce3af908834a2",
+    "audit.py": "7036df2caca330ff52829e47ebee6c39989c2ca22725a794f7288fe802656705",
+    "PROOF.md": "e4ea43d45676a9dbaf5317b0f11604d56300e76858795945281bb8cde382b556",
+    "tests/test_search.py": "058e0b1d46ab500c6b8b437f64af4bd1a101b0bfaf1762920e6b9a0ef050f7cf"
+  },
+  "moduli": [
+    2305843009213693921,
+    2305843009213693951
+  ],
+  "prior_box_bound": 4000000,
+  "prior_box_proof": "Historical upstream evidence; no BOINC production cutover or fresh search launched"
+}
