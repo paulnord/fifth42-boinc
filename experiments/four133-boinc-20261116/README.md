@@ -23,14 +23,24 @@ python3 packaging/smoke.py bundle wrapper-slot
 
 The build produces `bundle/four133-boinc.tar.gz`. Its client files are `wrapper`,
 `runtime.zip` and `job.xml`; `BOINC_BUILD.json` binds hashes, source and platform.
+Linux additionally ships the hash-pinned stock wrapper's `libzip.so.4` and its
+copyright notice, using BOINC's normal slot library search path. The Linux
+package targets current glibc systems (Ubuntu 24.04/Debian 13 class); it still
+uses the operating system's C, zlib, bzip2 and OpenSSL 3 libraries.
 The CI workflow builds on native Linux and arm64 Mac runners. Wrapper smoke is
 explicitly a standalone wrapper test, separate from real BOINC client acceptance.
 
 Every task uses one CPU and no GPU. Native chunks are bounded to sixteen gaps,
 20,000 emitted candidates and four MiB of logs, with at most eight tasks and two
 million pair entries per work unit. Application runtime is capped at 300 seconds.
-The original native engine retains its one-GiB address-space guard and its
-20-million maximum absolute base. No new long search is started by packaging.
+Linux retains the original one-GiB address-space guard. Darwin rejects that
+limit; `packaging/macos_engine.cpp` caps live C++ heap allocations at one GiB
+instead. The engine's power table and pair buffers are standard C++ vectors.
+The adapter also converts Darwin's RSS bytes to KiB. Its hash and guard type
+are recorded in build metadata; a separately compiled self-test verifies
+allocation rejection and release accounting. Mathematical source remains
+byte-identical, including its 20-million maximum absolute base. No new long
+search is started by packaging.
 
 ## Work and validation
 
@@ -74,6 +84,31 @@ immutable native versions and use logical filenames `manifest.json` and
 `result.json`. No project credentials, database, signing keys or authenticators
 belong in the package or repository. Existing fifth-power apps and production
 searches remain separate.
+
+`packaging/server.py` stages and signs immutable versions with the stock server
+tools and submits TEST_ONLY work to an explicit host. Run it inside the existing
+project environment. Prepare a private server-only JSON config containing
+`mysql_command` (an argument array, with credentials kept in a private defaults
+file), `database`, `gmp_reference` (the server-native `gmp_exact` executable),
+`audit_directory`, and empty `application_versions` / `workunits` dictionaries.
+The source tree must remain available at its installed absolute path.
+
+```sh
+python3 packaging/server.py --project PROJECT --config PRIVATE_CONFIG stage BUNDLE
+python3 packaging/server.py --project PROJECT --config PRIVATE_CONFIG \
+  submit TEST_MANIFEST --host HOST_ID --version REGISTERED_APP_VERSION_ID
+cd PROJECT
+bin/script_validator --app four133 \
+  --init_script 'four133_validate result_id files' --no_credit --sleep_interval 2
+```
+
+Staging adds the CPU plan and enables stock host assignments, retaining the prior
+project config in `four133-config-before-assignment.xml`. The output template
+uses the stock scheduler's required line layout. The hook resolves the work unit
+and actual app version from the server database; worker declarations cannot
+choose either. Successful audits are saved by BOINC result ID. Scientific
+rejection returns 1; server/database/oracle failures return 3 for retry. Use an
+external process/resource supervisor for validators and pilot clients.
 
 User CPU limits remain BOINC controls. The client explicitly requires an
 allocation of exactly one CPU and no GPU. No automatic tuning, GPU backend or

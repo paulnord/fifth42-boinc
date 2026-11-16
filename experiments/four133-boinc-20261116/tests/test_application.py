@@ -8,6 +8,7 @@ import sys
 import tempfile
 import time
 import unittest
+from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'app'))
@@ -117,6 +118,28 @@ class NativeApplication(unittest.TestCase):
         self.execute()
         with self.assertRaises(InfrastructureUnavailable):
             validate(self.slot/'manifest.json',self.slot/'result.json',self.slot/'missing-oracle',self.meta['engine_sha256'])
+
+    def test_boinc_server_hook_uses_trusted_assignment(self):
+        import boinc_validate
+        result=self.execute()
+        (self.slot/'audits').mkdir()
+        cfg=dict(mysql_command=['unused'],database='test',gmp_reference=str(self.build/'gmp_exact'),
+            audit_directory=str(self.slot/'audits'),application_versions={'7':dict(engine_sha256=self.meta['engine_sha256'])},
+            workunits={self.manifest['unit_id']:dict(manifest=str(self.slot/'manifest.json'),allowed_app_version_ids=[7])})
+        path=self.slot/'server.json';path.write_text(json.dumps(cfg))
+        args=['four133_validate','99',str(self.slot/'result.json')]
+        with patch.dict(os.environ,FOUR133_VALIDATOR_CONFIG=str(path)),patch.object(
+                boinc_validate.subprocess,'check_output',return_value=self.manifest['unit_id']+'\t7\tfour133\n'):
+            # A standalone worker receipt cannot pass the BOINC acceptance path.
+            self.assertEqual(boinc_validate.cli(args),1)
+            result['delivery']='BOINC';(self.slot/'result.json').write_text(json.dumps(result))
+            self.assertEqual(boinc_validate.cli(args),0)
+            self.assertEqual(json.loads((self.slot/'audits/99.json').read_text())['boinc_app_version_id'],7)
+            cfg['gmp_reference']=str(self.slot/'unavailable');path.write_text(json.dumps(cfg))
+            self.assertEqual(boinc_validate.cli(args),3)
+            cfg['workunits'][self.manifest['unit_id']]['allowed_app_version_ids']=[8]
+            path.write_text(json.dumps(cfg))
+            self.assertEqual(boinc_validate.cli(args),3)
 
 
 class AllocationAndScope(unittest.TestCase):
