@@ -1,0 +1,54 @@
+name: Four 133rd powers BOINC CPU packages
+on:
+  push:
+    branches: [feat/four133-boinc-20261116]
+  pull_request:
+    paths:
+      - experiments/four133-boinc-20261116/**
+      - .github/workflows/four133.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: ubuntu-24.04
+            name: linux-x86_64
+          - runner: macos-26
+            name: macos-arm64
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.1.0
+        with:
+          python-version: '3.13'
+      - name: Linux GMP
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y g++ libgmp-dev
+      - name: Mac GMP
+        if: runner.os == 'macOS'
+        run: brew list --versions gmp || brew install gmp
+      - name: Build native application and pinned standalone runtime
+        run: python experiments/four133-boinc-20261116/packaging/build.py bundle
+      - name: Native correctness, checkpoint recovery and output rejection
+        env:
+          FOUR133_TEST_BUILD: bundle
+        run: python -m unittest discover -s experiments/four133-boinc-20261116/tests -v
+      - name: Execute actual stock wrapper and bundled runtime
+        run: python experiments/four133-boinc-20261116/packaging/smoke.py bundle wrapper-slot
+      - name: Preserve immutable package and acceptance evidence
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: four133-${{ matrix.name }}
+          path: |
+            bundle/four133-boinc.tar.gz
+            bundle/BOINC_BUILD.json
+            wrapper-slot/SMOKE_ACCEPTANCE.json
+            wrapper-slot/*.stderr
+            wrapper-slot/*.stdout
+          if-no-files-found: error
