@@ -1,0 +1,59 @@
+{
+  "schema": "four133-build-v1",
+  "application": "four133",
+  "version": "1.01",
+  "platform": "x86_64-pc-linux-gnu",
+  "source_sha256": "46c7824e38320f6dbe2e844a80d1edcf7e489fe61b9124936563953e1f58bc32",
+  "upstream": {
+    "repository": "https://github.com/paulnord/fifth42",
+    "commit": "853fd98fc91968987fcb3e9e4c43b4fe880c8246",
+    "path": "four133/ada-extension",
+    "equation": "a^133+b^133+c^133+d^133=42",
+    "files": {
+      "src/search.cpp": "46c7824e38320f6dbe2e844a80d1edcf7e489fe61b9124936563953e1f58bc32",
+      "math133.py": "5466da377bcf8082c24baad6fc16c910a891ef9f624bf17c7afce3af908834a2",
+      "audit.py": "7036df2caca330ff52829e47ebee6c39989c2ca22725a794f7288fe802656705",
+      "PROOF.md": "e4ea43d45676a9dbaf5317b0f11604d56300e76858795945281bb8cde382b556",
+      "tests/test_search.py": "058e0b1d46ab500c6b8b437f64af4bd1a101b0bfaf1762920e6b9a0ef050f7cf"
+    },
+    "moduli": [
+      2305843009213693921,
+      2305843009213693951
+    ],
+    "prior_box_bound": 4000000,
+    "prior_box_proof": "Historical upstream evidence; no BOINC production cutover or fresh search launched"
+  },
+  "engine_sha256": "530174ac95aba5e5320985cd2f0851491118583156431fc560c1ee1ae6d63b29",
+  "platform_adapter_sha256": null,
+  "memory_guard": "RLIMIT_AS 1 GiB",
+  "cpu_budget": 1,
+  "gpu": false,
+  "compiler": "g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+  "files": {
+    "wrapper": "38d3ecc92f314772d0358dff732ca3d98877215d5c470f87b2f13e6760b05fbf",
+    "runtime.zip": "84c4b8e85ad401485173ba2de7b8c35828728e0b850519196cb88d5316dac6c9",
+    "job.xml": "23999692f40acebcca10d4afdf4d60ee3287767101050e5b988d8415f355074f",
+    "libzip.so.4": "686612e6af220e2de954795ac7184695ebe3660541b13fa793cf5dc6ed352b5b",
+    "libzip-COPYRIGHT.txt": "36b0559a58151c09b7a4363f06372df9275103708e1bcba1b2130a7148114425",
+    "controls.json": "c384a1453fc228345ea4e4ccbddb34442b4db5c8c1a863651cc7670ee7604190"
+  },
+  "upstream_assets": {
+    "platform": "x86_64-pc-linux-gnu",
+    "wrapper_url": "https://github.com/BOINC/boinc/releases/download/wrapper/26019/wrapper_26019_x86_64-pc-linux-gnu",
+    "wrapper_sha256": "38d3ecc92f314772d0358dff732ca3d98877215d5c470f87b2f13e6760b05fbf",
+    "python_url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261110/cpython-3.13.18%2B20261110-x86_64-unknown-linux-gnu-install_only.tar.gz",
+    "python_sha256": "50c774f6674740739f791c05a9177ed03e2fe02abebda9bca3512eb7309b37cc"
+  },
+  "client_files": [
+    "wrapper",
+    "runtime.zip",
+    "job.xml",
+    "libzip.so.4",
+    "libzip-COPYRIGHT.txt"
+  ],
+  "wrapper_dependencies": {
+    "url": "https://archive.ubuntu.com/ubuntu/pool/universe/libz/libzip/libzip4t64_1.7.3-1.1ubuntu2_amd64.deb",
+    "sha256": "d7484efd8d9968ecab9e488fde59980fc633e0eb2bbf7f1ea8e33bf71c9ff1fb"
+  },
+  "runtime_unpacked_bytes": 575705850
+}

@@ -69,7 +69,7 @@ def build(destination,compiler):
         prefix=subprocess.check_output(['brew','--prefix','gmp'],text=True).strip()
         gmp_flags=['-isystem',prefix+'/include','-L'+prefix+'/lib']
     subprocess.run(common+flags+gmp_flags+[str(ROOT/'app/gmp_exact.cpp'),'-lgmpxx','-lgmp','-o',str(dest/'gmp_exact')],check=True)
-    metadata=dict(schema='four133-build-v1',application='four133',version='1.01',platform=pin['platform'],
+    metadata=dict(schema='four133-build-v1',application='four133',version='1.02',platform=pin['platform'],
         source_sha256=SOURCE_SHA,upstream=json.loads((ROOT/'UPSTREAM.json').read_text()),
         engine_sha256=sha((runtime/'bin/four133_engine').read_bytes()),
         platform_adapter_sha256=sha(engine_source.read_bytes()) if native=='macos-arm64' else None,

@@ -4,6 +4,7 @@ import ctypes
 import json
 import math
 import os
+import resource
 import signal
 import subprocess
 import sys
@@ -43,17 +44,27 @@ def parent_guard():
             os._exit(126)
 
 
-def execute(engine, task, path, deadline):
+def cpu_seconds():
+    children = resource.getrusage(resource.RUSAGE_CHILDREN)
+    return time.process_time() + children.ru_utime + children.ru_stime
+
+
+def execute(engine, task, path, remaining_cpu):
     command = [str(engine),task['pattern'],str(task['bound']),str(task['previous_bound']),
         str(task['modulus']),str(task['normalized_sum']),str(task['sign']),str(task['start']),
         str(task['end']),SOURCE_SHA,task['engine_mode'],str(MAX_CANDIDATES)]
     child = None
+    require(remaining_cpu > 0, 'Bounded application CPU time expired')
+    def child_limits():
+        parent_guard()
+        # Kernel CPU accounting excludes BOINC suspension and duty-cycle waits.
+        limit = max(1,math.ceil(remaining_cpu))
+        resource.setrlimit(resource.RLIMIT_CPU,(limit,limit))
     with path.open('xb') as output:
         try:
             child = subprocess.Popen(command,stdout=output,stderr=output,
-                preexec_fn=parent_guard if sys.platform.startswith('linux') else None)
+                preexec_fn=child_limits)
             while child.poll() is None:
-                require(time.monotonic() < deadline, 'Bounded application time expired')
                 require(path.stat().st_size <= MAX_LOG_BYTES, 'Native log exceeded bound')
                 time.sleep(.05)
             require(child.returncode == 0, 'Native engine failed; incomplete task retained')
@@ -72,7 +83,7 @@ def execute(engine, task, path, deadline):
 
 def run(args):
     began = time.monotonic()
-    deadline = began + args.max_seconds
+    began_cpu = cpu_seconds()
     manifest, identity = load_manifest(args.manifest)
     delivery = allocation(args.init_data,args.standalone)
     engine = Path(args.engine).resolve()
@@ -110,7 +121,8 @@ def run(args):
         while partial.exists():
             attempt += 1
             partial = Path(f'task-{index:03d}.attempt-{attempt}.partial')
-        report = execute(engine,task,partial,deadline)
+        report = execute(engine,task,partial,args.max_seconds-(cpu_seconds()-began_cpu))
+        require(cpu_seconds()-began_cpu <= args.max_seconds+1, 'Bounded application CPU time expired')
         os.replace(partial,path)
         fd = os.open(path.parent,os.O_RDONLY)
         try:

@@ -35,7 +35,10 @@ explicitly a standalone wrapper test, separate from real BOINC client acceptance
 
 Every task uses one CPU and no GPU. Native chunks are bounded to sixteen gaps,
 20,000 emitted candidates and four MiB of logs, with at most eight tasks and two
-million pair entries per work unit. Application runtime is capped at 300 seconds.
+million pair entries per work unit. Each invocation budgets 300 CPU seconds
+across the driver and its children; the native process receives the remaining
+kernel CPU limit. BOINC suspension and duty-cycle waits do not consume that
+budget, so user CPU-time limits do not cause a wall-clock timeout.
 Linux retains the original one-GiB address-space guard. Darwin rejects that
 limit; `packaging/macos_engine.cpp` caps live C++ heap allocations at one GiB
 instead. The engine's power table and pair buffers are standard C++ vectors.

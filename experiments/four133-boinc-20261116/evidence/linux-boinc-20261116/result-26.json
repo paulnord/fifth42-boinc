@@ -1,0 +1,27 @@
+{
+  "boinc_ncpus": 1,
+  "completed_tasks": 2,
+  "delivery": "BOINC",
+  "elapsed_seconds": 0.6359457869548351,
+  "engine_sha256": "530174ac95aba5e5320985cd2f0851491118583156431fc560c1ee1ae6d63b29",
+  "exponent": 133,
+  "manifest_sha256": "0a071bb39104405bdb0e9c35acbb628833f80d8d4d823d20b9a58354107a1790",
+  "new_scientific_coverage": false,
+  "purpose": "TEST_ONLY",
+  "records": [
+    {
+      "log": "START version=2 pattern=22 bound=5000000 previous_bound=4000000 modulus=2305843009213693921 normalized_sum=4206972 sign=1 normalized_target=42 max_gap=396513 start=1 end=1 test_mode=0 source_sha=46c7824e38320f6dbe2e844a80d1edcf7e489fe61b9124936563953e1f58bc32 setup_seconds=0.143635\nCHECKPOINT h=1 left=31777 right=43696 raw=0 canonical=0 distinct=0 wall=0.150985 rss_kib=42404\nCHUNK_DONE pattern=22 bound=5000000 previous_bound=4000000 modulus=2305843009213693921 normalized_sum=4206972 sign=1 start=1 end=1 left=31777 right=43696 raw=0 canonical=0 distinct=0\n",
+      "log_sha256": "eccf53952c4d86975257dad6e54ebd318365b3983945e0147b552da57bed237d",
+      "task_id": 0
+    },
+    {
+      "log": "START version=2 pattern=22 bound=5000000 previous_bound=4000000 modulus=2305843009213693951 normalized_sum=4206972 sign=1 normalized_target=42 max_gap=396513 start=1 end=1 test_mode=0 source_sha=46c7824e38320f6dbe2e844a80d1edcf7e489fe61b9124936563953e1f58bc32 setup_seconds=0.127049\nCHECKPOINT h=1 left=31777 right=43696 raw=0 canonical=0 distinct=0 wall=0.131193 rss_kib=42724\nCHUNK_DONE pattern=22 bound=5000000 previous_bound=4000000 modulus=2305843009213693951 normalized_sum=4206972 sign=1 start=1 end=1 left=31777 right=43696 raw=0 canonical=0 distinct=0\n",
+      "log_sha256": "2b375d2aa5d535bbac83d3f2ede32cbcb0f889854df7ebbc93ce72feeac4fbe9",
+      "task_id": 1
+    }
+  ],
+  "resumed_tasks": 0,
+  "schema": "four133-result-v1",
+  "source_sha256": "46c7824e38320f6dbe2e844a80d1edcf7e489fe61b9124936563953e1f58bc32",
+  "target": 42
+}

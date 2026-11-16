@@ -81,6 +81,26 @@ class NativeApplication(unittest.TestCase):
         self.assertNotEqual(result.returncode,0)
         self.assertIn('Committed native log changed',result.stderr)
 
+    def test_boinc_suspension_does_not_consume_cpu_budget(self):
+        self.manifest.update(test_pause_after=1,test_pause_seconds=1)
+        (self.slot/'manifest.json').write_text(json.dumps(self.manifest))
+        child=subprocess.Popen(self.command()+['--max-seconds','1'],cwd=self.slot,
+                               stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+        try:
+            end=time.monotonic()+15
+            while not (self.slot/'checkpoint.json').exists() and child.poll() is None and time.monotonic()<end:
+                time.sleep(.01)
+            self.assertTrue((self.slot/'checkpoint.json').exists())
+            os.kill(child.pid,signal.SIGSTOP)
+            time.sleep(1.2)
+            os.kill(child.pid,signal.SIGCONT)
+            out,err=child.communicate(timeout=30)
+            self.assertEqual(child.returncode,0,err)
+            self.assertTrue(self.check()['scientifically_accepted'])
+        finally:
+            if child.poll() is None:
+                os.kill(child.pid,signal.SIGCONT);child.kill();child.communicate()
+
     def test_reject_identity_truncation_counts_and_strict_types(self):
         original=self.execute()
         variants=[]
