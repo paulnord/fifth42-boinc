@@ -55,7 +55,8 @@ def build(destination,compiler):
     # The immutable upstream join loop triggers Clang's indentation warning.
     # Keep its bytes/provenance intact, while retaining all other error checks.
     upstream_flags = ['-Wno-misleading-indentation'] if native == 'macos-arm64' else []
-    subprocess.run(common+flags+upstream_flags+[str(ROOT/'upstream/src/search.cpp'),'-o',str(runtime/'bin/four133_engine')],check=True)
+    engine_source=ROOT/('packaging/macos_engine.cpp' if native=='macos-arm64' else 'upstream/src/search.cpp')
+    subprocess.run(common+flags+upstream_flags+[str(engine_source),'-o',str(runtime/'bin/four133_engine')],check=True)
     gmp_flags=[]
     if native == 'macos-arm64':
         prefix=subprocess.check_output(['brew','--prefix','gmp'],text=True).strip()
@@ -64,6 +65,8 @@ def build(destination,compiler):
     metadata=dict(schema='four133-build-v1',application='four133',version='1.00',platform=pin['platform'],
         source_sha256=SOURCE_SHA,upstream=json.loads((ROOT/'UPSTREAM.json').read_text()),
         engine_sha256=sha((runtime/'bin/four133_engine').read_bytes()),
+        platform_adapter_sha256=sha(engine_source.read_bytes()) if native=='macos-arm64' else None,
+        memory_guard='RLIMIT_DATA 1 GiB' if native=='macos-arm64' else 'RLIMIT_AS 1 GiB',
         cpu_budget=1,gpu=False,compiler=subprocess.check_output([compiler,'--version'],text=True).splitlines()[0],
         files={str(p.relative_to(runtime)):sha(p.read_bytes()) for p in sorted(runtime.rglob('*')) if p.is_file()})
     (runtime/'FOUR133_BUILD.json').write_text(json.dumps(metadata,indent=2)+'\n')
