@@ -47,6 +47,17 @@ def stage(args):
     require(platform in ('x86_64-pc-linux-gnu','arm64-apple-darwin'),'Unsupported platform')
     for name,digest in build['files'].items():
         require(sha((bundle/name).read_bytes())==digest,'Changed package bytes')
+    server_config=project/'config.xml'
+    settings=ET.parse(server_config)
+    section=settings.getroot().find('config')
+    require(section is not None,'BOINC project config missing')
+    assignment=section.find('enable_assignment')
+    if assignment is None or assignment.text != '1':
+        immutable(project/'four133-config-before-assignment.xml',server_config.read_bytes())
+        if assignment is None:
+            assignment=ET.SubElement(section,'enable_assignment')
+        assignment.text='1'
+        settings.write(server_config)
     registration=project/'project.xml'
     tree=ET.parse(registration)
     if not any(a.findtext('name')=='four133' for a in tree.getroot().findall('app')):
@@ -118,8 +129,9 @@ def submit(args):
     output_template='''<output_template><file_info><name><OUTFILE_0/></name><generated_locally/><upload_when_present/>
 <max_nbytes>67108864</max_nbytes><url><UPLOAD_URL/></url></file_info><result><file_ref>
 <file_name><OUTFILE_0/></file_name><open_name>result.json</open_name><copy_file/></file_ref></result></output_template>'''
-    immutable(project/'templates/four133_in',input_template.encode())
-    immutable(project/'templates/four133_out',output_template.encode())
+    # The stock scheduler's result-template reader requires tags on separate lines.
+    immutable(project/'templates/four133_in_v1',input_template.replace('><','>\n<').encode())
+    immutable(project/'templates/four133_out_v1',output_template.replace('><','>\n<').encode())
     filename='four133_'+name+'.json'
     # The native tool computes BOINC's download hierarchy using the basename.
     staged=config_path.parent/'four133-input'/filename
@@ -127,7 +139,7 @@ def submit(args):
     print(command(project,'bin/stage_file_native','--copy',str(staged)))
     print(command(project,'bin/create_work','--appname','four133','--wu_name',name,
         '--app_version_num','100','--target_host',str(args.host),
-        '--wu_template','templates/four133_in','--result_template','templates/four133_out',filename))
+        '--wu_template','templates/four133_in_v1','--result_template','templates/four133_out_v1',filename))
     print(json.dumps(dict(submitted=name,target_host=args.host,purpose='TEST_ONLY',new_scientific_coverage=False)))
 
 
