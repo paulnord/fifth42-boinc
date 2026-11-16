@@ -39,7 +39,10 @@ class NativeApplication(unittest.TestCase):
 
     def execute(self):
         (self.slot/'manifest.json').write_text(json.dumps(self.manifest))
-        subprocess.run(self.command(),cwd=self.slot,capture_output=True,text=True,check=True,timeout=30)
+        run=subprocess.run(self.command(),cwd=self.slot,capture_output=True,text=True,timeout=30)
+        if run.returncode:
+            logs='\n'.join(p.read_text() for p in self.slot.glob('*.partial'))
+            self.fail(run.stderr+'\n'+logs)
         return json.loads((self.slot/'result.json').read_text())
 
     def check(self):

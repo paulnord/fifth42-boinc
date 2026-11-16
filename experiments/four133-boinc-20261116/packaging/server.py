@@ -121,8 +121,10 @@ def submit(args):
     immutable(project/'templates/four133_in',input_template.encode())
     immutable(project/'templates/four133_out',output_template.encode())
     filename='four133_'+name+'.json'
-    # stage_file computes BOINC's download hierarchy and rejects duplicate names.
-    print(command(project,'bin/stage_file','--copy',str(trusted),filename))
+    # The native tool computes BOINC's download hierarchy using the basename.
+    staged=config_path.parent/'four133-input'/filename
+    immutable(staged,path.read_bytes())
+    print(command(project,'bin/stage_file_native','--copy',str(staged)))
     print(command(project,'bin/create_work','--appname','four133','--wu_name',name,
         '--app_version_num','100','--target_host',str(args.host),
         '--wu_template','templates/four133_in','--result_template','templates/four133_out',filename))

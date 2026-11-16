@@ -5,7 +5,7 @@ from pathlib import Path
 import subprocess
 import sys
 
-from protocol import atomic
+from protocol import atomic, load_manifest
 from validate import InfrastructureUnavailable, validate
 
 
@@ -28,6 +28,8 @@ def main(argv):
     if app != 'four133' or int(version) not in work['allowed_app_version_ids']:
         raise InfrastructureUnavailable('Trusted assignment/app version differs')
     engine = config['application_versions'][version]['engine_sha256']
+    # A corrupt/missing trusted assignment is an operator fault.
+    load_manifest(work['manifest'])
     try:
         outcome = validate(work['manifest'],argv[2],config['gmp_reference'],engine,'BOINC')
     except (ValueError,AssertionError) as exc:
