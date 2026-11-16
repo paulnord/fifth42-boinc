@@ -1,7 +1,5 @@
 name: Four 133rd powers BOINC CPU packages
 on:
-  push:
-    branches: [feat/four133-boinc-20261116]
   pull_request:
     paths:
       - experiments/four133-boinc-20261116/**
@@ -9,6 +7,9 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  group: four133-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   native:
     strategy:
