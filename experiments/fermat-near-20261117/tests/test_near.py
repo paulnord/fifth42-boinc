@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'app'))
 from protocol import atomic, canonical, load_manifest, validate_manifest, sha
 from make_work import make
-from search import cpu, gpu
+from search import cpu, gpu, metal
 from validate import oracle, validate, InfrastructureUnavailable
 from driver import allocation
 
@@ -56,6 +56,9 @@ class Science(unittest.TestCase):
             p.write_text('<app_init_data><ncpus>1</ncpus><gpu_type>NVIDIA</gpu_type><gpu_device_num>0</gpu_device_num></app_init_data>')
             self.assertEqual(allocation(p, 'gpu', '0'), 'BOINC')
             with self.assertRaises(ValueError): allocation(p, 'gpu', '$GPU_DEVICE_NUM')
+            p.write_text('<app_init_data><ncpus>1</ncpus><gpu_type>apple_gpu</gpu_type><gpu_device_num>0</gpu_device_num></app_init_data>')
+            self.assertEqual(allocation(p, 'metal', '0'), 'BOINC')
+            with self.assertRaises(ValueError): allocation(p, 'gpu', '0')
 
     def test_forged_omitted_candidates_and_retryable_oracle(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -123,6 +126,25 @@ class Cuda(unittest.TestCase):
             task = make('overflow', [21], 2, 40, k=Fraction(1000000))['tasks'][0]
             with self.assertRaises(ValueError):
                 gpu(task, '0', os.environ['NEAR_GPU'], Path(tmp)/'task', capacity=1)
+
+
+@unittest.skipUnless(os.environ.get('NEAR_METAL'), 'Physical M4 Metal engine/device not selected')
+class Metal(unittest.TestCase):
+    def test_all_exponents_and_wide_arithmetic(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            for n in range(4,33):
+                for first,last in [(2,40),(998,1000)]:
+                    task=make('metal',[n],first,last)['tasks'][0]
+                    self.assertEqual(metal(task,'0',os.environ['NEAR_METAL'],Path(tmp)/'task'),cpu(task))
+
+    def test_rational_boundary_and_output_overflow(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            for k in (Fraction(12,289),Fraction(11,289)):
+                task=make('metal',[5],17,17,k=k)['tasks'][0]
+                self.assertEqual(metal(task,'0',os.environ['NEAR_METAL'],Path(tmp)/'task'),cpu(task))
+            task=make('overflow',[21],2,40,k=Fraction(1000000))['tasks'][0]
+            with self.assertRaises(ValueError):
+                metal(task,'0',os.environ['NEAR_METAL'],Path(tmp)/'task',capacity=1)
 
 
 if __name__ == '__main__':

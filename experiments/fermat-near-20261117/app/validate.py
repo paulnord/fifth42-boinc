@@ -45,7 +45,7 @@ def validate(manifest_path, result_path, executable, build_identity, backend, de
             and type(result['boinc_ncpus']) is int and result['boinc_ncpus'] == 1, 'Delivery/backend differs')
     require(isinstance(result['records'], list), 'Result chunk list required')
     device = result['gpu_device']
-    require((backend == 'cpu' and device is None) or (backend == 'gpu' and isinstance(device, str)
+    require((backend == 'cpu' and device is None) or (backend in ('gpu', 'metal') and isinstance(device, str)
             and device.isascii() and device.isdecimal()), 'GPU allocation receipt differs')
     require(type(result['completed_tasks']) is int and result['completed_tasks'] == len(manifest['tasks'])
             and len(result['records']) == len(manifest['tasks']), 'Incomplete work')

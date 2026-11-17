@@ -5,6 +5,7 @@ import os
 import signal
 import struct
 import subprocess
+import sys
 from pathlib import Path
 from protocol import MAX_HITS, checks, require
 
@@ -28,7 +29,7 @@ def cpu(task, budget=lambda: None):
     return dict(hits=hits, a_values=checks(task))
 
 
-def gpu(task, device, engine, prefix, capacity=MAX_HITS, timeout=300):
+def gpu(task, device, engine, prefix, capacity=MAX_HITS, timeout=300, kind='cuda'):
     n, hi = task['exponent'], task['last_c']
     source, output = Path(str(prefix) + '.bin'), Path(str(prefix) + '.gpu')
     def words(value):
@@ -42,16 +43,22 @@ def gpu(task, device, engine, prefix, capacity=MAX_HITS, timeout=300):
             radius = task['k_num'] * c ** (n - 3) // task['k_den']
             words(c ** n + radius)  # prove the upper endpoint fits before launch
             stream.write(words(radius))
-    environment = dict(os.environ, CUDA_VISIBLE_DEVICES=str(device))
+    require(kind in ('cuda', 'metal'), 'Unknown accelerator backend')
+    environment = dict(os.environ)
+    command = [str(Path(engine).resolve()), str(source), str(output)]
+    if kind == 'cuda':
+        environment['CUDA_VISIBLE_DEVICES'] = str(device)
+    else:
+        command += [str(device), str(Path(engine).resolve().with_suffix('.metal'))]
     try:
         def parent_guard():
             parent = os.getppid()
             libc = ctypes.CDLL(None, use_errno=True)
             if libc.prctl(1, signal.SIGTERM, 0, 0, 0) != 0 or os.getppid() != parent:
                 os._exit(126)
-        child = subprocess.Popen([str(Path(engine).resolve()), str(source), str(output)],
+        child = subprocess.Popen(command,
             env=environment, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-            preexec_fn=parent_guard)
+            preexec_fn=parent_guard if sys.platform.startswith('linux') else None)
         try:
             _, error = child.communicate(timeout=timeout)
         except BaseException:
@@ -80,3 +87,7 @@ def gpu(task, device, engine, prefix, capacity=MAX_HITS, timeout=300):
     finally:
         source.unlink(missing_ok=True)
         output.unlink(missing_ok=True)
+
+
+def metal(task, device, engine, prefix, capacity=MAX_HITS, timeout=300):
+    return gpu(task, device, engine, prefix, capacity, timeout, kind='metal')

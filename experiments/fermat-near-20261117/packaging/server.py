@@ -36,7 +36,9 @@ def stage(args):
     config = json.loads(config_path.read_text())
     build = json.loads((bundle / 'BOINC_BUILD.json').read_text())
     require(build['application'] == 'fermat_near' and build['boinc_ncpus'] == 1, 'Wrong application')
-    require(build['platform'] == 'x86_64-pc-linux-gnu' and build['backend'] in ('cpu', 'gpu'), 'Unsupported platform')
+    require((build['platform'], build['backend']) in {('x86_64-pc-linux-gnu','cpu'),
+        ('x86_64-pc-linux-gnu','gpu'), ('arm64-apple-darwin','cpu'), ('arm64-apple-darwin','metal')},
+        'Unsupported platform/backend')
     for name, digest in build['files'].items():
         require(sha((bundle / name).read_bytes()) == digest, 'Changed package bytes')
     tree = ET.parse(project / 'config.xml')
@@ -60,11 +62,15 @@ def stage(args):
                 ('min_driver_version', '58000'), ('min_nvidia_compcap', '806'),
                 ('max_nvidia_compcap', '806'), ('ngpus', '1'), ('min_gpu_ram_mb', '128'),
                 ('gpu_ram_used_mb', '128'), ('cpu_frac', '1')]
+        if build['backend'] == 'metal':
+            pairs += [('gpu_type', 'apple_gpu'), ('cpu_model_regex', '^Apple M4( Pro| Max)?$'),
+                ('min_core_client_version', '80211'), ('ngpus', '1'), ('gpu_ram_used_mb', '512'),
+                ('cpu_frac', '1')]
         for key, value in pairs:
             ET.SubElement(plan, key).text = value
         plans.write(plan_path)
     release = build['version']
-    require(release in ('1.00', '1.10'), 'Unsupported initial version')
+    require(release in ('1.00', '1.01', '1.10', '1.11', '1.20', '1.30'), 'Unsupported version')
     number = int(release.replace('.', ''))
     directory = project / 'apps/fermat_near' / release / (build['platform'] + '__' + build['plan_class'])
     version = ET.Element('version')
@@ -83,7 +89,7 @@ def stage(args):
             ET.SubElement(node, 'main_program')
     immutable(directory / 'version.xml', ET.tostring(version))
     print(command(project, 'php', 'bin/update_versions', '--noconfirm', '--verbose'))
-    versions = sql(config, "SELECT v.id FROM app_version v JOIN app a ON a.id=v.appid WHERE a.name='fermat_near' AND v.version_num=" + str(number) + " AND v.plan_class='" + build['plan_class'] + "'")
+    versions = sql(config, "SELECT v.id FROM app_version v JOIN app a ON a.id=v.appid JOIN platform p ON p.id=v.platformid WHERE a.name='fermat_near' AND v.version_num=" + str(number) + " AND v.plan_class='" + build['plan_class'] + "' AND p.name='" + build['platform'] + "'")
     require(len(versions) == 1, 'Registered version ambiguous')
     version_id = int(versions[0])
     config['application_versions'][str(version_id)] = dict(backend=build['backend'],

@@ -7,7 +7,7 @@ import time
 import xml.etree.ElementTree as ET
 from pathlib import Path
 from protocol import atomic, canonical, load_manifest, read, require, sha
-from search import cpu, gpu
+from search import cpu, gpu, metal
 
 
 def allocation(path, backend, device, standalone=False):
@@ -22,7 +22,8 @@ def allocation(path, backend, device, standalone=False):
     if backend == 'cpu':
         require(not kind, 'CPU package received GPU allocation')
     else:
-        require(kind in ('nvidia', 'cuda'), 'BOINC NVIDIA allocation required')
+        kinds = ('apple_gpu', 'apple') if backend == 'metal' else ('nvidia', 'cuda')
+        require(kind in kinds, 'BOINC allocation type differs from the GPU backend')
         require(device is not None and device.isascii() and device.isdecimal(), 'Allocated GPU number required')
         recorded = root.findtext('gpu_device_num')
         require(recorded is None or recorded == device, 'Inconsistent GPU allocation')
@@ -61,8 +62,10 @@ def main(args):
         budget()
         if args.backend == 'cpu':
             science = cpu(task, budget)
-        else:
+        elif args.backend == 'gpu':
             science = gpu(task, args.gpu_device, 'bin/near_gpu', f"task-{task['id']:03d}")
+        else:
+            science = metal(task, args.gpu_device, 'bin/near_metal', f"task-{task['id']:03d}")
         chunk = dict(task=task, science=science)
         records.append(chunk)
         require(len(canonical(records)) <= 6 * 1024 * 1024, 'Output budget exceeded')
@@ -91,7 +94,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--manifest', default='manifest.json')
     parser.add_argument('--output', default='result.json')
-    parser.add_argument('--backend', choices=['cpu', 'gpu'], required=True)
+    parser.add_argument('--backend', choices=['cpu', 'gpu', 'metal'], required=True)
     parser.add_argument('--gpu-device')
     parser.add_argument('--standalone', action='store_true')
     main(parser.parse_args())

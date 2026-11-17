@@ -74,8 +74,12 @@ skipped unless a CUDA executable is selected; a CPU-only pass is not GPU evidenc
 
 `packaging/build.py` bundles hash-pinned stock BOINC wrapper 26019, relocatable
 CPython 3.13.18 and the wrapper's Linux libzip dependency. Neither host Python
-nor a privileged BOINC installation is required on the client. The first
-packages target Linux x86_64. Windows, macOS and other GPU architectures require
+nor a privileged BOINC installation is required on the client. Packages target
+Linux x86_64 and Apple Silicon macOS. The accepted Boole CPU 1.00 and CUDA 1.10
+versions remain immutable, built from commit
+`51b06054719b3f8eb48206ba07fe96f43e632781`. Updated Linux builds use 1.01/1.11;
+Mac CPU and Metal builds use 1.20/1.30. Mac hardware acceptance is separate from
+native CI build and wrapper checks. Windows and other GPU architectures require
 their own native package and acceptance work.
 
 ```
@@ -110,3 +114,24 @@ take a fresh private data directory and an existing extracted native BOINC
 runtime. They are pilot recipes for the tested Linux/NVIDIA host, not general
 installation scripts. Wrap clients and validators in finite resource supervisors.
 Account XML, authenticators, signing keys and database files stay outside Git.
+
+## Apple Silicon Mac packages
+
+The CPU package uses the same exact arbitrary-precision search. The Metal
+package implements the interval search with sixteen 32-bit limbs and checked
+carry/borrow operations; its shader uses neither floating point nor 64-bit
+shader integer operations. The current physical-client profile requires one
+BOINC-allocated Apple M4-family GPU and BOINC 8.2.11 or newer. The executable
+refuses absent allocation, multiple devices and other GPU families.
+
+```
+python3 packaging/build.py NEW_MAC_CPU --backend cpu
+python3 packaging/build.py NEW_MAC_METAL --backend metal
+```
+
+Build on a native arm64 Mac with Xcode command-line tools. Native CI compiles
+the Metal shader and runs real stock-wrapper CPU controls with bundled Python.
+Shader compilation is not physical M4 arithmetic acceptance. On an actual M4,
+set `NEAR_METAL` to `NEW_MAC_METAL/payload/bin/near_metal` alongside `NEAR_GMP`
+to execute the separate Metal arithmetic tests. Those tests include all powers
+4–32, wide integers, cutoff equality and candidate-buffer overflow.
