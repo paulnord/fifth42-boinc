@@ -5,6 +5,7 @@ through an unmodified stock BOINC server, client and wrapper.
 
 ## Start here
 
+- [Fermat near-miss CPU/CUDA clients for powers 4–32](experiments/fermat-near-20261117/README.md)
 - [Prototype and science reproduction](experiments/boinc-20261112/README.md)
 - [Full results and limitations](experiments/boinc-20261112/REPORT.md)
 - [Stock BOINC setup and lifecycle commands](experiments/boinc-20261112/stock/README.md)

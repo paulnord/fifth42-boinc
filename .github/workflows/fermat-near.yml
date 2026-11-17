@@ -1,0 +1,27 @@
+name: Fermat near-miss CPU correctness
+on:
+  pull_request:
+    paths:
+      - experiments/fermat-near-20261117/**
+      - .github/workflows/fermat-near.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  cpu:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.1.0
+        with:
+          python-version: '3.13'
+      - name: Independent GMP oracle
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y g++ libgmp-dev
+          g++ -O2 -std=c++17 -Wall -Wextra -Werror experiments/fermat-near-20261117/native/gmp_oracle.cpp -lgmpxx -lgmp -o gmp_oracle
+      - name: Complete small boxes, restart and forged-output rejection
+        env:
+          NEAR_GMP: ${{ github.workspace }}/gmp_oracle
+        run: python -m unittest discover -s experiments/fermat-near-20261117/tests -v

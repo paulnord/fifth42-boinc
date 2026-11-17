@@ -1,0 +1,45 @@
+{
+  "all_match": true,
+  "files": [
+    {
+      "file": "fermat_near_100_cpu_libzip-COPYRIGHT.txt",
+      "sha256": "36b0559a58151c09b7a4363f06372df9275103708e1bcba1b2130a7148114425"
+    },
+    {
+      "file": "fermat_near_110_gpu_runtime.zip",
+      "sha256": "d18f73109edccc2fe5e21cf2c306ffb0755b328da461dcb72952aef89bec9a02"
+    },
+    {
+      "file": "fermat_near_110_gpu_job.xml",
+      "sha256": "d036aa08363bc02e71b6bd89195252782ad38dc0461e9fec3910863b1677268b"
+    },
+    {
+      "file": "fermat_near_100_cpu_runtime.zip",
+      "sha256": "3bc50918ec70c1c44b324b1389b72a008407e247a46ba997b9b1a4791687ca4a"
+    },
+    {
+      "file": "fermat_near_100_cpu_libzip.so.4",
+      "sha256": "686612e6af220e2de954795ac7184695ebe3660541b13fa793cf5dc6ed352b5b"
+    },
+    {
+      "file": "fermat_near_100_cpu_wrapper",
+      "sha256": "38d3ecc92f314772d0358dff732ca3d98877215d5c470f87b2f13e6760b05fbf"
+    },
+    {
+      "file": "fermat_near_100_cpu_job.xml",
+      "sha256": "2c4668acd98e800a51e22ec7a7d74eaa7a99cbe01e385a6fdd342eadf61863d5"
+    },
+    {
+      "file": "fermat_near_110_gpu_wrapper",
+      "sha256": "38d3ecc92f314772d0358dff732ca3d98877215d5c470f87b2f13e6760b05fbf"
+    },
+    {
+      "file": "fermat_near_110_gpu_libzip.so.4",
+      "sha256": "686612e6af220e2de954795ac7184695ebe3660541b13fa793cf5dc6ed352b5b"
+    },
+    {
+      "file": "fermat_near_110_gpu_libzip-COPYRIGHT.txt",
+      "sha256": "36b0559a58151c09b7a4363f06372df9275103708e1bcba1b2130a7148114425"
+    }
+  ]
+}
