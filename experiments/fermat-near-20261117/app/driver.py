@@ -1,7 +1,11 @@
 """One BOINC CPU, optional allocated CUDA GPU, and durable chunk recovery."""
 import argparse
 import math
-import resource
+import os
+try:
+    import resource
+except ImportError:
+    resource = None
 import signal
 import time
 import xml.etree.ElementTree as ET
@@ -34,8 +38,9 @@ def main(args):
     started = time.monotonic()
     initial_cpu = time.process_time()
     def budget():
-        child = resource.getrusage(resource.RUSAGE_CHILDREN)
-        require(time.process_time() - initial_cpu + child.ru_utime + child.ru_stime <= 300,
+        children = resource.getrusage(resource.RUSAGE_CHILDREN) if resource else None
+        child_cpu = children.ru_utime + children.ru_stime if children else 0
+        require(time.process_time() - initial_cpu + child_cpu <= 300,
                 'Application CPU budget exceeded')
     manifest, identity = load_manifest(args.manifest)
     build = read('NEAR_BUILD.json', 65536)
@@ -63,7 +68,8 @@ def main(args):
         if args.backend == 'cpu':
             science = cpu(task, budget)
         elif args.backend == 'gpu':
-            science = gpu(task, args.gpu_device, 'bin/near_gpu', f"task-{task['id']:03d}")
+            engine='bin/near_gpu.exe' if os.name=='nt' else 'bin/near_gpu'
+            science = gpu(task, args.gpu_device, engine, f"task-{task['id']:03d}")
         else:
             science = metal(task, args.gpu_device, 'bin/near_metal', f"task-{task['id']:03d}")
         chunk = dict(task=task, science=science)

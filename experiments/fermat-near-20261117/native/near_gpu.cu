@@ -1,4 +1,5 @@
 // Exact unsigned 512-bit CUDA interval search. Python prepares exact power tables.
+#include "parent_guard.hpp"
 #include <cuda_runtime.h>
 #include <cstdint>
 #include <fstream>
@@ -51,6 +52,7 @@ void checked(cudaError_t status) {
 }
 int main(int argc,char** argv) {
     try {
+        protect_parent();
         if(argc!=3) return 2;
         std::ifstream input(argv[1],std::ios::binary);
         uint32_t header[4]; input.read(reinterpret_cast<char*>(header),sizeof(header));

@@ -26,15 +26,24 @@ MAC_ASSETS = {
                 'd2d08516ced84527e658a366585d76f1cae2017dd0c07a00a5dc9e883968ed59'),
     'python.tar.gz': ('https://github.com/astral-sh/python-build-standalone/releases/download/20261110/cpython-3.13.18%2B20261110-aarch64-apple-darwin-install_only.tar.gz',
                       '1afd3983237c2a10277345f235be730e9cb49a123e0574ed252dbf3a841a24e4')}
+WINDOWS_ASSETS = {
+    'wrapper.exe': ('https://github.com/BOINC/boinc/releases/download/wrapper/26019/wrapper_26019_windows_x86_x64.exe',
+                    'ec9ba4a1e37e0767271f2c1a90d1b251ffc3c9f1936ab1cc53a201e03567106e'),
+    'python.tar.gz': ('https://github.com/astral-sh/python-build-standalone/releases/download/20261110/cpython-3.13.18%2B20261110-x86_64-pc-windows-msvc-install_only.tar.gz',
+                      '7e93813bd362c6413f30788b248590e2f169df2d17dcac81aafbcc7a6eeb542c')}
 
 
-def build(dest, backend, assets=None, gpu_engine=None):
-    mac = platform.system() == 'Darwin' and platform.machine() == 'arm64'
-    if not mac and not (platform.system() == 'Linux' and platform.machine() == 'x86_64'):
-        raise ValueError('A native Linux x86_64 or Apple Silicon builder is required')
-    if (backend == 'metal' and not mac) or (backend == 'gpu' and mac):
+def build(dest, backend, assets=None, gpu_engine=None, target=None):
+    native_mac = platform.system() == 'Darwin' and platform.machine() == 'arm64'
+    windows = os.name == 'nt' and platform.machine().lower() in ('amd64','x86_64')
+    if not windows and not native_mac and not (platform.system() == 'Linux' and platform.machine() == 'x86_64'):
+        raise ValueError('A native Linux x86_64, Windows x64 or Apple Silicon builder is required')
+    if target and backend != 'cpu':
+        raise ValueError('Only the pure Python CPU package may assemble a different target runtime')
+    mac = native_mac or target == 'arm64-apple-darwin'
+    if (backend == 'metal' and not native_mac) or (backend == 'gpu' and mac):
         raise ValueError('Accelerator backend differs from the native build platform')
-    pins = MAC_ASSETS if mac else ASSETS
+    pins = WINDOWS_ASSETS if windows else MAC_ASSETS if mac else ASSETS
     dest = Path(dest).resolve()
     dest.mkdir(exist_ok=False)
     payload = dest / 'payload'
@@ -45,18 +54,20 @@ def build(dest, backend, assets=None, gpu_engine=None):
         if gpu_engine is None:
             raise ValueError('A native tested CUDA engine is required')
         (payload / 'bin').mkdir()
-        shutil.copy2(gpu_engine, payload / 'bin/near_gpu')
-        (payload / 'bin/near_gpu').chmod(0o755)
+        engine_name='near_gpu.exe' if windows else 'near_gpu'
+        shutil.copy2(gpu_engine, payload / 'bin' / engine_name)
+        (payload / 'bin' / engine_name).chmod(0o755)
     if backend == 'metal':
         (payload / 'bin').mkdir()
         subprocess.run(['clang++', '-std=c++17', '-O2', '-fobjc-arc', str(ROOT / 'native/near_metal.mm'),
             '-framework', 'Foundation', '-framework', 'Metal', '-o', str(payload / 'bin/near_metal')], check=True)
         shutil.copy2(ROOT / 'native/near_metal.metal', payload / 'bin/near_metal.metal')
-    version = ('1.20' if backend == 'cpu' else '1.30') if mac else ('1.01' if backend == 'cpu' else '1.11')
+    version = ('1.40' if backend=='cpu' else '1.50') if windows else ('1.21' if backend == 'cpu' else '1.31') if mac else ('1.02' if backend == 'cpu' else '1.12')
     metadata = dict(application='fermat_near', version=version,
-        platform='arm64-apple-darwin' if mac else 'x86_64-pc-linux-gnu',
+        platform='windows_x86_64' if windows else 'arm64-apple-darwin' if mac else 'x86_64-pc-linux-gnu',
         backend=backend, boinc_ncpus=1, gpu=(backend != 'cpu'),
         cuda_source_sha256=sha((ROOT / 'native/near_gpu.cu').read_bytes()) if backend == 'gpu' else None,
+        parent_guard_sha256=sha((ROOT / 'native/parent_guard.hpp').read_bytes()) if backend=='gpu' else None,
         metal_host_sha256=sha((ROOT / 'native/near_metal.mm').read_bytes()) if backend == 'metal' else None,
         files={str(p.relative_to(payload)): sha(p.read_bytes()) for p in sorted(payload.rglob('*')) if p.is_file()})
     atomic(payload / 'NEAR_BUILD.json', metadata)
@@ -66,8 +77,9 @@ def build(dest, backend, assets=None, gpu_engine=None):
         if sha(data) != expected:
             raise ValueError('Changed upstream asset: ' + name)
         (dest / name).write_bytes(data)
-    (dest / 'wrapper').chmod(0o755)
-    if not mac:
+    wrapper='wrapper.exe' if windows else 'wrapper'
+    (dest / wrapper).chmod(0o755)
+    if not mac and not windows:
         subprocess.run(['dpkg-deb', '-x', str(dest / 'libzip.deb'), str(dest / 'zip-input')], check=True)
         shutil.copy2(dest / 'zip-input/usr/lib/x86_64-linux-gnu/libzip.so.4.0', dest / 'libzip.so.4')
         shutil.copy2(dest / 'zip-input/usr/share/doc/libzip4t64/copyright', dest / 'libzip-COPYRIGHT.txt')
@@ -88,18 +100,18 @@ def build(dest, backend, assets=None, gpu_engine=None):
     gpu = ' --gpu-device $GPU_DEVICE_NUM' if backend != 'cpu' else ''
     (dest / 'job.xml').write_text(f'''<job_desc>
 <unzip_input><zipfilename>runtime.zip</zipfilename></unzip_input>
-<task><application>python/bin/python3.13</application>
+<task><application>{'python/python.exe' if windows else 'python/bin/python3.13'}</application>
 <command_line>-s app/driver.py --backend {backend}{gpu} --manifest boinc_resolve(manifest.json) --output boinc_resolve(result.json)</command_line>
 <setenv>PYTHONHOME=$PWD/python</setenv><multi_process/>
 <checkpoint_filename>checkpoint.json</checkpoint_filename><fraction_done_filename>fraction_done.txt</fraction_done_filename>
 <stdout_filename>near.stdout</stdout_filename><stderr_filename>near.stderr</stderr_filename></task>
 </job_desc>
 ''')
-    files = ['wrapper', 'runtime.zip', 'job.xml']
-    if not mac:
+    files = [wrapper, 'runtime.zip', 'job.xml']
+    if not mac and not windows:
         files += ['libzip.so.4', 'libzip-COPYRIGHT.txt']
     package = dict(metadata, build_identity=sha(canonical(metadata)),
-                   plan_class='fermat_near_metal_m4_1' if backend == 'metal' else 'fermat_near_' + backend + '_1',
+                   plan_class='fermat_near_metal_m4_1' if backend == 'metal' else 'fermat_near_gpu_windows_1' if windows and backend=='gpu' else 'fermat_near_' + backend + '_1',
                    client_files=files, source_files=metadata['files'],
                    assets={k: dict(url=v[0], sha256=v[1]) for k, v in pins.items()},
                    files={name: sha((dest / name).read_bytes()) for name in files})
@@ -114,5 +126,6 @@ if __name__ == '__main__':
     p.add_argument('--backend', choices=['cpu', 'gpu', 'metal'], required=True)
     p.add_argument('--assets', help='Optional cache of the pinned wrapper, Python archive, libzip.deb')
     p.add_argument('--gpu-engine')
+    p.add_argument('--target',choices=['arm64-apple-darwin'],help='CPU only: assemble pinned native Mac binaries without claiming a native build/test')
     a = p.parse_args()
-    build(a.destination, a.backend, a.assets, a.gpu_engine)
+    build(a.destination, a.backend, a.assets, a.gpu_engine, a.target)

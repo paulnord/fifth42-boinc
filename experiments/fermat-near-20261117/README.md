@@ -75,12 +75,12 @@ skipped unless a CUDA executable is selected; a CPU-only pass is not GPU evidenc
 `packaging/build.py` bundles hash-pinned stock BOINC wrapper 26019, relocatable
 CPython 3.13.18 and the wrapper's Linux libzip dependency. Neither host Python
 nor a privileged BOINC installation is required on the client. Packages target
-Linux x86_64 and Apple Silicon macOS. The accepted Boole CPU 1.00 and CUDA 1.10
+Linux x86_64, Apple Silicon macOS and Windows x64. The accepted Boole CPU 1.00 and CUDA 1.10
 versions remain immutable, built from commit
-`51b06054719b3f8eb48206ba07fe96f43e632781`. Updated Linux builds use 1.01/1.11;
-Mac CPU and Metal builds use 1.20/1.30. Mac hardware acceptance is separate from
-native CI build and wrapper checks. Windows and other GPU architectures require
-their own native package and acceptance work.
+`51b06054719b3f8eb48206ba07fe96f43e632781`. Mac 1.20/1.30 packages were built from
+`e296d5b2ab2e15484119701b1161308813cdb0ea`. The current portable-driver builds
+use Linux 1.02/1.12, Mac 1.21/1.31 and Windows 1.40/1.50. Hardware acceptance is
+recorded per immutable version, separately from compilation and wrapper checks.
 
 ```
 python3 packaging/build.py NEW_CPU_BUNDLE --backend cpu
@@ -135,3 +135,33 @@ Shader compilation is not physical M4 arithmetic acceptance. On an actual M4,
 set `NEAR_METAL` to `NEW_MAC_METAL/payload/bin/near_metal` alongside `NEAR_GMP`
 to execute the separate Metal arithmetic tests. Those tests include all powers
 4–32, wide integers, cutoff equality and candidate-buffer overflow.
+
+The CPU package can also be assembled on Linux with
+`--backend cpu --target arm64-apple-darwin`. This downloads the same pinned native
+Mac wrapper and CPython runtime; it is assembly of existing binaries, not a
+claim that Linux executed or compiled macOS code. A physical Mac returned the
+CPU range and wide-integer controls, and native Mac CI independently exercised
+the matching science build identity through the real stock wrapper.
+
+## Windows CPU and NVIDIA GPU packages
+
+Windows x64 CPU 1.40 bundles native CPython and the pinned stock Windows wrapper.
+Checkpoints use a flushed temporary file and Windows `MoveFileExW` replacement
+with write-through. CUDA 1.50 contains native SM75 and SM86 code plus compute75
+PTX for compatible later devices, a static CUDA runtime and a parent-lifetime
+guard. The NVIDIA profile requires compute capability 7.5 or newer and driver
+572.61 or newer, matching the conservative CUDA 12.8 Update 1 driver baseline.
+See [NVIDIA's release notes](https://docs.nvidia.com/cuda/archive/12.8.1/cuda-toolkit-release-notes/index.html).
+
+There is one Windows x64 CPU package and one NVIDIA package, selected by BOINC's
+platform and capability/driver plan. A separate package per card or OS patch is
+unnecessary. AMD/Intel GPU execution would require another backend, such as
+OpenCL; it is not provided by this CUDA implementation. Windows ARM64 is also
+a different architecture and is outside these x64 packages.
+
+The Windows CI recipe builds on a native Windows runner, runs independent GMP
+and CPU recovery tests, executes the stock wrapper with bundled Python, builds
+the CUDA executable and verifies clean rejection of an unallocated device.
+Missing-device rejection is not positive GPU arithmetic acceptance. No physical
+Windows/NVIDIA client is currently attached to the private pilot, so that
+hardware-specific BOINC acceptance remains a separate check.

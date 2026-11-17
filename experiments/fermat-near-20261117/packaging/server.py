@@ -37,7 +37,8 @@ def stage(args):
     build = json.loads((bundle / 'BOINC_BUILD.json').read_text())
     require(build['application'] == 'fermat_near' and build['boinc_ncpus'] == 1, 'Wrong application')
     require((build['platform'], build['backend']) in {('x86_64-pc-linux-gnu','cpu'),
-        ('x86_64-pc-linux-gnu','gpu'), ('arm64-apple-darwin','cpu'), ('arm64-apple-darwin','metal')},
+        ('x86_64-pc-linux-gnu','gpu'), ('arm64-apple-darwin','cpu'), ('arm64-apple-darwin','metal'),
+        ('windows_x86_64','cpu'), ('windows_x86_64','gpu')},
         'Unsupported platform/backend')
     for name, digest in build['files'].items():
         require(sha((bundle / name).read_bytes()) == digest, 'Changed package bytes')
@@ -62,6 +63,10 @@ def stage(args):
                 ('min_driver_version', '58000'), ('min_nvidia_compcap', '806'),
                 ('max_nvidia_compcap', '806'), ('ngpus', '1'), ('min_gpu_ram_mb', '128'),
                 ('gpu_ram_used_mb', '128'), ('cpu_frac', '1')]
+            if build['platform']=='windows_x86_64':
+                pairs=[(k,v) for k,v in pairs if k!='max_nvidia_compcap']
+                pairs=[(k,'12080' if k=='min_cuda_version' else '57261' if k=='min_driver_version'
+                        else '705' if k=='min_nvidia_compcap' else '512' if k in ('gpu_ram_used_mb','min_gpu_ram_mb') else v) for k,v in pairs]
         if build['backend'] == 'metal':
             pairs += [('gpu_type', 'apple_gpu'), ('cpu_model_regex', '^Apple M4( Pro| Max)?$'),
                 ('min_core_client_version', '80211'), ('ngpus', '1'), ('gpu_ram_used_mb', '512'),
@@ -70,7 +75,7 @@ def stage(args):
             ET.SubElement(plan, key).text = value
         plans.write(plan_path)
     release = build['version']
-    require(release in ('1.00', '1.01', '1.10', '1.11', '1.20', '1.30'), 'Unsupported version')
+    require(release in ('1.00','1.01','1.02','1.10','1.11','1.12','1.20','1.21','1.30','1.31','1.40','1.50'), 'Unsupported version')
     number = int(release.replace('.', ''))
     directory = project / 'apps/fermat_near' / release / (build['platform'] + '__' + build['plan_class'])
     version = ET.Element('version')
@@ -79,13 +84,13 @@ def stage(args):
     for name in build['client_files']:
         physical = 'fermat_near_' + str(number) + '_' + build['backend'] + '_' + name
         immutable(directory / physical, (bundle / name).read_bytes())
-        if name == 'wrapper':
+        if name in ('wrapper','wrapper.exe'):
             (directory / physical).chmod(0o755)
         node = ET.SubElement(version, 'file')
         ET.SubElement(node, 'physical_name').text = physical
         ET.SubElement(node, 'logical_name').text = name
         ET.SubElement(node, 'copy_file')
-        if name == 'wrapper':
+        if name in ('wrapper','wrapper.exe'):
             ET.SubElement(node, 'main_program')
     immutable(directory / 'version.xml', ET.tostring(version))
     print(command(project, 'php', 'bin/update_versions', '--noconfirm', '--verbose'))

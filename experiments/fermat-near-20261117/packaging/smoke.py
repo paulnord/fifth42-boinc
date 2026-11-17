@@ -27,7 +27,8 @@ def smoke(bundle,slot,oracle):
     env={k:v for k,v in os.environ.items() if not k.startswith(('PYTHON','DYLD_'))}
     if sys.platform.startswith('linux'):env['LD_LIBRARY_PATH']=str(slot)+':'+env.get('LD_LIBRARY_PATH','')
     with (slot/'wrapper.stdout').open('w') as out,(slot/'wrapper.stderr').open('w') as err:
-        result=subprocess.run([str(slot/'wrapper')],cwd=slot,env=env,stdout=out,stderr=err,timeout=180)
+        wrapper='wrapper.exe' if build['platform']=='windows_x86_64' else 'wrapper'
+        result=subprocess.run([str(slot/wrapper)],cwd=slot,env=env,stdout=out,stderr=err,timeout=180)
     if result.returncode:raise RuntimeError('Stock wrapper failed: '+str(result.returncode))
     audit=validate(slot/'manifest.json',slot/'result.json',str(Path(oracle).resolve()),
                    build['build_identity'],'cpu','standalone')
