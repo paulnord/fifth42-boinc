@@ -1,0 +1,74 @@
+name: Fermat near-miss Windows clients
+on:
+  pull_request:
+    paths:
+      - experiments/fermat-near-20261117/**
+      - .github/workflows/fermat-near-windows.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native-windows:
+    runs-on: windows-2022
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Native UCRT64 Python and independent GMP
+        uses: msys2/setup-msys2@v2.33.0
+        with:
+          msystem: UCRT64
+          update: true
+          install: >-
+            mingw-w64-ucrt-x86_64-gcc
+            mingw-w64-ucrt-x86_64-gmp
+            mingw-w64-ucrt-x86_64-python
+      - name: Build and test native exact CPU implementation
+        shell: msys2 {0}
+        env:
+          PYTHONUTF8: '1'
+          NEAR_GMP: ${{ github.workspace }}/gmp_oracle.exe
+        run: |
+          set -o pipefail
+          g++ -O2 -std=c++17 -Wall -Wextra -Werror -static-libstdc++ -static-libgcc experiments/fermat-near-20261117/native/gmp_oracle.cpp -lgmpxx -lgmp -o gmp_oracle.exe
+          python -m unittest discover -s experiments/fermat-near-20261117/tests -v 2>&1 | tee WINDOWS_NATIVE_TESTS.log
+      - name: Build native Windows CPU package and execute stock wrapper
+        shell: msys2 {0}
+        env:
+          PYTHONUTF8: '1'
+        run: |
+          python experiments/fermat-near-20261117/packaging/build.py bundle-windows-cpu --backend cpu
+          python experiments/fermat-near-20261117/packaging/smoke.py bundle-windows-cpu wrapper-windows --oracle ./gmp_oracle.exe
+      - name: Install pinned CUDA compiler components
+        shell: pwsh
+        run: ./experiments/fermat-near-20261117/packaging/install_windows_cuda.ps1
+      - name: Compile native CUDA executable with native and forward-compatible code
+        shell: cmd
+        run: |
+          call "%NEAR_VS_ROOT%\VC\Auxiliary\Build\vcvars64.bat"
+          "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\bin\nvcc.exe" -std=c++17 -O2 -gencode arch=compute_75,code=sm_75 -gencode arch=compute_86,code=sm_86 -gencode arch=compute_75,code=compute_75 --cudart=static -Xcompiler /MT experiments\fermat-near-20261117\native\near_gpu.cu -o near_gpu.exe
+      - name: Build Windows NVIDIA package and require clean missing-device rejection
+        shell: msys2 {0}
+        env:
+          PYTHONUTF8: '1'
+        run: |
+          python experiments/fermat-near-20261117/packaging/build.py bundle-windows-cuda --backend gpu --gpu-engine ./near_gpu.exe
+          python experiments/fermat-near-20261117/packaging/windows_gpu_absence.py ./near_gpu.exe WINDOWS_GPU_ABSENCE.json
+      - name: Retain native Windows packages and explicit acceptance scope
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: fermat-near-windows-x64
+          path: |
+            bundle-windows-cpu/BOINC_BUILD.json
+            bundle-windows-cpu/wrapper.exe
+            bundle-windows-cpu/runtime.zip
+            bundle-windows-cpu/job.xml
+            bundle-windows-cuda/BOINC_BUILD.json
+            bundle-windows-cuda/wrapper.exe
+            bundle-windows-cuda/runtime.zip
+            bundle-windows-cuda/job.xml
+            wrapper-windows/SMOKE_ACCEPTANCE.json
+            wrapper-windows/*.stderr
+            WINDOWS_GPU_ABSENCE.json
+            WINDOWS_NATIVE_TESTS.log
+          if-no-files-found: error

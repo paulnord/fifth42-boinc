@@ -1,0 +1,1 @@
+{"pause_after":1,"pause_seconds":60,"purpose":"TEST_ONLY","schema":"fermat-near-work-v1","tasks":[{"exponent":21,"first_c":2,"id":0,"k_den":1,"k_num":21,"last_c":40},{"exponent":32,"first_c":2,"id":1,"k_den":1,"k_num":32,"last_c":40}],"unit_id":"near-boole-gpu-restart-20261117"}

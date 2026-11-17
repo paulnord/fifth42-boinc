@@ -1,0 +1,12 @@
+{
+  "source_commit": "87525472325cc949f469ce334d1bd81ddbc7ba98",
+  "run_id": 44139867748,
+  "job_id": 134239395940,
+  "artifact_id": 14354481398,
+  "artifact_sha256": "9927bea9df5cf325b67e5c57ab79963f80e822626ddd67c76dc8b6165ad82d35",
+  "native_CPU_and_stock_wrapper_passed": true,
+  "CUDA_compilation_passed": true,
+  "missing_device_rejected": true,
+  "positive_GPU_hardware_acceptance": false,
+  "actual_BOINC_client": false
+}

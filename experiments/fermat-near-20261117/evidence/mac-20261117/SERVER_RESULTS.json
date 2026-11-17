@@ -1,0 +1,80 @@
+[
+  {
+    "id": 56,
+    "workunit": "near-mac-cpu-ranges-20261117",
+    "host_id": 1,
+    "app_version_id": 18,
+    "server_state": 5,
+    "outcome": 1,
+    "validate_state": 1,
+    "exit_status": 0,
+    "canonical_result_id": 56,
+    "elapsed_time": 4.10583,
+    "cpu_time": 0.168408
+  },
+  {
+    "id": 57,
+    "workunit": "near-mac-cpu-wide-20261117",
+    "host_id": 1,
+    "app_version_id": 18,
+    "server_state": 5,
+    "outcome": 1,
+    "validate_state": 1,
+    "exit_status": 0,
+    "canonical_result_id": 57,
+    "elapsed_time": 3.101097,
+    "cpu_time": 0.118627
+  },
+  {
+    "id": 58,
+    "workunit": "near-mac-metal-ranges-20261117",
+    "host_id": 1,
+    "app_version_id": 19,
+    "server_state": 5,
+    "outcome": 1,
+    "validate_state": 1,
+    "exit_status": 0,
+    "canonical_result_id": 58,
+    "elapsed_time": 4.150578,
+    "cpu_time": 0.271319
+  },
+  {
+    "id": 59,
+    "workunit": "near-mac-metal-wide-20261117",
+    "host_id": 1,
+    "app_version_id": 19,
+    "server_state": 5,
+    "outcome": 1,
+    "validate_state": 1,
+    "exit_status": 0,
+    "canonical_result_id": 59,
+    "elapsed_time": 4.090351,
+    "cpu_time": 0.178184
+  },
+  {
+    "id": 60,
+    "workunit": "near-mac-cpu-wide-match-20261117",
+    "host_id": 1,
+    "app_version_id": 18,
+    "server_state": 5,
+    "outcome": 1,
+    "validate_state": 1,
+    "exit_status": 0,
+    "canonical_result_id": 60,
+    "elapsed_time": 3.071373,
+    "cpu_time": 0.109348
+  },
+  {
+    "id": 61,
+    "workunit": "near-mac-metal-wide-match-20261117",
+    "host_id": 1,
+    "app_version_id": 19,
+    "server_state": 5,
+    "outcome": 1,
+    "validate_state": 1,
+    "exit_status": 0,
+    "canonical_result_id": 61,
+    "elapsed_time": 4.074166,
+    "cpu_time": 0.112406
+  }
+]

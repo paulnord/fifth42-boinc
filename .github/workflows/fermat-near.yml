@@ -1,0 +1,69 @@
+name: Fermat near-miss CPU correctness
+on:
+  pull_request:
+    paths:
+      - experiments/fermat-near-20261117/**
+      - .github/workflows/fermat-near.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  cpu:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.1.0
+        with:
+          python-version: '3.13'
+      - name: Independent GMP oracle
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y g++ libgmp-dev
+          g++ -O2 -std=c++17 -Wall -Wextra -Werror experiments/fermat-near-20261117/native/gmp_oracle.cpp -lgmpxx -lgmp -o gmp_oracle
+      - name: Complete small boxes, restart and forged-output rejection
+        env:
+          NEAR_GMP: ${{ github.workspace }}/gmp_oracle
+        run: python -m unittest discover -s experiments/fermat-near-20261117/tests -v
+  macos:
+    runs-on: macos-26
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.1.0
+        with:
+          python-version: '3.13'
+      - name: Native GMP oracle
+        run: |
+          brew list --versions gmp || brew install gmp
+          gmp_prefix=$(brew --prefix gmp)
+          clang++ -O2 -std=c++17 -isystem "$gmp_prefix/include" -L"$gmp_prefix/lib" experiments/fermat-near-20261117/native/gmp_oracle.cpp -lgmpxx -lgmp -o gmp_oracle
+      - name: Native exact CPU and recovery tests
+        env:
+          NEAR_GMP: ${{ github.workspace }}/gmp_oracle
+        run: python -m unittest discover -s experiments/fermat-near-20261117/tests -v
+      - name: Build Apple Silicon CPU and Metal packages
+        run: |
+          python experiments/fermat-near-20261117/packaging/build.py bundle-cpu --backend cpu
+          python experiments/fermat-near-20261117/packaging/build.py bundle-metal --backend metal
+      - name: Compile exact Metal shader without a hardware acceptance claim
+        run: bundle-metal/payload/bin/near_metal --compile-only bundle-metal/payload/bin/near_metal.metal
+      - name: Run real stock wrapper and bundled Python CPU controls
+        run: python experiments/fermat-near-20261117/packaging/smoke.py bundle-cpu wrapper-slot --oracle ./gmp_oracle
+      - name: Save immutable native client packages
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: fermat-near-macos-arm64
+          path: |
+            bundle-cpu/BOINC_BUILD.json
+            bundle-cpu/wrapper
+            bundle-cpu/runtime.zip
+            bundle-cpu/job.xml
+            bundle-metal/BOINC_BUILD.json
+            bundle-metal/wrapper
+            bundle-metal/runtime.zip
+            bundle-metal/job.xml
+            wrapper-slot/SMOKE_ACCEPTANCE.json
+            wrapper-slot/*.stderr
+          if-no-files-found: error
