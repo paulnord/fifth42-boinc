@@ -38,6 +38,13 @@ class Science(unittest.TestCase):
         repeated = make('equal', [8], 12, 12)['tasks'][0]
         self.assertTrue(any(a == b == 11 for a, b, c, d in cpu(repeated)['hits']))
 
+    def test_known_nonempty_wide_match(self):
+        task=make('known-wide',[30],966,966)['tasks'][0]
+        expected=[860,965,966,str(860**30+965**30-966**30)]
+        self.assertGreater((966**30).bit_length(),256)
+        self.assertIn(expected,cpu(task)['hits'])
+        self.assertEqual(cpu(task),oracle(task,os.environ['NEAR_GMP']))
+
     def test_manifest_overlap_strict_types_and_budgets(self):
         valid = make('valid', [21, 32], 2, 20)
         for mutate in [lambda m: m['tasks'][0].update(exponent=True),
@@ -126,6 +133,8 @@ class Cuda(unittest.TestCase):
             task = make('overflow', [21], 2, 40, k=Fraction(1000000))['tasks'][0]
             with self.assertRaises(ValueError):
                 gpu(task, '0', os.environ['NEAR_GPU'], Path(tmp)/'task', capacity=1)
+            task=make('known-wide',[30],966,966)['tasks'][0]
+            self.assertEqual(gpu(task,'0',os.environ['NEAR_GPU'],Path(tmp)/'task'),cpu(task))
 
 
 @unittest.skipUnless(os.environ.get('NEAR_METAL'), 'Physical M4 Metal engine/device not selected')
@@ -145,6 +154,8 @@ class Metal(unittest.TestCase):
             task=make('overflow',[21],2,40,k=Fraction(1000000))['tasks'][0]
             with self.assertRaises(ValueError):
                 metal(task,'0',os.environ['NEAR_METAL'],Path(tmp)/'task',capacity=1)
+            task=make('known-wide',[30],966,966)['tasks'][0]
+            self.assertEqual(metal(task,'0',os.environ['NEAR_METAL'],Path(tmp)/'task'),cpu(task))
 
 
 if __name__ == '__main__':

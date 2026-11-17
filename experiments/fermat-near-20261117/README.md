@@ -165,3 +165,10 @@ the CUDA executable and verifies clean rejection of an unallocated device.
 Missing-device rejection is not positive GPU arithmetic acceptance. No physical
 Windows/NVIDIA client is currently attached to the private pilot, so that
 hardware-specific BOINC acceptance remains a separate check.
+
+Use [the DOT handoff](WINDOWS_DOT_HANDOFF.md) for the prepared lab-PC session.
+The owner-only `packaging/windows_pilot.py` helper checks registered Windows
+versions, queues host-targeted range, wide-match and restart controls, and
+reports canonical validation status. Mac CPU/Metal receipts are archived in
+`evidence/mac-20261117`; native Windows CI receipts are in
+`evidence/windows-native-20261117`.

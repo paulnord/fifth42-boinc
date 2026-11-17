@@ -1,0 +1,76 @@
+{
+  "host_id": 1,
+  "CPU": "Apple M4",
+  "GPU": "Apple M4 Metal",
+  "BOINC_client": "8.2.11",
+  "CPU_version": "1.20",
+  "Metal_version": "1.30",
+  "all_six_valid_and_canonical": true,
+  "CPU_Metal_records_identical": true,
+  "ranges": {
+    "exponents": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ],
+    "c": [
+      2,
+      200
+    ]
+  },
+  "wide": {
+    "exponents": [
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ],
+    "c": [
+      998,
+      1000
+    ]
+  },
+  "known_nonempty_wide": {
+    "exponent": 30,
+    "a": 860,
+    "b": 965,
+    "c": 966
+  },
+  "purpose": "TEST_ONLY",
+  "new_scientific_coverage": false,
+  "performance_benchmark": false
+}

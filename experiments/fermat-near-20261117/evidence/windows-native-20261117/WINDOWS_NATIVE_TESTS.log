@@ -1,0 +1,15 @@
+test_all_requested_exponents_and_wide_arithmetic (test_near.Cuda.test_all_requested_exponents_and_wide_arithmetic) ... skipped 'CUDA engine/device not selected'
+test_threshold_equality_repeated_variables_and_overflow (test_near.Cuda.test_threshold_equality_repeated_variables_and_overflow) ... skipped 'CUDA engine/device not selected'
+test_all_exponents_and_wide_arithmetic (test_near.Metal.test_all_exponents_and_wide_arithmetic) ... skipped 'Physical M4 Metal engine/device not selected'
+test_rational_boundary_and_output_overflow (test_near.Metal.test_rational_boundary_and_output_overflow) ... skipped 'Physical M4 Metal engine/device not selected'
+test_all_exponents_against_full_triple_oracle_and_gmp (test_near.Science.test_all_exponents_against_full_triple_oracle_and_gmp) ... ok
+test_allocation_requires_assigned_gpu (test_near.Science.test_allocation_requires_assigned_gpu) ... ok
+test_durable_restart_and_changed_prefix_rejection (test_near.Science.test_durable_restart_and_changed_prefix_rejection) ... ok
+test_forged_omitted_candidates_and_retryable_oracle (test_near.Science.test_forged_omitted_candidates_and_retryable_oracle) ... ok
+test_known_fifth_boundary_and_repeated_bases (test_near.Science.test_known_fifth_boundary_and_repeated_bases) ... ok
+test_manifest_overlap_strict_types_and_budgets (test_near.Science.test_manifest_overlap_strict_types_and_budgets) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 1.510s
+
+OK (skipped=4)
